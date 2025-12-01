@@ -1,0 +1,18 @@
+# Environment variables - NU face commit la acestea!
+.env
+.env.local
+.env.production
+
+# PHP session files
+/tmp/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
