@@ -3,116 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RXR Performance - Prețuri (Acces Protejat)</title>
+  <title>RXR Performance - Listă Prețuri Tuning ECU | Stage 1 Motor & Cutie</title>
+  <meta name="description" content="Listă completă de prețuri RXR Performance: Stage 1 Tuning Motor (900 RON), Tuning Cutie (500 RON), Optimizare DPF/EGR/AdBlue. Pachete complete cu reduceri.">
+  <meta name="keywords" content="prețuri tuning ECU, preț remapare motor, preț Stage 1, cost tuning cutie, prețuri optimizare DPF, România">
+
+  <link rel="canonical" href="https://rxrperformance.ro/preturi.html">
   <meta name="robots" content="noindex, nofollow">
 
+  <meta property="og:title" content="RXR Performance - Listă Prețuri Tuning ECU">
+  <meta property="og:description" content="Stage 1 Motor 900 RON, Cutie 500 RON, Pachete complete cu reduceri. Prețuri transparente pentru tuning profesional.">
+  <meta property="og:url" content="https://rxrperformance.ro/preturi.html">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏎️</text></svg>">
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/preturi.css">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 1; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .animate-pulse-glow {
-      animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .price-card {
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-    }
-
-    .price-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .btn-primary {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.05);
-    }
-
-    .btn-primary:active {
-      transform: scale(0.98);
-    }
-
-    .no-select {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    .text-shadow-strong {
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 2px 4px rgba(0, 0, 0, 0.8);
-    }
-
-    #auth-overlay {
-      backdrop-filter: blur(20px);
-    }
-
-    #content-area {
-      filter: blur(20px);
-      opacity: 0.3;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    #content-area.unlocked {
-      filter: none;
-      opacity: 1;
-      pointer-events: auto;
-      user-select: auto;
-      transition: all 0.5s ease;
-    }
-  </style>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            rxrPrimary: "#1C69D4",
-            rxrPrimarySoft: "#4A90E2",
-            rxrElectric: "#00D9FF",
-            rxrMViolet: "#B91C8C",
-            rxrMRed: "#E31E24",
-            rxrDeep: "#030712",
-            rxrCard: "#050816",
-            rxrOutline: "#1f2937"
-          }
-        }
-      }
-    }
-  </script>
 </head>
 
 <body class="min-h-screen bg-rxrDeep text-gray-100 overflow-x-hidden">
 
+  <!-- Password Protection Overlay -->
+  <div id="password-overlay">
+    <div class="w-full max-w-md mx-4">
+      <div class="bg-gradient-to-br from-rxrCard via-slate-900/95 to-black border-2 border-rxrPrimary/60 rounded-2xl shadow-2xl shadow-rxrPrimary/40 p-8 sm:p-10">
+
+        <!-- Lock Icon -->
+        <div class="flex justify-center mb-6">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-rxrPrimary/20 to-rxrElectric/20 border-2 border-rxrElectric/50 flex items-center justify-center">
+            <svg class="w-10 h-10 text-rxrElectric" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <div class="text-center mb-8">
+          <h1 class="text-2xl sm:text-3xl font-extrabold uppercase mb-2">
+            <span class="text-rxrPrimary">RXR</span>
+            <span class="text-gray-100">PREȚURI</span>
+          </h1>
+          <p class="text-sm text-zinc-400">Conținut protejat • Introdu parola</p>
+        </div>
+
+        <!-- Password Form -->
+        <form id="password-form" class="space-y-5">
+          <div>
+            <label for="password-input" class="block text-sm font-medium text-zinc-300 mb-2">Parolă:</label>
+            <input
+              type="password"
+              id="password-input"
+              placeholder="Introdu parola..."
+              class="w-full px-4 py-3 bg-zinc-900/80 border-2 border-rxrPrimary/40 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-rxrElectric"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <div id="error-message" class="hidden text-sm text-red-400 text-center py-2 px-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+            ❌ Parolă incorectă! Încearcă din nou.
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full px-6 py-3 bg-gradient-to-r from-rxrPrimary to-rxrElectric hover:from-rxrPrimarySoft hover:to-rxrElectric text-white font-bold uppercase tracking-wider rounded-lg shadow-lg shadow-rxrPrimary/40 transition-all duration-300 hover:scale-105"
+          >
+            🔓 Deblochează Prețurile
+          </button>
+        </form>
+
+        <!-- Info Footer -->
+        <div class="mt-6 pt-6 border-t border-zinc-700/50 text-center">
+          <p class="text-xs text-zinc-500">
+            🔒 Pagină protejată • Pentru acces contactează RXR Performance
+          </p>
+          <a href="index.html" class="inline-flex items-center gap-2 text-xs text-rxrElectric hover:text-rxrPrimarySoft transition-colors mt-3">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            Înapoi la pagina principală
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content (Blurred until password is entered) -->
+  <div id="main-content">
+
+  <!-- Background gradients -->
   <div class="fixed inset-0 -z-10 overflow-hidden no-select" aria-hidden="true">
     <div class="absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-black"></div>
     <div class="absolute -top-40 -left-10 w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] bg-rxrPrimary/30 blur-3xl rounded-full mix-blend-screen opacity-80 animate-float"></div>
@@ -120,449 +102,348 @@
     <div class="absolute top-1/3 left-1/2 w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] -translate-x-1/2 bg-rxrMViolet/15 blur-3xl rounded-full opacity-60 animate-float" style="animation-delay: 4s;"></div>
   </div>
 
-  <div id="auth-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80">
-    <div class="max-w-md w-full mx-4 bg-gradient-to-br from-rxrCard via-slate-900/95 to-black border border-rxrPrimary/40 rounded-2xl shadow-2xl shadow-rxrPrimary/20 p-8">
+  <div class="min-h-screen flex items-center justify-center px-3 sm:px-4 py-8 sm:py-12">
+    <div class="w-full max-w-7xl space-y-8 sm:space-y-10">
 
-      <div class="text-center mb-8">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/70 border border-rxrPrimary/50 mb-4">
-          <span class="w-2 h-2 rounded-full bg-rxrElectric animate-pulse-glow"></span>
-          <span class="text-xs tracking-widest uppercase text-zinc-300">Acces Protejat</span>
-        </div>
-
-        <h1 class="text-2xl sm:text-3xl font-bold mb-2">
-          <span class="text-rxrPrimary">RXR</span>
-          <span class="text-gray-100">PREȚURI</span>
-        </h1>
-        <p class="text-sm text-zinc-400">Introdu codul de acces pentru a vizualiza lista de prețuri</p>
-      </div>
-
-      <form id="auth-form" class="space-y-6">
-        <div>
-          <label for="password-input" class="block text-sm font-medium text-zinc-300 mb-2">Cod de Acces</label>
-          <input
-            type="password"
-            id="password-input"
-            class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-rxrPrimary focus:border-transparent transition-all"
-            placeholder="Introdu codul..."
-            autocomplete="off"
-          >
-        </div>
-
-        <button type="submit" class="btn-primary w-full px-6 py-3 bg-gradient-to-r from-rxrPrimary to-rxrElectric hover:from-rxrPrimarySoft hover:to-rxrElectric text-white font-semibold rounded-lg shadow-lg transition-all">
-          🔓 Deblochează Prețurile
-        </button>
-
-        <div id="error-message" class="hidden text-center text-sm text-red-400 bg-red-900/20 border border-red-500/30 rounded-lg px-4 py-2"></div>
-      </form>
-
-      <div class="mt-8 pt-6 border-t border-zinc-800 text-center">
-        <p class="text-xs text-zinc-500 mb-3">Nu ai cod de acces?</p>
-        <a href="tel:+40744787446" class="inline-flex items-center gap-2 text-sm text-rxrElectric hover:text-rxrPrimarySoft transition-colors">
-          📞 Sună pentru Informații
+      <!-- Header -->
+      <header class="text-center space-y-4 sm:space-y-5">
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-rxrElectric transition-colors mb-4">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Înapoi la pagina principală
         </a>
-        <div class="mt-3">
-          <a href="index.html" class="text-xs text-zinc-600 hover:text-zinc-400 transition-colors">← Înapoi la pagina principală</a>
+
+        <div class="space-y-3 sm:space-y-4">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-[0.25em] uppercase text-shadow-strong">
+            <span class="text-rxrPrimary">RXR</span>
+            <span class="text-gray-100">PREȚURI</span>
+          </h1>
+          <p class="text-[0.6rem] sm:text-[0.65rem] md:text-xs tracking-[0.25em] uppercase text-zinc-400 font-medium">
+            Tuning ECU • Remapare Motor & Cutie • Optimizări
+          </p>
         </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div id="content-area" class="min-h-screen flex items-center justify-center px-3 sm:px-4 py-8 sm:py-12">
-    <div class="w-full max-w-7xl space-y-6 sm:space-y-8">
-
-      <header class="text-center">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider uppercase mb-4">
-          <span class="text-rxrPrimary">Lista de Prețuri</span>
-        </h1>
-        <p class="text-sm sm:text-base text-zinc-400">Tuning ECU & Remapare Profesională</p>
       </header>
 
-      <article class="price-card bg-gradient-to-br from-rxrPrimary/10 via-rxrCard to-black border-2 border-rxrPrimary/60 rounded-xl sm:rounded-2xl shadow-2xl shadow-rxrPrimary/40 overflow-hidden">
-        <div class="p-6 sm:p-8">
+      <main class="space-y-8 sm:space-y-10">
 
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
-            <div>
-              <h2 class="text-lg sm:text-xl uppercase tracking-wider text-rxrElectric font-bold mb-2">
-                Stage 1 Tuning - Remapare ECU
-              </h2>
-              <p class="text-xs sm:text-sm text-zinc-400">Creștere putere și cuplu motor, optimizare consum</p>
-            </div>
-            <span class="px-4 py-1.5 text-sm rounded-full border-2 border-rxrMViolet/60 bg-rxrMViolet/20 text-rxrMViolet font-bold">Recomandat</span>
-          </div>
+        <!-- Stage 1 Tuning Section -->
+        <article class="price-card bg-gradient-to-br from-rxrPrimary/10 via-rxrCard to-black border-2 border-rxrPrimary/60 rounded-xl sm:rounded-2xl shadow-2xl shadow-rxrPrimary/40 overflow-hidden">
+          <div class="p-6 sm:p-8">
 
-          <div class="grid gap-6 md:grid-cols-2">
-            <div class="bg-gradient-to-br from-rxrMViolet/5 to-transparent border border-rxrMViolet/30 rounded-lg p-5">
-              <h3 class="text-base font-bold text-rxrMViolet mb-4 uppercase">Stage 1 Motor (ECU)</h3>
-              <div class="flex items-baseline justify-between pb-3 border-b border-zinc-700/50 mb-4">
-                <span class="font-semibold text-sm sm:text-base">Stage 1 Motor</span>
-                <div class="text-right">
-                  <div class="font-semibold text-base sm:text-lg">900 RON</div>
-                  <div class="text-xs sm:text-sm text-zinc-400">≈ <span class="text-rxrPrimary font-bold">180 €</span></div>
-                </div>
-              </div>
-              <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
-                <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> +15-30% putere și cuplu</li>
-                <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Optimizare consum combustibil</li>
-                <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Răspuns accelerație îmbunătățit</li>
-              </ul>
-            </div>
-
-            <div class="bg-gradient-to-br from-rxrMViolet/5 to-transparent border border-rxrMViolet/30 rounded-lg p-5">
-              <h3 class="text-base font-bold text-rxrMViolet mb-4 uppercase">Stage 1 Cutie (TCU)</h3>
-              <div class="flex items-baseline justify-between pb-3 border-b border-zinc-700/50 mb-4">
-                <span class="font-semibold text-sm sm:text-base">Stage 1 Cutie</span>
-                <div class="text-right">
-                  <div class="font-semibold text-base sm:text-lg">500 RON</div>
-                  <div class="text-xs sm:text-sm text-zinc-400">≈ <span class="text-rxrPrimary font-bold">100 €</span></div>
-                </div>
-              </div>
-              <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
-                <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Treceri mai rapide între trepte</li>
-                <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Eliminare limitări de viteză</li>
-                <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Optimizare puncte schimbare</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mt-6 p-5 bg-gradient-to-r from-rxrPrimary/10 via-rxrMViolet/10 to-rxrPrimary/10 border border-rxrPrimary/40 rounded-lg">
-            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
               <div>
-                <h4 class="text-base font-bold text-rxrElectric mb-1">Pachet Complet Motor + Cutie</h4>
-                <p class="text-xs sm:text-sm text-zinc-400">Remapare ECU și TCU pentru performanță maximă</p>
+                <h2 class="text-lg sm:text-xl uppercase tracking-wider text-rxrElectric font-bold mb-2">
+                  Stage 1 Tuning - Remapare ECU
+                </h2>
+                <p class="text-xs sm:text-sm text-zinc-400">Creștere putere și cuplu motor, optimizare consum</p>
               </div>
-              <div class="text-right">
-                <div class="font-bold text-lg sm:text-xl">1250 RON</div>
-                <div class="text-sm text-zinc-400">≈ <span class="text-rxrPrimary font-bold text-base sm:text-lg">250 €</span></div>
+              <span class="px-4 py-1.5 text-sm rounded-full border-2 border-rxrMViolet/60 bg-rxrMViolet/20 text-rxrMViolet font-bold">Recomandat</span>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2">
+              <div class="bg-gradient-to-br from-rxrMViolet/5 to-transparent border border-rxrMViolet/30 rounded-lg p-5">
+                <h3 class="text-base font-bold text-rxrMViolet mb-4 uppercase">Stage 1 Motor (ECU)</h3>
+                <div class="flex items-baseline justify-between pb-3 border-b border-zinc-700/50 mb-4">
+                  <span class="font-semibold text-sm sm:text-base">Stage 1 Motor</span>
+                  <div class="text-right">
+                    <div class="font-semibold text-base sm:text-lg">900 RON</div>
+                    <div class="text-xs sm:text-sm text-zinc-400">≈ <span class="text-rxrPrimary font-bold">180 €</span></div>
+                  </div>
+                </div>
+                <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
+                  <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> +15-30% putere și cuplu</li>
+                  <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Optimizare consum combustibil</li>
+                  <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Răspuns accelerație îmbunătățit</li>
+                  <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Reversibil 100%</li>
+                </ul>
+              </div>
+
+              <div class="bg-gradient-to-br from-rxrMViolet/5 to-transparent border border-rxrMViolet/30 rounded-lg p-5">
+                <h3 class="text-base font-bold text-rxrMViolet mb-4 uppercase">Stage 1 Cutie (TCU)</h3>
+                <div class="flex items-baseline justify-between pb-3 border-b border-zinc-700/50 mb-4">
+                  <span class="font-semibold text-sm sm:text-base">Stage 1 Cutie</span>
+                  <div class="text-right">
+                    <div class="font-semibold text-base sm:text-lg">500 RON</div>
+                    <div class="text-xs sm:text-sm text-zinc-400">≈ <span class="text-rxrPrimary font-bold">100 €</span></div>
+                  </div>
+                </div>
+                <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
+                  <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Treceri mai rapide între trepte</li>
+                  <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Eliminare limitări de viteză</li>
+                  <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Optimizare puncte schimbare</li>
+                  <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Răspuns îmbunătățit</li>
+                </ul>
               </div>
             </div>
-          </div>
 
-        </div>
-      </article>
-
-      <div class="grid gap-6 md:grid-cols-2">
-
-        <article class="price-card bg-gradient-to-br from-rxrCard via-slate-900/95 to-black border border-rxrOutline/80 rounded-xl shadow-2xl overflow-hidden">
-          <div class="p-6 sm:p-7">
-            <div class="flex items-center justify-between mb-3">
-              <h2 class="text-sm sm:text-base uppercase tracking-wider text-rxrElectric font-bold">Servicii Individuale</h2>
-              <span class="px-3 py-1 text-xs rounded-full border border-rxrPrimary/40 bg-rxrPrimary/15 text-rxrElectric font-semibold">Single</span>
+            <div class="mt-6 p-5 bg-gradient-to-r from-rxrPrimary/10 via-rxrMViolet/10 to-rxrPrimary/10 border border-rxrPrimary/40 rounded-lg">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div>
+                  <h4 class="text-base font-bold text-rxrElectric mb-1">📦 Pachet Complet Motor + Cutie</h4>
+                  <p class="text-xs sm:text-sm text-zinc-400">Remapare ECU și TCU pentru performanță maximă</p>
+                </div>
+                <div class="text-right">
+                  <div class="font-bold text-lg sm:text-xl text-green-400">1250 RON</div>
+                  <div class="text-sm text-zinc-400">≈ <span class="text-rxrPrimary font-bold text-base sm:text-lg">250 €</span></div>
+                  <p class="text-xs text-green-400 mt-1">Economii 150 RON</p>
+                </div>
+              </div>
             </div>
-            <p class="text-xs text-zinc-400 mb-5">Optimizare software sisteme antipoluare</p>
 
-            <ul class="space-y-3">
-              <li class="border-b border-zinc-700/50 pb-3">
-                <div class="flex items-baseline justify-between">
-                  <div>
-                    <div class="font-semibold text-sm">DPF</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Optimizare software filtru particule</p>
-                  </div>
-                  <div class="text-right">
-                    <div class="font-semibold text-sm">400 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">80 €</span></div>
-                  </div>
-                </div>
-              </li>
-              <li class="border-b border-zinc-700/50 pb-3">
-                <div class="flex items-baseline justify-between">
-                  <div>
-                    <div class="font-semibold text-sm">EGR</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Optimizare sistem recirculare gaze</p>
-                  </div>
-                  <div class="text-right">
-                    <div class="font-semibold text-sm">400 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">80 €</span></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="flex items-baseline justify-between">
-                  <div>
-                    <div class="font-semibold text-sm">Ad Blue</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Optimizare sistem SCR și management uree</p>
-                  </div>
-                  <div class="text-right">
-                    <div class="font-semibold text-sm">800 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">160 €</span></div>
-                  </div>
-                </div>
-              </li>
-            </ul>
           </div>
         </article>
 
+        <!-- Optimizări Sisteme Section -->
+        <div class="grid gap-6 md:grid-cols-2">
+
+          <article class="price-card bg-gradient-to-br from-rxrCard via-slate-900/95 to-black border border-rxrOutline/80 rounded-xl shadow-2xl overflow-hidden">
+            <div class="p-6 sm:p-7">
+              <div class="flex items-center justify-between mb-3">
+                <h2 class="text-sm sm:text-base uppercase tracking-wider text-rxrElectric font-bold">Servicii Individuale</h2>
+                <span class="px-3 py-1 text-xs rounded-full border border-rxrPrimary/40 bg-rxrPrimary/15 text-rxrElectric font-semibold">Single</span>
+              </div>
+              <p class="text-xs text-zinc-400 mb-5">Optimizare software sisteme antipoluare</p>
+
+              <ul class="space-y-3">
+                <li class="border-b border-zinc-700/50 pb-3">
+                  <div class="flex items-baseline justify-between">
+                    <div>
+                      <div class="font-semibold text-sm">Optimizare DPF</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Optimizare software filtru particule</p>
+                    </div>
+                    <div class="text-right">
+                      <div class="font-semibold text-sm">400 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">80 €</span></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="border-b border-zinc-700/50 pb-3">
+                  <div class="flex items-baseline justify-between">
+                    <div>
+                      <div class="font-semibold text-sm">Optimizare EGR</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Optimizare sistem recirculare gaze</p>
+                    </div>
+                    <div class="text-right">
+                      <div class="font-semibold text-sm">400 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">80 €</span></div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex items-baseline justify-between">
+                    <div>
+                      <div class="font-semibold text-sm">Optimizare AdBlue</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Optimizare sistem SCR și management uree</p>
+                    </div>
+                    <div class="text-right">
+                      <div class="font-semibold text-sm">800 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">160 €</span></div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="price-card bg-gradient-to-br from-rxrCard via-slate-900/95 to-black border border-rxrOutline/80 rounded-xl shadow-2xl overflow-hidden">
+            <div class="p-6 sm:p-7">
+              <div class="flex items-center justify-between mb-3">
+                <h2 class="text-sm sm:text-base uppercase tracking-wider text-rxrElectric font-bold">Pachete Combinate</h2>
+                <span class="px-3 py-1 text-xs rounded-full border border-rxrElectric/40 bg-rxrElectric/15 text-rxrElectric font-semibold">Combo</span>
+              </div>
+              <p class="text-xs text-zinc-400 mb-5">Pachete combinate cu prețuri avantajoase</p>
+
+              <ul class="space-y-3">
+                <li class="border-b border-zinc-700/50 pb-3">
+                  <div class="flex items-baseline justify-between">
+                    <div>
+                      <div class="font-semibold text-sm">DPF + EGR</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Optimizare completă sisteme antipoluare</p>
+                    </div>
+                    <div class="text-right">
+                      <div class="font-semibold text-sm">650 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">130 €</span></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="border-b border-zinc-700/50 pb-3">
+                  <div class="flex items-baseline justify-between">
+                    <div>
+                      <div class="font-semibold text-sm">AdBlue + DPF</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Pachet optimizare SCR și filtru particule</p>
+                    </div>
+                    <div class="text-right">
+                      <div class="font-semibold text-sm">900 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">180 €</span></div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex items-baseline justify-between">
+                    <div>
+                      <div class="font-semibold text-sm">DPF + EGR + AdBlue</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Pachet complet toate sistemele</p>
+                    </div>
+                    <div class="text-right">
+                      <div class="font-semibold text-sm text-green-400">1100 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">220 €</span></div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Pachete Premium Section -->
         <article class="price-card bg-gradient-to-br from-rxrCard via-slate-900/95 to-black border border-rxrOutline/80 rounded-xl shadow-2xl overflow-hidden">
           <div class="p-6 sm:p-7">
             <div class="flex items-center justify-between mb-3">
-              <h2 class="text-sm sm:text-base uppercase tracking-wider text-rxrElectric font-bold">Pachete Combinate</h2>
-              <span class="px-3 py-1 text-xs rounded-full border border-rxrElectric/40 bg-rxrElectric/15 text-rxrElectric font-semibold">Combo</span>
+              <h2 class="text-sm sm:text-base uppercase tracking-wider text-rxrElectric font-bold">Stage 1 + Pachete Premium</h2>
+              <span class="px-3 py-1 text-xs rounded-full border border-rxrMRed/40 bg-rxrMRed/15 text-rxrMRed font-semibold">Premium</span>
             </div>
-            <p class="text-xs text-zinc-400 mb-5">Pachete combinate cu prețuri avantajoase</p>
+            <p class="text-xs text-zinc-400 mb-5">Performanță maximă cu optimizare completă sisteme</p>
 
-            <ul class="space-y-3">
-              <li class="border-b border-zinc-700/50 pb-3">
-                <div class="flex items-baseline justify-between">
-                  <div>
-                    <div class="font-semibold text-sm">DPF + EGR</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Optimizare completă sisteme antipoluare</p>
+            <div class="grid gap-6 md:grid-cols-2">
+              <ul class="space-y-3">
+                <li class="border-b border-zinc-700/50 pb-3">
+                  <div class="flex items-baseline justify-between">
+                    <div class="flex-1 pr-4">
+                      <div class="font-semibold text-sm">Stage 1 Motor + DPF</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Remapare performanță cu optimizare filtru</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                      <div class="font-semibold text-sm">1100 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">220 €</span></div>
+                    </div>
                   </div>
-                  <div class="text-right">
-                    <div class="font-semibold text-sm">650 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">130 €</span></div>
+                </li>
+                <li class="border-b border-zinc-700/50 pb-3">
+                  <div class="flex items-baseline justify-between">
+                    <div class="flex-1 pr-4">
+                      <div class="font-semibold text-sm">Stage 1 Motor + AdBlue</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Tuning motor cu optimizare sistem SCR</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                      <div class="font-semibold text-sm">1400 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">280 €</span></div>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="border-b border-zinc-700/50 pb-3">
-                <div class="flex items-baseline justify-between">
-                  <div>
-                    <div class="font-semibold text-sm">Ad Blue + DPF</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Pachet optimizare SCR și filtru particule</p>
+                </li>
+                <li>
+                  <div class="flex items-baseline justify-between">
+                    <div class="flex-1 pr-4">
+                      <div class="font-semibold text-sm">Stage 1 Motor + DPF + EGR</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Pachet premium tuning cu management emisii</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                      <div class="font-semibold text-sm text-green-400">1500 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">300 €</span></div>
+                    </div>
                   </div>
-                  <div class="text-right">
-                    <div class="font-semibold text-sm">900 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">180 €</span></div>
+                </li>
+              </ul>
+
+              <ul class="space-y-3">
+                <li class="border-b border-zinc-700/50 pb-3">
+                  <div class="flex items-baseline justify-between">
+                    <div class="flex-1 pr-4">
+                      <div class="font-semibold text-sm">Stage 1 Motor + Cutie + DPF</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Tuning complet ECU/TCU cu software filtru</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                      <div class="font-semibold text-sm">1400 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">280 €</span></div>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="border-b border-zinc-700/50 pb-3">
-                <div class="flex items-baseline justify-between">
-                  <div>
-                    <div class="font-semibold text-sm">Ad Blue + EGR</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Optimizare SCR și recirculare gaze</p>
+                </li>
+                <li class="border-b border-zinc-700/50 pb-3">
+                  <div class="flex items-baseline justify-between">
+                    <div class="flex-1 pr-4">
+                      <div class="font-semibold text-sm">Stage 1 Motor + Cutie + AdBlue</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Pachet full tuning cu optimizare SCR</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                      <div class="font-semibold text-sm">1700 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">340 €</span></div>
+                    </div>
                   </div>
-                  <div class="text-right">
-                    <div class="font-semibold text-sm">900 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">180 €</span></div>
+                </li>
+                <li>
+                  <div class="flex items-baseline justify-between">
+                    <div class="flex-1 pr-4">
+                      <div class="font-semibold text-sm font-bold text-rxrElectric">🏆 ULTIMATE: Motor + Cutie + Tot</div>
+                      <p class="text-xs text-zinc-500 mt-0.5">Pachet ultimate - performanță și fiabilitate maximă</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                      <div class="font-semibold text-base text-rxrElectric">1800 RON</div>
+                      <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">360 €</span></div>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li>
-                <div class="flex items-baseline justify-between">
-                  <div>
-                    <div class="font-semibold text-sm">Ad Blue + EGR + DPF</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Pachet complet optimizare sisteme emisii</p>
-                  </div>
-                  <div class="text-right">
-                    <div class="font-semibold text-sm">1100 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">220 €</span></div>
-                  </div>
-                </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </article>
 
-      </div>
-
-      <article class="price-card bg-gradient-to-br from-rxrCard via-slate-900/95 to-black border border-rxrOutline/80 rounded-xl shadow-2xl overflow-hidden">
-        <div class="p-6 sm:p-7">
-          <div class="flex items-center justify-between mb-3">
-            <h2 class="text-sm sm:text-base uppercase tracking-wider text-rxrElectric font-bold">Stage 1 + Pachete Premium</h2>
-            <span class="px-3 py-1 text-xs rounded-full border border-rxrMRed/40 bg-rxrMRed/15 text-rxrMRed font-semibold">Premium</span>
+        <!-- CTA Final -->
+        <section class="bg-gradient-to-r from-zinc-900/90 via-rxrCard to-zinc-900/90 border border-rxrOutline/80 rounded-xl shadow-2xl p-6 sm:p-8">
+          <div class="text-center space-y-4">
+            <h2 class="text-base sm:text-lg font-bold uppercase text-rxrElectric mb-2">Gata Să Începem?</h2>
+            <p class="text-xs sm:text-sm text-zinc-300 max-w-2xl mx-auto">
+              Contactează-ne pentru programări, consultanță gratuită sau oferte personalizate
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+              <a href="https://wa.me/40744787446?text=Bună!%20Am%20văzut%20lista%20de%20prețuri%20și%20vreau%20să%20aflu%20mai%20multe..."
+                 target="_blank"
+                 class="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white text-sm font-semibold rounded-lg shadow-lg">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Scrie pe WhatsApp
+              </a>
+              <a href="tel:+40744787446"
+                 class="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-rxrPrimary/50 text-zinc-100 hover:border-rxrElectric hover:text-rxrElectric text-sm font-semibold rounded-lg transition-all">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                </svg>
+                Sună Acum
+              </a>
+            </div>
+            <p class="text-xs text-zinc-500 mt-4">
+              📍 România | ✓ Consultanță gratuită | ✓ Prețuri fără TVA
+            </p>
           </div>
-          <p class="text-xs text-zinc-400 mb-5">Performanță maximă cu optimizare completă sisteme</p>
+        </section>
 
-          <div class="grid gap-6 md:grid-cols-2">
-            <ul class="space-y-3">
-              <li class="border-b border-zinc-700/50 pb-3">
-                <div class="flex items-baseline justify-between">
-                  <div class="flex-1 pr-4">
-                    <div class="font-semibold text-sm">Stage 1 Motor + DPF</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Remapare performanță cu optimizare filtru</p>
-                  </div>
-                  <div class="text-right shrink-0">
-                    <div class="font-semibold text-sm">1100 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">220 €</span></div>
-                  </div>
-                </div>
-              </li>
-              <li class="border-b border-zinc-700/50 pb-3">
-                <div class="flex items-baseline justify-between">
-                  <div class="flex-1 pr-4">
-                    <div class="font-semibold text-sm">Stage 1 Motor + Ad Blue</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Tuning motor cu optimizare sistem SCR</p>
-                  </div>
-                  <div class="text-right shrink-0">
-                    <div class="font-semibold text-sm">1400 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">280 €</span></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="flex items-baseline justify-between">
-                  <div class="flex-1 pr-4">
-                    <div class="font-semibold text-sm">Stage 1 Motor + Ad Blue + DPF</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Pachet premium tuning cu management emisii</p>
-                  </div>
-                  <div class="text-right shrink-0">
-                    <div class="font-semibold text-sm">1500 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">300 €</span></div>
-                  </div>
-                </div>
-              </li>
-            </ul>
+      </main>
 
-            <ul class="space-y-3">
-              <li class="border-b border-zinc-700/50 pb-3">
-                <div class="flex items-baseline justify-between">
-                  <div class="flex-1 pr-4">
-                    <div class="font-semibold text-sm">Stage 1 Motor + Cutie + DPF</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Tuning complet ECU/TCU cu software filtru</p>
-                  </div>
-                  <div class="text-right shrink-0">
-                    <div class="font-semibold text-sm">1400 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">280 €</span></div>
-                  </div>
-                </div>
-              </li>
-              <li class="border-b border-zinc-700/50 pb-3">
-                <div class="flex items-baseline justify-between">
-                  <div class="flex-1 pr-4">
-                    <div class="font-semibold text-sm">Stage 1 Motor + Cutie + Ad Blue</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Pachet full tuning cu optimizare SCR</p>
-                  </div>
-                  <div class="text-right shrink-0">
-                    <div class="font-semibold text-sm">1700 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">340 €</span></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="flex items-baseline justify-between">
-                  <div class="flex-1 pr-4">
-                    <div class="font-semibold text-sm">Stage 1 Motor + Cutie + Ad Blue + DPF</div>
-                    <p class="text-xs text-zinc-500 mt-0.5">Pachet ultimate - performanță și fiabilitate maximă</p>
-                  </div>
-                  <div class="text-right shrink-0">
-                    <div class="font-semibold text-sm">1800 RON</div>
-                    <div class="text-xs text-zinc-400">≈ <span class="text-rxrPrimary font-bold">360 €</span></div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <section class="bg-gradient-to-r from-zinc-900/90 via-rxrCard to-zinc-900/90 border border-rxrOutline/80 rounded-xl shadow-2xl p-6 sm:p-8">
-        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-          <div>
-            <h2 class="text-base sm:text-lg font-bold uppercase text-rxrElectric mb-2">Contact RXR Performance</h2>
-            <p class="text-xs sm:text-sm text-zinc-300">Pentru programări sau întrebări despre serviciile noastre</p>
-          </div>
-          <div class="flex flex-col sm:flex-row gap-3">
-            <a href="tel:+40744787446" class="btn-primary inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-rxrPrimary hover:bg-rxrPrimarySoft text-white text-sm font-semibold rounded-lg shadow-lg transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-              </svg>
-              <span>+40 744 787 446</span>
-            </a>
-            <a href="mailto:rares.roca05@gmail.com" class="btn-primary inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-transparent border-2 border-rxrPrimary/50 text-zinc-100 hover:border-rxrElectric hover:text-rxrElectric text-sm font-semibold rounded-lg transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-              </svg>
-              <span>Email</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <footer class="text-center text-xs text-zinc-600 py-4">
-        <p>© 2024 RXR Performance • Tuning ECU Profesional România</p>
+      <footer class="pb-3 sm:pb-4 pt-6 sm:pt-8 text-center text-[0.6rem] sm:text-[0.65rem] text-zinc-500">
+        <p>© <span id="year">2024</span> RXR Performance • Tuning ECU Profesional România</p>
+        <p class="mt-2 text-[0.55rem] sm:text-[0.6rem] text-zinc-600">
+          Toate prețurile sunt orientative și pot varia în funcție de model și an fabricație
+        </p>
       </footer>
 
     </div>
   </div>
 
-  <script>
-    !function() {
-      "use strict";
+  </div><!-- End of #main-content -->
 
-      const HASH_PARTS = [
-        'd0c9eaa9',
-        '10df1285',
-        '07d4f693',
-        '401a9fd4',
-        '39f667e0',
-        'a7f80ac9',
-        'd409a857',
-        '51898af2'
-      ];
-      const CORRECT_HASH = HASH_PARTS.join('');
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/40744787446?text=Bună!%20Am%20văzut%20prețurile%20și%20vreau%20să%20aflu%20mai%20multe..."
+     target="_blank"
+     class="whatsapp-float"
+     aria-label="WhatsApp Contact">
+    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
 
-      const authOverlay = document.getElementById('auth-overlay');
-      const contentArea = document.getElementById('content-area');
-      const authForm = document.getElementById('auth-form');
-      const passwordInput = document.getElementById('password-input');
-      const errorMessage = document.getElementById('error-message');
-
-      function checkAuthentication() {
-        const isAuthenticated = sessionStorage.getItem('rxr_prices_authenticated');
-        const expiryTime = sessionStorage.getItem('rxr_prices_expiry');
-
-        if (isAuthenticated && expiryTime && Date.now() < parseInt(expiryTime)) {
-          unlockContent();
-          return true;
-        }
-        return false;
-      }
-
-      async function hashPassword(password) {
-        const encoder = new TextEncoder();
-        const data = encoder.encode(password);
-        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-      }
-
-      function unlockContent() {
-        authOverlay.classList.add('hidden');
-        contentArea.classList.add('unlocked');
-
-        sessionStorage.setItem('rxr_prices_authenticated', 'true');
-        sessionStorage.setItem('rxr_prices_expiry', Date.now() + (60 * 60 * 1000));
-      }
-
-      function showError(message) {
-        errorMessage.textContent = message;
-        errorMessage.classList.remove('hidden');
-        passwordInput.classList.add('ring-2', 'ring-red-500');
-
-        setTimeout(() => {
-          errorMessage.classList.add('hidden');
-          passwordInput.classList.remove('ring-2', 'ring-red-500');
-        }, 3000);
-      }
-
-      authForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const password = passwordInput.value.trim();
-
-        if (!password) {
-          showError('Te rugăm să introduci codul de acces');
-          return;
-        }
-
-        const hashedPassword = await hashPassword(password);
-
-        if (hashedPassword === CORRECT_HASH) {
-          unlockContent();
-          passwordInput.value = '';
-        } else {
-          showError('❌ Cod incorect! Verifică și încearcă din nou.');
-          passwordInput.value = '';
-          passwordInput.focus();
-        }
-      });
-
-      if (!checkAuthentication()) {
-        setTimeout(() => passwordInput.focus(), 100);
-      }
-    }();
-  </script>
+  <!-- JavaScript Files -->
+  <script src="assets/js/preturi.js"></script>
 
 </body>
 </html>

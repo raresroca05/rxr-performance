@@ -43,6 +43,8 @@
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/main.css">
 
   <script type="application/ld+json">
   {
@@ -132,94 +134,6 @@
   }
   </script>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 1; }
-    }
-
-    .animate-pulse-glow {
-      animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .price-card {
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-    }
-
-    .price-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .btn-primary {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.05);
-    }
-
-    .btn-primary:active {
-      transform: scale(0.98);
-    }
-
-    .no-select {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    .text-shadow-strong {
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 2px 4px rgba(0, 0, 0, 0.8);
-    }
-
-    @media (max-width: 640px) {
-      .price-card {
-        min-height: auto;
-      }
-    }
-  </style>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            rxrPrimary: "#1C69D4",
-            rxrPrimarySoft: "#4A90E2",
-            rxrElectric: "#00D9FF",
-            rxrMViolet: "#B91C8C",
-            rxrMRed: "#E31E24",
-            rxrDeep: "#030712",
-            rxrCard: "#050816",
-            rxrOutline: "#1f2937"
-          }
-        }
-      }
-    }
-  </script>
 </head>
 
 <body class="min-h-screen bg-rxrDeep text-gray-100 overflow-x-hidden">
@@ -254,15 +168,29 @@
       </header>
 
       <main role="main" class="space-y-8 sm:space-y-10 md:space-y-12">
-        <article class="price-card bg-gradient-to-br from-rxrPrimary/10 via-rxrCard to-black border-2 border-rxrPrimary/60 rounded-xl sm:rounded-2xl shadow-2xl shadow-rxrPrimary/40 overflow-hidden">
+
+        <!-- Separator Catchy 1 -->
+        <div class="relative py-12">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-rxrElectric/40 to-transparent"></div>
+          </div>
+          <div class="relative flex justify-center">
+            <div class="px-8 py-3 bg-zinc-900/90 backdrop-blur-md border border-rxrElectric/30 rounded-full shadow-lg shadow-rxrElectric/20">
+              <p class="text-sm font-bold text-rxrElectric uppercase tracking-[0.2em] flex items-center gap-3">
+                <span class="text-lg">⚡</span>
+                Serviciile Noastre
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Servicii Section (Separat) - PRIMA SECTIUNE -->
+        <article class="price-card bg-gradient-to-br from-rxrCard via-slate-900/95 to-black border-2 border-rxrOutline/80 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden">
           <div class="p-6 sm:p-8 lg:p-10">
 
             <div class="text-center mb-8">
-              <h2 class="text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-rxrElectric font-bold mb-3">
-                Serviciile Noastre
-              </h2>
-              <p class="text-xs sm:text-sm text-zinc-400 max-w-2xl mx-auto">
-                Oferim servicii complete de tuning ECU, remapare motor și cutie automată, optimizare sisteme antipoluare
+              <p class="text-sm sm:text-base text-zinc-300 max-w-3xl mx-auto">
+                Servicii complete de tuning ECU, remapare motor și cutie automată, optimizare sisteme antipoluare
               </p>
             </div>
 
@@ -312,9 +240,6 @@
                     </div>
                   </li>
                 </ul>
-                <div class="pt-3 border-t border-rxrMViolet/30">
-                  <p class="text-[0.65rem] text-rxrMViolet font-semibold">De la 500 RON • Vezi prețuri complete →</p>
-                </div>
               </div>
 
               <div class="bg-gradient-to-br from-rxrPrimary/10 to-transparent border border-rxrPrimary/30 rounded-lg p-6 hover:border-rxrPrimary/60 hover:shadow-xl hover:shadow-rxrPrimary/20 transition-all">
@@ -361,9 +286,6 @@
                     </div>
                   </li>
                 </ul>
-                <div class="pt-3 border-t border-rxrPrimary/30">
-                  <p class="text-[0.65rem] text-rxrPrimary font-semibold">De la 400 RON • Economisești mii de RON →</p>
-                </div>
               </div>
 
               <div class="bg-gradient-to-br from-rxrElectric/10 to-transparent border border-rxrElectric/30 rounded-lg p-6 hover:border-rxrElectric/60 hover:shadow-xl hover:shadow-rxrElectric/20 transition-all">
@@ -410,60 +332,425 @@
                     </div>
                   </li>
                 </ul>
-                <div class="pt-3 border-t border-rxrElectric/30">
-                  <p class="text-[0.65rem] text-rxrElectric font-semibold">De la 1100 RON • Cea mai bună valoare →</p>
-                </div>
               </div>
 
             </div>
 
-            <div class="mt-8 p-6 bg-gradient-to-r from-rxrMRed/10 via-rxrMViolet/10 to-rxrPrimary/10 border border-rxrMRed/30 rounded-lg text-center">
-              <p class="text-xs sm:text-sm text-zinc-300 mb-4">Vezi lista completă de prețuri și pachete disponibile</p>
-              <a href="preturi.html" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rxrPrimary to-rxrElectric hover:from-rxrPrimarySoft hover:to-rxrElectric text-white text-xs sm:text-sm font-semibold rounded-lg shadow-lg transition-all">
-                💰 Accesează Listă Prețuri
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </div>
+        </article>
+
+        <!-- Separator Vehicle Lookup -->
+        <div class="relative py-12">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-rxrElectric/40 to-transparent"></div>
+          </div>
+          <div class="relative flex justify-center">
+            <div class="px-8 py-3 bg-zinc-900/90 backdrop-blur-md border border-rxrElectric/30 rounded-full shadow-lg shadow-rxrElectric/20">
+              <p class="text-sm font-bold text-rxrElectric uppercase tracking-[0.2em] flex items-center gap-3">
+                <span class="text-lg">🔍</span>
+                Caută Mașina Ta
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle Lookup Tool -->
+        <article class="price-card bg-gradient-to-br from-rxrPrimary/10 via-rxrCard to-black border-2 border-rxrPrimary/60 rounded-xl sm:rounded-2xl shadow-2xl shadow-rxrPrimary/40 overflow-hidden">
+          <div class="p-6 sm:p-8 lg:p-10">
+
+            <div class="text-center mb-8">
+              <h2 class="text-xl sm:text-2xl md:text-3xl uppercase tracking-wider text-rxrElectric font-bold mb-3">
+                Descoperă Potențialul Mașinii Tale
+              </h2>
+              <p class="text-sm sm:text-base text-zinc-300 max-w-3xl mx-auto">
+                Introdu marca și modelul mașinii tale pentru a vedea câți cai putere și Nm poți câștiga cu Stage 1 Tuning
+              </p>
+            </div>
+
+            <!-- Vehicle Lookup Form -->
+            <div class="max-w-4xl mx-auto mb-8">
+              <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6">
+                <div>
+                  <label for="brand-select" class="block text-sm font-medium text-zinc-300 mb-2">Marca</label>
+                  <select id="brand-select" class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-rxrPrimary focus:border-transparent transition-all">
+                    <option value="">Selectează marca</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="model-select" class="block text-sm font-medium text-zinc-300 mb-2">Model</label>
+                  <select id="model-select" disabled class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-rxrPrimary focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                    <option value="">Selectează modelul</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="generation-select" class="block text-sm font-medium text-zinc-300 mb-2">Generație</label>
+                  <select id="generation-select" disabled class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-rxrPrimary focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                    <option value="">Selectează generația</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="engine-select" class="block text-sm font-medium text-zinc-300 mb-2">Motor</label>
+                  <select id="engine-select" disabled class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-rxrPrimary focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                    <option value="">Selectează motorul</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Result Display -->
+              <div id="vehicle-result" class="hidden">
+                <div class="vehicle-lookup-result bg-gradient-to-br from-rxrElectric/10 to-transparent border-2 border-rxrElectric/50 rounded-xl p-6 sm:p-8">
+                  <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                    <div class="flex-1 text-center lg:text-left">
+                      <h3 class="text-xl sm:text-2xl font-bold text-rxrElectric mb-2" id="result-vehicle-name"></h3>
+                      <p class="text-sm text-zinc-400" id="result-vehicle-year"></p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-6 items-center">
+                      <div class="text-center">
+                        <p class="text-xs uppercase tracking-wider text-zinc-400 mb-2">Putere</p>
+                        <div class="text-2xl sm:text-3xl font-bold">
+                          <span class="stat-increase text-zinc-300" id="result-stock-hp"></span>
+                          <span class="text-rxrElectric" id="result-stage1-hp"></span>
+                          <span class="text-sm text-rxrMViolet font-semibold ml-2" id="result-hp-gain"></span>
+                        </div>
+                        <p class="text-xs text-zinc-500 mt-1">HP (cai putere)</p>
+                      </div>
+
+                      <div class="text-center">
+                        <p class="text-xs uppercase tracking-wider text-zinc-400 mb-2">Cuplu</p>
+                        <div class="text-2xl sm:text-3xl font-bold">
+                          <span class="text-rxrElectric" id="result-stage1-nm"></span>
+                          <span class="text-sm text-zinc-400">Nm</span>
+                        </div>
+                        <p class="text-xs text-zinc-500 mt-1">după Stage 1</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 pt-6 border-t border-rxrElectric/30 text-center">
+                    <a href="https://wa.me/40744787446" id="whatsapp-cta" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white text-base font-bold rounded-lg shadow-xl transition-all transform hover:scale-105">
+                      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      </svg>
+                      Solicită Ofertă pe WhatsApp
+                    </a>
+                    <p class="text-xs text-zinc-500 mt-3">✓ Răspuns rapid | ✓ Consultanță gratuită | ✓ Programare flexibilă</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Separator Catchy 2 -->
+        <div class="relative py-12">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-rxrMViolet/40 to-transparent"></div>
+          </div>
+          <div class="relative flex justify-center">
+            <div class="px-8 py-3 bg-zinc-900/90 backdrop-blur-md border border-rxrMViolet/30 rounded-full shadow-lg shadow-rxrMViolet/20">
+              <p class="text-sm font-bold text-rxrMViolet uppercase tracking-[0.2em] flex items-center gap-3">
+                <span class="text-lg">⚙️</span>
+                Cum Funcționează
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Despre Tuning Section -->
+        <article class="price-card bg-gradient-to-br from-rxrMViolet/10 via-rxrCard to-black border-2 border-rxrMViolet/60 rounded-xl sm:rounded-2xl shadow-2xl shadow-rxrMViolet/40 overflow-hidden">
+          <div class="p-6 sm:p-8 lg:p-10">
+            <div class="text-center mb-8">
+              <h2 class="text-xl sm:text-2xl md:text-3xl uppercase tracking-wider text-rxrElectric font-bold mb-3">
+                Ce Este Tuning-ul ECU?
+              </h2>
+              <p class="text-sm sm:text-base text-zinc-300 max-w-3xl mx-auto">
+                Procesul prin care optimizăm software-ul din calculatorul mașinii pentru performanță maximă
+              </p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <!-- Detail 1 -->
+              <div class="bg-gradient-to-br from-rxrPrimary/5 to-transparent border border-rxrPrimary/30 rounded-lg p-6 hover:border-rxrPrimary/60 hover:shadow-xl hover:shadow-rxrPrimary/20 transition-all">
+                <div class="text-3xl mb-4 text-center">🔬</div>
+                <h3 class="text-lg font-bold text-rxrPrimary mb-3 text-center uppercase">Procesul Tehnic</h3>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span>Citire software original din ECU prin port OBD</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span>Backup complet pentru siguranță și reversibilitate</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span>Optimizare hărți: presiune turbo, injecție, debit aer</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span>Upload software modificat și teste funcționale complete</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Detail 2 -->
+              <div class="bg-gradient-to-br from-rxrElectric/5 to-transparent border border-rxrElectric/30 rounded-lg p-6 hover:border-rxrElectric/60 hover:shadow-xl hover:shadow-rxrElectric/20 transition-all">
+                <div class="text-3xl mb-4 text-center">📈</div>
+                <h3 class="text-lg font-bold text-rxrElectric mb-3 text-center uppercase">Ce Se Îmbunătățește</h3>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span><strong>Putere:</strong> +15-30% cai putere (HP) în funcție de motor</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span><strong>Cuplu:</strong> +20-35% Nm pentru accelerații mai rapide</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span><strong>Răspuns:</strong> Eliminare lag turbo, accelerație liniară</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span><strong>Consum:</strong> Optimizare până la -15% pe trasee lungi</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Detail 3 -->
+              <div class="bg-gradient-to-br from-rxrMViolet/5 to-transparent border border-rxrMViolet/30 rounded-lg p-6 hover:border-rxrMViolet/60 hover:shadow-xl hover:shadow-rxrMViolet/20 transition-all">
+                <div class="text-3xl mb-4 text-center">🔒</div>
+                <h3 class="text-lg font-bold text-rxrMViolet mb-3 text-center uppercase">Siguranță & Fiabilitate</h3>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span>Rămânem în limitele sigure ale componentelor mecanice</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span>Software profesional testat extensiv pe dyno și drum</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span>Backup original păstrat permanent pentru reversibilitate</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rxrElectric font-bold">•</span>
+                    <span>Fără forțare excesivă sau risc pentru motor/turbo</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-gradient-to-r from-rxrPrimary/10 via-rxrElectric/10 to-rxrPrimary/10 border border-rxrPrimary/30 rounded-lg">
+              <div class="text-center">
+                <h3 class="text-lg font-bold text-rxrElectric mb-3">Stage 1, Stage 2, Stage 3 - Ce Înseamnă?</h3>
+                <div class="grid gap-4 md:grid-cols-3 text-left">
+                  <div>
+                    <p class="text-sm font-semibold text-rxrPrimary mb-2">🟢 Stage 1 (Recomandat)</p>
+                    <p class="text-xs text-zinc-400">Doar software, fără modificări hardware. Cel mai sigur și eficient raport performanță/cost. Mașina rămâne daily driver perfect.</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-orange-400 mb-2">🟡 Stage 2 (Avansat)</p>
+                    <p class="text-xs text-zinc-400">Software + downpipe/intercooler. Pentru mai multă putere, necesită upgrade-uri hardware. Consum creșteîn oraș.</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-red-400 mb-2">🔴 Stage 3 (Competiție)</p>
+                    <p class="text-xs text-zinc-400">Turbo mare, injectoare, hardware complet. Pentru track/competiție, nu daily driving. Cost ridicat, mentenanță intensivă.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Separator Catchy 3 -->
+        <div class="relative py-12">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-rxrElectric/40 to-transparent"></div>
+          </div>
+          <div class="relative flex justify-center">
+            <div class="px-8 py-3 bg-zinc-900/90 backdrop-blur-md border border-rxrElectric/30 rounded-full shadow-lg shadow-rxrElectric/20">
+              <p class="text-sm font-bold text-rxrElectric uppercase tracking-[0.2em] flex items-center gap-3">
+                <span class="text-lg">❓</span>
+                Întrebări Frecvente
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <article class="price-card bg-gradient-to-br from-rxrCard via-slate-900/95 to-black border-2 border-rxrOutline/80 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden">
+          <div class="p-6 sm:p-8 lg:p-10">
+            <div class="text-center mb-8">
+              <h2 class="text-xl sm:text-2xl md:text-3xl uppercase tracking-wider text-rxrElectric font-bold mb-3">
+                Tot Ce Trebuie Să Știi
+              </h2>
+              <p class="text-sm sm:text-base text-zinc-300 max-w-3xl mx-auto">
+                Răspunsuri la cele mai frecvente întrebări despre tuning și remapare ECU
+              </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-4">
+              <!-- FAQ Item 1 -->
+              <details class="group bg-gradient-to-br from-rxrPrimary/5 to-transparent border border-rxrPrimary/30 rounded-lg overflow-hidden hover:border-rxrPrimary/60 transition-all">
+                <summary class="cursor-pointer p-5 flex items-center justify-between font-semibold text-base text-zinc-200 hover:text-rxrElectric transition-colors">
+                  <span>Este legal tuning-ul ECU în România?</span>
+                  <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-zinc-400 leading-relaxed">
+                  Da, tuning-ul ECU este legal în România. Modificările software sunt permise atâta timp cât mașina respectă normele de poluare și zgomot. Oferim consultanță completă pentru conformitate legală.
+                </div>
+              </details>
+
+              <!-- FAQ Item 2 -->
+              <details class="group bg-gradient-to-br from-rxrElectric/5 to-transparent border border-rxrElectric/30 rounded-lg overflow-hidden hover:border-rxrElectric/60 transition-all">
+                <summary class="cursor-pointer p-5 flex items-center justify-between font-semibold text-base text-zinc-200 hover:text-rxrElectric transition-colors">
+                  <span>Afectează tuning-ul garanția mașinii?</span>
+                  <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-zinc-400 leading-relaxed">
+                  Modificările ECU pot fi detectate de dealer în anumite cazuri. Recomandăm discuții prealabile cu dealerul dacă mașina mai este în perioada de asistență tehnică. Toate modificările noastre sunt reversibile 100%.
+                </div>
+              </details>
+
+              <!-- FAQ Item 3 -->
+              <details class="group bg-gradient-to-br from-rxrMViolet/5 to-transparent border border-rxrMViolet/30 rounded-lg overflow-hidden hover:border-rxrMViolet/60 transition-all">
+                <summary class="cursor-pointer p-5 flex items-center justify-between font-semibold text-base text-zinc-200 hover:text-rxrElectric transition-colors">
+                  <span>Cât durează procesul de remapare?</span>
+                  <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-zinc-400 leading-relaxed">
+                  Procesul de remapare ECU Stage 1 durează între 2-4 ore, în funcție de modelul mașinii. Includem citire originală, backup complet, upload file nou și teste complete pentru a garanta funcționarea optimă.
+                </div>
+              </details>
+
+              <!-- FAQ Item 4 -->
+              <details class="group bg-gradient-to-br from-rxrPrimary/5 to-transparent border border-rxrPrimary/30 rounded-lg overflow-hidden hover:border-rxrPrimary/60 transition-all">
+                <summary class="cursor-pointer p-5 flex items-center justify-between font-semibold text-base text-zinc-200 hover:text-rxrElectric transition-colors">
+                  <span>Este sigur tuning-ul pentru motor?</span>
+                  <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-zinc-400 leading-relaxed">
+                  Da, Stage 1 tuning-ul nostru este 100% sigur. Lucrăm în limitele sigure ale motorului, fără a forța componentele. Folosim software profesional testat extensiv pe dyno și în condiții reale de drum.
+                </div>
+              </details>
+
+              <!-- FAQ Item 5 -->
+              <details class="group bg-gradient-to-br from-rxrElectric/5 to-transparent border border-rxrElectric/30 rounded-lg overflow-hidden hover:border-rxrElectric/60 transition-all">
+                <summary class="cursor-pointer p-5 flex items-center justify-between font-semibold text-base text-zinc-200 hover:text-rxrElectric transition-colors">
+                  <span>Pot reveni la software-ul original?</span>
+                  <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-zinc-400 leading-relaxed">
+                  Absolut! Păstrăm backup-ul complet al software-ului original și poți reveni oricând la setările din fabrică. Procesul de revenire durează aproximativ 1-2 ore.
+                </div>
+              </details>
+
+              <!-- FAQ Item 6 -->
+              <details class="group bg-gradient-to-br from-rxrMViolet/5 to-transparent border border-rxrMViolet/30 rounded-lg overflow-hidden hover:border-rxrMViolet/60 transition-all">
+                <summary class="cursor-pointer p-5 flex items-center justify-between font-semibold text-base text-zinc-200 hover:text-rxrElectric transition-colors">
+                  <span>Se simte diferența după tuning?</span>
+                  <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-zinc-400 leading-relaxed">
+                  Da, diferența este foarte vizibilă! Vei simți imediat creșterea de putere și cuplu, răspunsul mai rapid la accelerație și depășiri mai ușoare. Majoritatea clienților sunt uimiți de transformare încă din primele minute de condus.
+                </div>
+              </details>
+            </div>
+
+            <div class="mt-8 text-center p-6 bg-gradient-to-r from-rxrPrimary/10 via-rxrElectric/10 to-rxrPrimary/10 border border-rxrPrimary/30 rounded-lg">
+              <p class="text-sm text-zinc-300 mb-4">Mai ai întrebări? Contactează-ne direct!</p>
+              <a href="https://wa.me/40744787446?text=Bună!%20Am%20câteva%20întrebări%20despre%20tuning%20ECU..."
+                 class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white text-sm font-bold rounded-lg shadow-xl transition-all transform hover:scale-105">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
+                Scrie-ne pe WhatsApp
               </a>
             </div>
           </div>
         </article>
 
-        <div class="flex flex-col sm:flex-row gap-4 gap-x-4 sm:gap-6">
+        <!-- Separator Catchy 4 -->
+        <div class="relative py-12">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-green-500/40 to-transparent"></div>
+          </div>
+          <div class="relative flex justify-center">
+            <div class="px-8 py-3 bg-zinc-900/90 backdrop-blur-md border border-green-500/30 rounded-full shadow-lg shadow-green-500/20">
+              <p class="text-sm font-bold text-green-400 uppercase tracking-[0.2em] flex items-center gap-3">
+                <span class="text-lg">💬</span>
+                Hai Să Vorbim
+              </p>
+            </div>
+          </div>
+        </div>
 
-          <a href="preturi.html" class="flex-1 group relative overflow-hidden px-8 py-6 sm:py-8 bg-gradient-to-br from-rxrPrimary/20 via-rxrCard to-black border-2 border-rxrPrimary/60 rounded-xl sm:rounded-2xl shadow-2xl shadow-rxrPrimary/40 hover:shadow-rxrPrimary/60 transition-all duration-300 hover:scale-[1.02]">
+        <!-- CTA Section -->
+        <div class="flex flex-col sm:flex-row gap-4 gap-x-4 sm:gap-6">
+          <a href="https://wa.me/40744787446?text=Bună!%20Vreau%20să%20aflu%20mai%20multe%20despre%20serviciile%20de%20tuning%20ECU..." target="_blank" class="flex-1 group relative overflow-hidden px-8 py-6 sm:py-8 bg-gradient-to-br from-green-600/20 via-rxrCard to-black border-2 border-green-500/60 rounded-xl sm:rounded-2xl shadow-2xl shadow-green-500/40 hover:shadow-green-500/60 transition-all duration-300 hover:scale-[1.02]">
             <div class="relative z-10">
               <div class="flex items-center gap-3 mb-3">
-                <span class="text-2xl sm:text-3xl">💰</span>
-                <h2 class="text-base sm:text-lg md:text-xl font-bold uppercase tracking-wider text-rxrElectric">Listă Prețuri</h2>
+                <svg class="w-8 h-8 sm:w-10 sm:h-10 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <h2 class="text-base sm:text-lg md:text-xl font-bold uppercase tracking-wider text-green-400">Consultanță WhatsApp</h2>
               </div>
               <p class="text-[0.65rem] sm:text-xs text-zinc-300 leading-relaxed mb-4">
-                Vizualizează prețurile complete pentru serviciile de tuning ECU, remapare motor și cutie, optimizare sisteme DPF, EGR, AdBlue
+                Scrie-ne pe WhatsApp pentru consultanță gratuită, programări și răspunsuri rapide la toate întrebările tale
               </p>
-              <div class="inline-flex items-center gap-2 text-[0.65rem] sm:text-xs text-rxrPrimary group-hover:text-rxrElectric transition-colors">
-                <span class="font-semibold">Acces cu parolă</span>
+              <div class="inline-flex items-center gap-2 text-[0.65rem] sm:text-xs text-green-400 font-semibold">
+                <span>Răspuns în max 10 minute</span>
                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
               </div>
             </div>
-            <div class="absolute top-0 right-0 w-32 h-32 bg-rxrPrimary/10 blur-3xl group-hover:bg-rxrElectric/20 transition-all"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/10 blur-3xl group-hover:bg-green-500/20 transition-all"></div>
           </a>
 
           <a href="tel:+40744787446" class="flex-1 group relative overflow-hidden px-8 py-6 sm:py-8 bg-gradient-to-br from-rxrElectric/20 via-rxrCard to-black border-2 border-rxrElectric/60 rounded-xl sm:rounded-2xl shadow-2xl shadow-rxrElectric/40 hover:shadow-rxrElectric/60 transition-all duration-300 hover:scale-[1.02]">
             <div class="relative z-10">
               <div class="flex items-center gap-3 mb-3">
                 <span class="text-2xl sm:text-3xl">📞</span>
-                <h2 class="text-base sm:text-lg md:text-xl font-bold uppercase tracking-wider text-rxrElectric">Contact Direct</h2>
+                <h2 class="text-base sm:text-lg md:text-xl font-bold uppercase tracking-wider text-rxrElectric">Contact</h2>
               </div>
               <p class="text-[0.65rem] sm:text-xs text-zinc-300 leading-relaxed mb-4">
-                Sună acum pentru consultanță gratuită, programări și detalii despre serviciile noastre de tuning
+                Contactează-ne pentru consultanță gratuită, programări și detalii despre serviciile noastre de tuning
               </p>
-              <div class="inline-flex items-center gap-2 text-[0.65rem] sm:text-xs text-rxrElectric font-semibold">
-                <span>+40 744 787 446</span>
-                <svg class="w-4 h-4 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                </svg>
+              <div class="space-y-2">
+                <div class="flex items-center gap-2 text-[0.65rem] sm:text-xs text-rxrElectric font-semibold">
+                  <span class="text-zinc-400">Telefon:</span>
+                  <span>+40 744 787 446</span>
+                  <svg class="w-4 h-4 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                </div>
+                <div class="flex items-center gap-2 text-[0.65rem] sm:text-xs text-rxrElectric font-semibold">
+                  <span class="text-zinc-400">Email:</span>
+                  <span>rares.roca05@gmail.com</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
               </div>
             </div>
             <div class="absolute top-0 right-0 w-32 h-32 bg-rxrElectric/10 blur-3xl group-hover:bg-rxrPrimary/20 transition-all"></div>
@@ -482,12 +769,19 @@
     </div>
   </div>
 
-  <script>
-    (function() {
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
-    })();
-  </script>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/40744787446?text=Bună!%20Vreau%20să%20aflu%20mai%20multe%20despre%20tuning%20ECU..."
+     target="_blank"
+     class="whatsapp-float"
+     aria-label="WhatsApp Contact">
+    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- JavaScript Files -->
+  <script src="assets/js/vehicle-database.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
