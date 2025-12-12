@@ -16,6 +16,27 @@
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏎️</text></svg>">
 
+  <!-- Google Analytics & Google Ads Tracking -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQ96D9R5KF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // Google Analytics 4 Configuration
+    gtag('config', 'G-LQ96D9R5KF', {
+      'anonymize_ip': true,
+      'cookie_flags': 'SameSite=None;Secure',
+      'allow_google_signals': false,
+      'allow_ad_personalization_signals': false
+    });
+
+    // Google Ads Configuration (Adaugă ID-ul tău AW-XXXXXXXXXX când îl primești)
+    // gtag('config', 'AW-XXXXXXXXXX');
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="assets/css/preturi.css">
@@ -41,10 +62,10 @@
         <!-- Title -->
         <div class="text-center mb-8">
           <h1 class="text-2xl sm:text-3xl font-extrabold uppercase mb-2">
-            <span class="text-rxrPrimary">RXR</span>
-            <span class="text-gray-100">PREȚURI</span>
+            <span class="rxr-logo text-xl sm:text-2xl">RXR</span>
+            <span class="performance-text text-gray-100 text-xl sm:text-2xl">PREȚURI</span>
           </h1>
-          <p class="text-sm text-zinc-400">Conținut protejat • Introdu parola</p>
+          <p class="text-sm text-zinc-400" style="font-family: 'Rajdhani', sans-serif;">Conținut protejat • Introdu parola</p>
         </div>
 
         <!-- Password Form -->
@@ -102,8 +123,8 @@
     <div class="absolute top-1/3 left-1/2 w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] -translate-x-1/2 bg-rxrMViolet/15 blur-3xl rounded-full opacity-60 animate-float" style="animation-delay: 4s;"></div>
   </div>
 
-  <div class="min-h-screen flex items-center justify-center px-3 sm:px-4 py-8 sm:py-12">
-    <div class="w-full max-w-7xl space-y-8 sm:space-y-10">
+  <div class="min-h-screen flex items-center justify-center px-3 sm:px-4 py-6 sm:py-8">
+    <div class="w-full max-w-7xl space-y-6 sm:space-y-7">
 
       <!-- Header -->
       <header class="text-center space-y-4 sm:space-y-5">
@@ -115,17 +136,18 @@
         </a>
 
         <div class="space-y-3 sm:space-y-4">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-[0.25em] uppercase text-shadow-strong">
-            <span class="text-rxrPrimary">RXR</span>
-            <span class="text-gray-100">PREȚURI</span>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase">
+            <span class="rxr-logo">RXR</span>
+            <br class="sm:hidden">
+            <span class="performance-text text-gray-100">PREȚURI</span>
           </h1>
-          <p class="text-[0.6rem] sm:text-[0.65rem] md:text-xs tracking-[0.25em] uppercase text-zinc-400 font-medium">
+          <p class="text-xs sm:text-sm md:text-base tracking-wider uppercase text-zinc-400 font-medium" style="font-family: 'Rajdhani', sans-serif;">
             Tuning ECU • Remapare Motor & Cutie • Optimizări
           </p>
         </div>
       </header>
 
-      <main class="space-y-8 sm:space-y-10">
+      <main class="space-y-6 sm:space-y-7">
 
         <!-- Stage 1 Tuning Section -->
         <article class="price-card bg-gradient-to-br from-rxrPrimary/10 via-rxrCard to-black border-2 border-rxrPrimary/60 rounded-xl sm:rounded-2xl shadow-2xl shadow-rxrPrimary/40 overflow-hidden">
@@ -151,7 +173,7 @@
                     <div class="text-xs sm:text-sm text-zinc-400">≈ <span class="text-rxrPrimary font-bold">180 €</span></div>
                   </div>
                 </div>
-                <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
+                <ul class="space-y-2 text-sm sm:text-base text-zinc-300">
                   <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> +15-30% putere și cuplu</li>
                   <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Optimizare consum combustibil</li>
                   <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Răspuns accelerație îmbunătățit</li>
@@ -168,7 +190,7 @@
                     <div class="text-xs sm:text-sm text-zinc-400">≈ <span class="text-rxrPrimary font-bold">100 €</span></div>
                   </div>
                 </div>
-                <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
+                <ul class="space-y-2 text-sm sm:text-base text-zinc-300">
                   <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Treceri mai rapide între trepte</li>
                   <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Eliminare limitări de viteză</li>
                   <li class="flex items-start gap-2"><span class="text-rxrElectric">✓</span> Optimizare puncte schimbare</li>
@@ -420,9 +442,9 @@
 
       </main>
 
-      <footer class="pb-3 sm:pb-4 pt-6 sm:pt-8 text-center text-[0.6rem] sm:text-[0.65rem] text-zinc-500">
+      <footer class="pb-3 sm:pb-4 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-zinc-500">
         <p>© <span id="year">2024</span> RXR Performance • Tuning ECU Profesional România</p>
-        <p class="mt-2 text-[0.55rem] sm:text-[0.6rem] text-zinc-600">
+        <p class="mt-2 text-[0.65rem] sm:text-xs text-zinc-600">
           Toate prețurile sunt orientative și pot varia în funcție de model și an fabricație
         </p>
       </footer>

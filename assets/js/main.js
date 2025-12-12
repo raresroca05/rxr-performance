@@ -2,11 +2,52 @@
 (function() {
   'use strict';
 
+  // Google Analytics & Ads Tracking Helper
+  function trackEvent(eventName, eventParams = {}) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', eventName, eventParams);
+      console.log('Tracked event:', eventName, eventParams);
+    }
+  }
+
+  // Track Conversion (for Google Ads)
+  function trackConversion(conversionLabel) {
+    if (typeof gtag !== 'undefined') {
+      // Când vei avea Google Ads ID, decomentează linia de mai jos:
+      // gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXXX/' + conversionLabel});
+      console.log('Conversion tracked:', conversionLabel);
+    }
+  }
+
   // Update year in footer
   const yearElement = document.getElementById('year');
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
+
+  // Track WhatsApp clicks
+  document.addEventListener('click', function(e) {
+    const whatsappLink = e.target.closest('a[href*="wa.me"]');
+    if (whatsappLink) {
+      trackEvent('whatsapp_click', {
+        'event_category': 'engagement',
+        'event_label': 'WhatsApp Contact',
+        'value': 1
+      });
+      trackConversion('whatsapp_contact'); // Google Ads conversion
+    }
+
+    // Track phone clicks
+    const phoneLink = e.target.closest('a[href^="tel:"]');
+    if (phoneLink) {
+      trackEvent('phone_click', {
+        'event_category': 'engagement',
+        'event_label': 'Phone Contact',
+        'value': 1
+      });
+      trackConversion('phone_contact'); // Google Ads conversion
+    }
+  });
 
   // Vehicle Lookup Tool with Local Database
   const brandSelect = document.getElementById('brand-select');
@@ -125,6 +166,18 @@
     document.getElementById('result-stage1-hp').textContent = vehicle.stage1HP;
     document.getElementById('result-hp-gain').textContent = `(+${hpGain} HP / +${hpGainPercent}%)`;
     document.getElementById('result-stage1-nm').textContent = vehicle.stage1NM;
+
+    // Track Vehicle Lookup (HIGH VALUE EVENT!)
+    trackEvent('vehicle_lookup', {
+      'event_category': 'lead_generation',
+      'event_label': `${brand} ${model} ${engine}`,
+      'vehicle_brand': brand,
+      'vehicle_model': model,
+      'hp_gain': hpGain,
+      'hp_gain_percent': hpGainPercent,
+      'value': 5  // High value - this is a hot lead!
+    });
+    trackConversion('vehicle_lookup'); // Google Ads conversion
 
     // Update WhatsApp link
     const whatsappMessage = encodeURIComponent(
