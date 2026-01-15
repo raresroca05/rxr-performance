@@ -1,10 +1,10 @@
-/* Preturi Page Stylesheet */
 
-/* Import Google Fonts - Cu suport complet pentru diacritice românești */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* Reset & Base Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -20,12 +20,12 @@ body {
   min-height: 100vh;
 }
 
-/* Smooth Scrolling */
+
 html {
   scroll-behavior: smooth;
 }
 
-/* RXR Logo Text Styling */
+
 .rxr-logo {
   font-family: 'Orbitron', monospace;
   font-weight: 900;
@@ -61,7 +61,7 @@ html {
   letter-spacing: 0.3em;
 }
 
-/* Animations */
+
 @keyframes pulse-glow {
   0%, 100% { opacity: 0.8; }
   50% { opacity: 1; }
@@ -80,7 +80,7 @@ html {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Cards */
+
 .price-card {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
 }
@@ -90,7 +90,7 @@ html {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Buttons */
+
 .btn-primary {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -99,7 +99,7 @@ html {
   transform: scale(1.05);
 }
 
-/* WhatsApp Floating Button */
+
 .whatsapp-float {
   position: fixed;
   width: 60px;
@@ -135,7 +135,7 @@ html {
   }
 }
 
-/* Utility Classes */
+
 .no-select {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -147,7 +147,7 @@ html {
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Password Protection Overlay */
+
 #password-overlay {
   position: fixed;
   inset: 0;
@@ -205,7 +205,7 @@ html {
   box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.3);
 }
 
-/* Responsive Design */
+
 @media (max-width: 640px) {
   .whatsapp-float {
     width: 50px;
