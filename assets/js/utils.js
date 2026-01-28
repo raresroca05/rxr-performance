@@ -11,9 +11,23 @@
     }
   };
 
-  RXR.trackConversion = function(conversionLabel) {
+  RXR.trackConversion = function(conversionLabel, value = 0) {
+    // Google Ads conversion tracking
     if (typeof gtag !== 'undefined') {
-      
+      // Uncomment and add your conversion ID when you have it
+      // gtag('event', 'conversion', {
+      //   'send_to': 'AW-XXXXXXXXX/' + conversionLabel,
+      //   'value': value,
+      //   'currency': 'RON'
+      // });
+    }
+    // Facebook Pixel conversion tracking
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', {
+        content_name: conversionLabel,
+        value: value,
+        currency: 'RON'
+      });
     }
   };
 
