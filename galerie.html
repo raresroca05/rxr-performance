@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ro" class="overflow-x-hidden">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie - Rezultate Tuning & Codari | RXR Performance</title>
+  <meta name="description"
+    content="Galerie rezultate tuning ECU Stage 1 si codari auto profesionale. Vezi proiectele finalizate de RXR Performance - cresteri de putere +15-30% pe BMW, Audi, VW, Skoda.">
+  <meta name="keywords"
+    content="galerie tuning, rezultate tuning, rezultate stage 1, proiecte tuning ECU, codari BMW rezultate, tuning Romania galerie">
+
+  <link rel="canonical" href="https://rxrperformance.ro/galerie.html">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Galerie - Rezultate Tuning & Codari | RXR Performance">
+  <meta property="og:description" content="Galerie rezultate tuning ECU Stage 1 si codari auto profesionale. Proiecte finalizate cu cresteri +15-30% putere.">
+  <meta property="og:url" content="https://rxrperformance.ro/galerie.html">
+  <meta property="og:site_name" content="RXR Performance">
+
+  <meta name="author" content="RXR Performance">
+  <meta name="geo.region" content="RO">
+  <meta name="language" content="Romanian">
+  <meta name="theme-color" content="#1C69D4">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com https://www.instagram.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://wa.me; frame-src 'self' https://www.instagram.com;">
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏎️</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <script>
+    const originalWarn = console.warn;
+    console.warn = function (...args) {
+      if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
+        return;
+      }
+      originalWarn.apply(console, args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { rxrPrimary: "#0EA5E9", rxrPrimarySoft: "#38BDF8", rxrElectric: "#06B6D4", rxrMViolet: "#D946EF", rxrMRed: "#F43F5E", rxrDeep: "#030712", rxrCard: "#050816", rxrOutline: "#1f2937" }}}
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/utils.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Acasa",
+        "item": "https://rxrperformance.ro/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Galerie",
+        "item": "https://rxrperformance.ro/galerie.html"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.05s; }
+    .stagger-2 { transition-delay: 0.1s; }
+    .stagger-3 { transition-delay: 0.15s; }
+    .stagger-4 { transition-delay: 0.2s; }
+    .stagger-5 { transition-delay: 0.25s; }
+    .stagger-6 { transition-delay: 0.3s; }
+    .stagger-7 { transition-delay: 0.35s; }
+    .stagger-8 { transition-delay: 0.4s; }
+    .result-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    .result-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.3), rgba(217, 70, 239, 0.2), rgba(6, 182, 212, 0.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .result-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(14, 165, 233, 0.4);
+      box-shadow: 0 8px 30px rgba(14, 165, 233, 0.1);
+    }
+    .coding-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
+      border: 1px solid rgba(217, 70, 239, 0.2);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    .coding-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(217, 70, 239, 0.3), rgba(14, 165, 233, 0.2), rgba(217, 70, 239, 0.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .coding-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(217, 70, 239, 0.4);
+      box-shadow: 0 8px 30px rgba(217, 70, 239, 0.1);
+    }
+    .hp-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hp-arrow svg {
+      color: #06B6D4;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+
+<body class="text-white">
+  <div class="min-h-screen">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-1 sm:py-2">
+
+      <!-- Navigation -->
+      <nav class="sticky top-1 sm:top-2 z-50 bg-zinc-900/50 backdrop-blur-xl border border-zinc-700/40 rounded-xl sm:rounded-2xl mx-1 sm:mx-2 md:mx-4"
+        role="navigation">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-14 sm:h-16 md:h-20">
+            <div class="flex items-center">
+              <a href="index.html" class="flex items-center space-x-2 group">
+                <span class="text-xl sm:text-2xl font-bold rxr-logo">RXR</span>
+                <span class="performance-text text-sm sm:text-base text-zinc-300 font-semibold hidden sm:inline">PERFORMANCE</span>
+              </a>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
+              <a href="index.html" class="nav-link">Acasa</a>
+              <a href="servicii.html" class="nav-link">Servicii</a>
+              <a href="despre-noi.html" class="nav-link">Despre Noi</a>
+              <a href="galerie.html" class="nav-link text-rxrElectric bg-rxrElectric/10">Galerie</a>
+              <a href="contact.html" class="nav-link nav-link-cta">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn"
+              class="md:hidden p-2 rounded-lg text-zinc-300 hover:bg-zinc-800 transition-colors"
+              aria-label="Toggle menu">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+
+          <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-zinc-800/50 mt-2">
+            <div class="flex flex-col space-y-1 pt-2">
+              <a href="index.html" class="mobile-nav-link">Acasa</a>
+              <a href="servicii.html" class="mobile-nav-link">Servicii</a>
+              <a href="despre-noi.html" class="mobile-nav-link">Despre Noi</a>
+              <a href="galerie.html" class="mobile-nav-link text-rxrElectric">Galerie</a>
+              <a href="contact.html" class="mobile-nav-link mobile-nav-link-cta">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main role="main" class="space-y-10 sm:space-y-16 md:space-y-20 mt-6 sm:mt-10">
+
+        <!-- Page Hero -->
+        <section class="text-center py-8 sm:py-12 reveal">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase mb-4">
+            <span class="rxr-logo">Galerie</span>
+          </h1>
+          <p class="text-lg sm:text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto">
+            Rezultatele muncii noastre
+          </p>
+          <div class="mt-6 h-px bg-gradient-to-r from-transparent via-rxrElectric/40 to-transparent max-w-md mx-auto"></div>
+        </section>
+
+        <!-- Results Showcase - Tuning Stage 1 -->
+        <section class="reveal">
+          <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
+              Rezultate Tuning <span class="text-rxrPrimary">Stage 1</span>
+            </h2>
+            <p class="text-zinc-400 max-w-xl mx-auto">Exemple de cresteri reale de putere</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+
+            <!-- Card 1 -->
+            <div class="result-card reveal stagger-1">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrPrimary/15 text-rxrPrimarySoft border border-rxrPrimary/20">Stage 1 ECU</span>
+                <span class="text-xs font-bold text-emerald-400">+24%</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">BMW 320d F30</h3>
+              <p class="text-xs text-zinc-500 mb-4">2.0L Diesel</p>
+              <div class="hp-arrow text-sm">
+                <span class="text-zinc-400">190 HP</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                <span class="text-rxrPrimary font-bold">235 HP</span>
+              </div>
+              <div class="mt-3 w-full bg-zinc-800 rounded-full h-1.5">
+                <div class="bg-gradient-to-r from-rxrPrimary to-rxrElectric h-1.5 rounded-full" style="width:24%"></div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="result-card reveal stagger-2">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrPrimary/15 text-rxrPrimarySoft border border-rxrPrimary/20">Stage 1 ECU</span>
+                <span class="text-xs font-bold text-emerald-400">+30%</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">Audi A4 2.0 TDI B9</h3>
+              <p class="text-xs text-zinc-500 mb-4">2.0L Diesel</p>
+              <div class="hp-arrow text-sm">
+                <span class="text-zinc-400">150 HP</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                <span class="text-rxrPrimary font-bold">195 HP</span>
+              </div>
+              <div class="mt-3 w-full bg-zinc-800 rounded-full h-1.5">
+                <div class="bg-gradient-to-r from-rxrPrimary to-rxrElectric h-1.5 rounded-full" style="width:30%"></div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="result-card reveal stagger-3">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrPrimary/15 text-rxrPrimarySoft border border-rxrPrimary/20">Stage 1 ECU</span>
+                <span class="text-xs font-bold text-emerald-400">+22%</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">VW Golf 7 GTD</h3>
+              <p class="text-xs text-zinc-500 mb-4">2.0L Diesel</p>
+              <div class="hp-arrow text-sm">
+                <span class="text-zinc-400">184 HP</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                <span class="text-rxrPrimary font-bold">225 HP</span>
+              </div>
+              <div class="mt-3 w-full bg-zinc-800 rounded-full h-1.5">
+                <div class="bg-gradient-to-r from-rxrPrimary to-rxrElectric h-1.5 rounded-full" style="width:22%"></div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="result-card reveal stagger-4">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrPrimary/15 text-rxrPrimarySoft border border-rxrPrimary/20">Stage 1 ECU</span>
+                <span class="text-xs font-bold text-emerald-400">+26%</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">BMW 520d G30</h3>
+              <p class="text-xs text-zinc-500 mb-4">2.0L Diesel</p>
+              <div class="hp-arrow text-sm">
+                <span class="text-zinc-400">190 HP</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                <span class="text-rxrPrimary font-bold">240 HP</span>
+              </div>
+              <div class="mt-3 w-full bg-zinc-800 rounded-full h-1.5">
+                <div class="bg-gradient-to-r from-rxrPrimary to-rxrElectric h-1.5 rounded-full" style="width:26%"></div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="result-card reveal stagger-5">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrPrimary/15 text-rxrPrimarySoft border border-rxrPrimary/20">Stage 1 ECU</span>
+                <span class="text-xs font-bold text-emerald-400">+27%</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">Skoda Octavia 2.0 TDI</h3>
+              <p class="text-xs text-zinc-500 mb-4">2.0L Diesel</p>
+              <div class="hp-arrow text-sm">
+                <span class="text-zinc-400">150 HP</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                <span class="text-rxrPrimary font-bold">190 HP</span>
+              </div>
+              <div class="mt-3 w-full bg-zinc-800 rounded-full h-1.5">
+                <div class="bg-gradient-to-r from-rxrPrimary to-rxrElectric h-1.5 rounded-full" style="width:27%"></div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="result-card reveal stagger-6">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrPrimary/15 text-rxrPrimarySoft border border-rxrPrimary/20">Stage 1 ECU</span>
+                <span class="text-xs font-bold text-emerald-400">+22%</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">BMW 330d F30</h3>
+              <p class="text-xs text-zinc-500 mb-4">3.0L Diesel</p>
+              <div class="hp-arrow text-sm">
+                <span class="text-zinc-400">258 HP</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                <span class="text-rxrPrimary font-bold">315 HP</span>
+              </div>
+              <div class="mt-3 w-full bg-zinc-800 rounded-full h-1.5">
+                <div class="bg-gradient-to-r from-rxrPrimary to-rxrElectric h-1.5 rounded-full" style="width:22%"></div>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="result-card reveal stagger-7">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrPrimary/15 text-rxrPrimarySoft border border-rxrPrimary/20">Stage 1 ECU</span>
+                <span class="text-xs font-bold text-emerald-400">+27%</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">Audi A6 3.0 TDI C7</h3>
+              <p class="text-xs text-zinc-500 mb-4">3.0L Diesel</p>
+              <div class="hp-arrow text-sm">
+                <span class="text-zinc-400">245 HP</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                <span class="text-rxrPrimary font-bold">310 HP</span>
+              </div>
+              <div class="mt-3 w-full bg-zinc-800 rounded-full h-1.5">
+                <div class="bg-gradient-to-r from-rxrPrimary to-rxrElectric h-1.5 rounded-full" style="width:27%"></div>
+              </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="result-card reveal stagger-8">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrPrimary/15 text-rxrPrimarySoft border border-rxrPrimary/20">Stage 1 ECU</span>
+                <span class="text-xs font-bold text-emerald-400">+30%</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">VW Passat 2.0 TDI B8</h3>
+              <p class="text-xs text-zinc-500 mb-4">2.0L Diesel</p>
+              <div class="hp-arrow text-sm">
+                <span class="text-zinc-400">150 HP</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                <span class="text-rxrPrimary font-bold">195 HP</span>
+              </div>
+              <div class="mt-3 w-full bg-zinc-800 rounded-full h-1.5">
+                <div class="bg-gradient-to-r from-rxrPrimary to-rxrElectric h-1.5 rounded-full" style="width:30%"></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="h-px bg-gradient-to-r from-transparent via-rxrElectric/30 to-transparent"></div>
+
+        <!-- Coding Showcase -->
+        <section class="reveal">
+          <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
+              Rezultate <span class="text-rxrMViolet">Codari</span>
+            </h2>
+            <p class="text-zinc-400 max-w-xl mx-auto">Functii activate si personalizari software</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+
+            <!-- Coding Card 1 -->
+            <div class="coding-card reveal stagger-1">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-lg bg-rxrMViolet/15 border border-rxrMViolet/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-rxrMViolet" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrMViolet/15 text-rxrMViolet border border-rxrMViolet/20">Comfort Package</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">BMW F30</h3>
+              <p class="text-sm text-rxrMViolet font-semibold mb-2">12 functii activate</p>
+              <p class="text-xs text-zinc-500">Pliere oglinzi, inchidere automata, needle sweep, codari confort complete</p>
+            </div>
+
+            <!-- Coding Card 2 -->
+            <div class="coding-card reveal stagger-2">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-lg bg-rxrMViolet/15 border border-rxrMViolet/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-rxrMViolet" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrMViolet/15 text-rxrMViolet border border-rxrMViolet/20">Sport + Digital</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">BMW G20</h3>
+              <p class="text-sm text-rxrMViolet font-semibold mb-2">8 functii activate</p>
+              <p class="text-xs text-zinc-500">Digital speedo, sport displays, M performance tweaks, exhaust burble</p>
+            </div>
+
+            <!-- Coding Card 3 -->
+            <div class="coding-card reveal stagger-4">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-lg bg-rxrMViolet/15 border border-rxrMViolet/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-rxrMViolet" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rxrMViolet/15 text-rxrMViolet border border-rxrMViolet/20">BMW Coding</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">VW Golf 8</h3>
+              <p class="text-sm text-rxrMViolet font-semibold mb-2">10 functii activate</p>
+              <p class="text-xs text-zinc-500">Ambient lighting, DRL config, start/stop memory, mirror dip, full coding package</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="h-px bg-gradient-to-r from-transparent via-rxrElectric/30 to-transparent"></div>
+
+        <!-- Instagram Feed -->
+        <section class="reveal">
+          <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
+              Urmareste-ne pe <span class="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">Instagram</span>
+            </h2>
+            <p class="text-zinc-400 max-w-xl mx-auto mb-4">Postarile noastre de pe @rxrperformance</p>
+            <a href="https://instagram.com/rxrperformance" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm text-pink-400 hover:text-pink-300 transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              @rxrperformance
+            </a>
+          </div>
+
+          <div class="instagram-feed" id="instagram-feed">
+            <!-- Instagram Post Embeds - Replace these with your actual post embed codes from Instagram -->
+            <!-- To get an embed code: Open a post on Instagram → Click ··· → Embed → Copy embed code -->
+
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/rxrperformance/" data-instgrm-version="14"
+              style="background:#1a1a2e; border:0; border-radius:1rem; margin:0; max-width:540px; min-width:326px; padding:0; width:100%;">
+            </blockquote>
+
+            <!-- Add more posts by duplicating the blockquote above with different post URLs -->
+            <!-- Example:
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/YOUR_POST_ID/" data-instgrm-version="14"
+              style="background:#1a1a2e; border:0; border-radius:1rem; margin:0; max-width:540px; min-width:326px; padding:0; width:100%;">
+            </blockquote>
+            -->
+          </div>
+
+          <div class="text-center mt-8">
+            <a href="https://instagram.com/rxrperformance" target="_blank" rel="noopener noreferrer"
+              class="btn-primary inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 text-white font-semibold rounded-xl transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              Vezi toate postarile pe Instagram
+            </a>
+          </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="h-px bg-gradient-to-r from-transparent via-rxrElectric/30 to-transparent"></div>
+
+        <!-- Stats Banner -->
+        <section class="reveal">
+          <div class="bg-gradient-to-br from-rxrCard via-slate-900/95 to-black border border-rxrOutline/60 rounded-2xl sm:rounded-3xl p-6 sm:p-10">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
+              <div class="reveal stagger-1">
+                <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-rxrPrimary mb-2">50+</div>
+                <p class="text-sm sm:text-base text-zinc-400">Proiecte Finalizate</p>
+              </div>
+              <div class="reveal stagger-2">
+                <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-rxrElectric mb-2">98%</div>
+                <p class="text-sm sm:text-base text-zinc-400">Clienti Multumiti</p>
+              </div>
+              <div class="reveal stagger-3">
+                <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-rxrMViolet mb-2">200+</div>
+                <p class="text-sm sm:text-base text-zinc-400">Vehicule Compatibile</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="reveal text-center py-8 sm:py-12">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+            Vrei rezultate similare pentru masina ta?
+          </h2>
+          <p class="text-zinc-400 max-w-xl mx-auto mb-8">
+            Contacteaza-ne pentru o consultanta gratuita si afla ce performanta poate atinge vehiculul tau.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="https://wa.me/40744787446?text=Bună!%20Am%20văzut%20galeria%20și%20vreau%20să%20aflu%20mai%20multe..."
+              target="_blank" rel="noopener noreferrer"
+              class="btn-primary inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Scrie pe WhatsApp
+            </a>
+            <a href="servicii.html"
+              class="btn-primary inline-flex items-center gap-2 px-8 py-4 bg-rxrPrimary/10 hover:bg-rxrPrimary/20 text-rxrPrimarySoft font-semibold rounded-xl border border-rxrPrimary/30 hover:border-rxrPrimary/50 transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+              Vezi Serviciile
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="mt-12 pb-3 sm:pb-4 pt-8 sm:pt-12 border-t border-zinc-800/50" role="contentinfo">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <a href="index.html" class="flex items-center space-x-2 mb-4">
+              <span class="text-xl font-bold rxr-logo">RXR</span>
+              <span class="performance-text text-sm text-zinc-300 font-semibold">PERFORMANCE</span>
+            </a>
+            <p class="text-xs text-zinc-500">Tuning ECU & TCU Profesional, Codari BMW, Diagnoza Auto Completa</p>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold text-zinc-300 mb-3">Link-uri</h4>
+            <ul class="space-y-2 text-xs text-zinc-500">
+              <li><a href="servicii.html" class="hover:text-rxrPrimary transition-colors">Servicii</a></li>
+              <li><a href="despre-noi.html" class="hover:text-rxrPrimary transition-colors">Despre Noi</a></li>
+              <li><a href="galerie.html" class="hover:text-rxrPrimary transition-colors">Galerie</a></li>
+              <li><a href="contact.html" class="hover:text-rxrPrimary transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold text-zinc-300 mb-3">Contact</h4>
+            <ul class="space-y-2 text-xs text-zinc-500">
+              <li><a href="tel:+40744787446" class="hover:text-rxrPrimary transition-colors">+40 744 787 446</a></li>
+              <li><a href="mailto:rares.roca05@gmail.com" class="hover:text-rxrPrimary transition-colors">rares.roca05@gmail.com</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold text-zinc-300 mb-3">Social</h4>
+            <div class="flex items-center gap-3">
+              <a href="https://facebook.com/rxrperformance" target="_blank" rel="noopener noreferrer"
+                class="w-9 h-9 rounded-lg bg-zinc-800/60 border border-zinc-700/40 flex items-center justify-center text-zinc-400 hover:text-rxrPrimary hover:border-rxrPrimary/30 transition-all">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="https://instagram.com/rxrperformance" target="_blank" rel="noopener noreferrer"
+                class="w-9 h-9 rounded-lg bg-zinc-800/60 border border-zinc-700/40 flex items-center justify-center text-zinc-400 hover:text-rxrMViolet hover:border-rxrMViolet/30 transition-all">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center border-t border-zinc-800/50 pt-4">
+          <p class="text-xs text-zinc-500">&copy; <span id="year">2024</span> RXR Performance &bull; Tuning ECU & TCU Profesional Romania</p>
+          <p class="mt-1 text-[0.65rem] text-zinc-600">ECU &bull; TCU &bull; Tuning &bull; DPF &bull; EGR &bull; AdBlue &bull; Codari BMW &bull; Diagnoza Auto</p>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/40744787446?text=Bună!%20Vreau%20să%20aflu%20mai%20multe%20despre%20tuning%20ECU..."
+    target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp Contact">
+    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Instagram Embed Script -->
+  <script async src="//www.instagram.com/embed.js"></script>
+
+  <script src="assets/js/navigation.js"></script>
+
+  <!-- Scroll Reveal -->
+  <script>
+    (function() {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+
+  <!-- Year Update -->
+  <script>
+    (function() {
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+</body>
+
+</html>
