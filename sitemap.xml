@@ -37,4 +37,10 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ro" href="https://rxr-performance.ro/contact.html" />
   </url>
+  <url>
+    <loc>https://rxr-performance.ro/confidentialitate.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://rxr-performance.ro/confidentialitate.html" />
+  </url>
 </urlset>

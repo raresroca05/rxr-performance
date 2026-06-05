@@ -51,7 +51,7 @@
       '<div style="flex:1;min-width:240px;line-height:1.5;">' +
         '<strong style="color:#fff;">Folosim cookie-uri.</strong> ' +
         'Doar pentru a intelege cum este folosit site-ul si pentru a-l imbunatati. ' +
-        'Citeste mai multe in <a href="#" style="color:#38BDF8;text-decoration:underline;">politica de confidentialitate</a>.' +
+        'Citeste mai multe in <a href="confidentialitate.html" style="color:#38BDF8;text-decoration:underline;">politica de confidentialitate</a>.' +
       '</div>' +
       '<div style="display:flex;gap:0.5rem;flex-shrink:0;">' +
         '<button type="button" id="rxr-cookie-reject" style="padding:0.5rem 1rem;border-radius:0.625rem;background:rgba(30,41,59,0.8);color:#cbd5e1;border:1px solid rgba(71,85,105,0.6);font-weight:600;cursor:pointer;font-size:0.85rem;">Refuza</button>' +
