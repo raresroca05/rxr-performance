@@ -241,7 +241,7 @@ Site static pe **GitHub Pages**, branch `main`:
 - [ ] Submit sitemap in [Google Search Console](https://search.google.com/search-console)
 - [ ] Setup [Microsoft Bing Webmaster Tools](https://www.bing.com/webmasters)
 - [ ] Lighthouse audit (`npx lighthouse https://rxr-performance.ro --view`)
-- [ ] Schimbare URL `rxrperformance.ro` → `rxr-performance.ro` in canonical-uri ramase (cateva pagini inca au varianta fara cratima)
+- [ ] Schimbare URL `rxr-performance.ro` → `rxr-performance.ro` in canonical-uri ramase (cateva pagini inca au varianta fara cratima)
 - [ ] Compresie imagini (WebP) pentru orice imagine reala adaugata in viitor
 
 ---
