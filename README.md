@@ -188,13 +188,24 @@ Site static pe **GitHub Pages**, branch `main`:
 
 ## 📌 TODO — ce mai trebuie facut
 
-### Setari externe (necesita actiune din partea ta)
+### ✅ Rezolvate
+
+- [x] **Email business pe domeniul propriu** — `contact@rxr-performance.ro` activ pe tot site-ul
+- [x] **Politica de confidentialitate** — `confidentialitate.html` live, linkata in banner cookie si in footer pe toate paginile
+- [x] **Sitemap & robots.txt** — generate cu toate paginile + blocaje crawlere AI
+- [x] **404 custom** — `404.html` cu butoane CTA
+- [x] **Schema.org AutomotiveBusiness** — pe toate paginile
+- [x] **Open Graph + Twitter Card** — completate pe toate paginile
+- [x] **Security headers** — X-Frame-Options, Permissions-Policy, CSP, Referrer-Policy
+- [x] **GDPR cookie consent** — banner + GA Consent Mode v2
+
+### ❌ Ramase (necesita actiune din partea ta)
 
 #### 1. Imagine OG pentru sharing pe social media
-- **Fisier necesar**: `og-image.jpg` (1200x630 px) in radacina
+- **Fisier necesar**: `og-image.jpg` (1200x630 px) in radacina proiectului
 - **Folosit pentru**: previzualizarea link-ului pe WhatsApp/Facebook/LinkedIn
 - **Cum**: Canva → template „Social Media Cover 1200x630" → logo RXR Performance + tagline „Tuning ECU Stage 1 | Codari BMW | Cluj-Napoca"
-- **Status**: ❌ Lipseste
+- **Status**: ❌ Lipseste (URL-ul e referit in meta tags dar fisierul nu exista inca)
 
 #### 2. Google Ads conversion tracking
 - **Fisiere**: `index.html`, `servicii.html`, `preturi.html`, `assets/js/utils.js`
@@ -204,15 +215,15 @@ Site static pe **GitHub Pages**, branch `main`:
   2. Setezi un Conversion (Lead — Click WhatsApp / Click Phone)
   3. Inlocuiesti `AW-XXXXXXXXX` cu ID-ul tau real
   4. Decomentezi liniile
-- **Status**: ❌ Placeholder activ
+- **Status**: ❌ Placeholder activ (codul e gata, doar inlocuiesti ID-ul)
 
 #### 3. Facebook Pixel
 - **Fisiere**: `index.html`, `servicii.html`
 - **Cauta**: comentariile `// fbq('init', 'XXXXXXXXXXXXXXXX');`
 - **Pasi**:
   1. Cont [Facebook Business Manager](https://business.facebook.com) → Events Manager → creezi Pixel
-  2. Inlocuiesti `XXXXXXXXXXXXXXXX` cu Pixel ID-ul tau
-  3. Decomentezi
+  2. Inlocuiesti `XXXXXXXXXXXXXXXX` cu Pixel ID-ul tau (15-16 cifre)
+  3. Decomentezi liniile
 - **Status**: ❌ Placeholder activ
 
 #### 4. Google Places API pentru recenzii live
@@ -220,35 +231,23 @@ Site static pe **GitHub Pages**, branch `main`:
 - **Cauta**: `CONFIG.apiKey` si `CONFIG.placeId` (golite momentan)
 - **Pasi**:
   1. [Google Cloud Console](https://console.cloud.google.com/google/maps-apis) → enable „Places API"
-  2. Creezi API key, restrictionezi la `rxr-performance.ro/*`
-  3. [Place ID Finder](https://developers.google.com/maps/documentation/places/web-service/place-id) → cauti business-ul tau
+  2. Creezi API key, restrictionezi la `rxr-performance.ro/*` (HTTP referrer)
+  3. [Place ID Finder](https://developers.google.com/maps/documentation/places/web-service/place-id) → cauti „RXR Performance Cluj-Napoca"
   4. Completezi cele 2 valori in `reviews.js`
-- **Status**: ❌ Foloseste fallback static (3 carduri statice)
+- **Status**: ❌ Foloseste fallback static (3 carduri statice cu recenzii placeholder)
 
-#### 5. Email business pe domeniul propriu
-- **Stare actuala**: site-ul foloseste `contact@rxr-performance.ro` peste tot
-- **Recomandare**: cont nou (ex. `contact@rxr-performance.ro` via Google Workspace ~$6/luna sau `rxrperformance@gmail.com` gratis)
-- **Cand ai noul email**: `grep -rn "rares.roca05" .` ca sa vezi unde apare, apoi find & replace global
-- **Status**: ❌ Foloseste email personal
-
-#### 6. Politica de confidentialitate
-- **Necesar pentru**: GDPR conform + link real in banner-ul cookie
-- **Cauta in `cookie-consent.js`**: `<a href="#">politica de confidentialitate</a>`
-- **Pasi**: creezi `confidentialitate.html` (sablon GDPR de pe `gdpr.eu` sau `iubenda.com`), schimbi `href` in banner
-- **Status**: ❌ Link gol (`href="#"`)
-
-#### 7. Apple Touch Icon real
-- **Stare actuala**: SVG emoji 🏎️ (functional, dar arata generic pe iPhone home screen)
-- **Recomandare**: `apple-touch-icon-180x180.png` (logo RXR pe fundal slate)
+#### 5. Apple Touch Icon real
+- **Stare actuala**: SVG emoji 🏎️ (functional, dar generic pe iPhone home screen)
+- **Recomandare**: `apple-touch-icon-180x180.png` cu logo RXR pe fundal slate
 - **Status**: ⚠️ Functional dar nu premium
 
 ### Optional (nice to have)
 
-- [ ] Compresie imagini (WebP pentru orice imagine reala)
-- [ ] Lighthouse audit (`npx lighthouse https://rxr-performance.ro`)
-- [ ] Verificare site in [Google Search Console](https://search.google.com/search-console) si submit sitemap
+- [ ] Submit sitemap in [Google Search Console](https://search.google.com/search-console)
 - [ ] Setup [Microsoft Bing Webmaster Tools](https://www.bing.com/webmasters)
-- [ ] Schimbare domeniu de la `rxrperformance.ro` (in unele meta tags ramase) la `rxr-performance.ro` consistent
+- [ ] Lighthouse audit (`npx lighthouse https://rxr-performance.ro --view`)
+- [ ] Schimbare URL `rxrperformance.ro` → `rxr-performance.ro` in canonical-uri ramase (cateva pagini inca au varianta fara cratima)
+- [ ] Compresie imagini (WebP) pentru orice imagine reala adaugata in viitor
 
 ---
 
