@@ -136,18 +136,66 @@
       engineSelect.disabled = false;
     }
 
-    
+    const STAGE1_GAIN = 0.28;
+
+    function estimateTorqueProfile(engineStr) {
+      const e = (engineStr || '').toLowerCase();
+      const dispMatch = e.match(/(\d\.\d)\b/);
+      const disp = dispMatch ? parseFloat(dispMatch[1]) : 2.0;
+      const isDiesel = /(tdi|tdci|jtd|jtdm|hdi|dci|cdi|cdti|crd|d-4d|bluehdi|multijet|d[\s-]?cat|\bd5\b|\b\d\.\d\s*d\b)/i.test(e);
+      const isTurboPetrol = !isDiesel && /(turbo|tfsi|tsi|t-jet|ecoboost|mhev[\s-]?t|gdi[\s-]?t|multiair[\s-]?t|cgi|sidi|ecotec\s*t|hybrid\s*t)/i.test(e);
+
+      let stockFactor;
+      let type;
+
+      if (isDiesel) {
+        type = 'diesel';
+        if (disp <= 1.6) stockFactor = 2.4;
+        else if (disp <= 2.4) stockFactor = 2.15;
+        else stockFactor = 2.0;
+      } else if (isTurboPetrol) {
+        type = 'turbo';
+        if (disp <= 1.4) stockFactor = 1.65;
+        else if (disp <= 2.5) stockFactor = 1.55;
+        else stockFactor = 1.4;
+      } else {
+        type = 'aspirat';
+        if (disp <= 1.6) stockFactor = 1.5;
+        else if (disp <= 3.0) stockFactor = 1.3;
+        else stockFactor = 1.05;
+      }
+      return { stockFactor, type, disp };
+    }
+
+    function roundNm(n) {
+      return Math.round(n / 5) * 5;
+    }
+
+    function roundHP(n) {
+      return Math.round(n);
+    }
+
     function displayResults(brand, model, generation, engine, vehicle) {
-      const hpGain = vehicle.stage1HP - vehicle.stockHP;
+      const stage1HP = roundHP(vehicle.stockHP * (1 + STAGE1_GAIN));
+      const hpGain = stage1HP - vehicle.stockHP;
       const hpGainPercent = Math.round((hpGain / vehicle.stockHP) * 100);
+
+      const profile = estimateTorqueProfile(engine);
+      const stockNm = roundNm(vehicle.stockHP * profile.stockFactor);
+      const stage1Nm = roundNm(stockNm * (1 + STAGE1_GAIN));
+      const nmGain = stage1Nm - stockNm;
+      const nmGainPercent = Math.round((nmGain / stockNm) * 100);
 
       document.getElementById('result-vehicle-name').textContent = `${brand} ${model}`;
       document.getElementById('result-vehicle-year').textContent = `${engine} • ${generation}`;
       document.getElementById('result-stock-hp').textContent = vehicle.stockHP;
-      document.getElementById('result-stage1-hp').textContent = vehicle.stage1HP;
-      document.getElementById('result-hp-gain').textContent = `(+${hpGain} HP / +${hpGainPercent}%)`;
+      document.getElementById('result-stage1-hp').textContent = stage1HP;
+      document.getElementById('result-hp-gain').textContent = `+${hpGain} HP (+${hpGainPercent}%)`;
 
-      
+      document.getElementById('result-stock-nm').textContent = stockNm;
+      document.getElementById('result-stage1-nm').textContent = stage1Nm;
+      document.getElementById('result-nm-gain').textContent = `+${nmGain} Nm (+${nmGainPercent}%)`;
+
       if (typeof trackEvent === 'function') {
         trackEvent('vehicle_lookup', {
           'event_category': 'lead_generation',
@@ -156,14 +204,13 @@
           'vehicle_model': model,
           'hp_gain': hpGain,
           'hp_gain_percent': hpGainPercent,
-          'value': 5  
+          'value': 5
         });
-        trackConversion('vehicle_lookup'); 
+        trackConversion('vehicle_lookup');
       }
 
-      
       const whatsappMessage = encodeURIComponent(
-        `Bună! Sunt interesat de tuning Stage 1 pentru ${brand} ${model} ${engine}. Aș vrea mai multe detalii despre creșterea la ${vehicle.stage1HP} HP (de la ${vehicle.stockHP} HP).`
+        `Buna! Sunt interesat de tuning Stage 1 pentru ${brand} ${model} ${engine}. Vreau mai multe detalii despre cresterea la ${stage1HP} HP / ${stage1Nm} Nm (de la ${vehicle.stockHP} HP / ${stockNm} Nm).`
       );
       document.getElementById('whatsapp-cta').href = `https://wa.me/40744787446?text=${whatsappMessage}`;
 

@@ -8,9 +8,9 @@ tailwind.config = {
         rxrElectric: "#06B6D4",       
         rxrMViolet: "#D946EF",        
         rxrMRed: "#F43F5E",           
-        rxrDeep: "#030712",           
-        rxrCard: "#050816",           
-        rxrOutline: "#1f2937"         
+        rxrDeep: "#0F172A",
+        rxrCard: "#1E293B",
+        rxrOutline: "#334155"
       }
     }
   }
