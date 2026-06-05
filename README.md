@@ -198,16 +198,11 @@ Site static pe **GitHub Pages**, branch `main`:
 - [x] **Open Graph + Twitter Card** — completate pe toate paginile
 - [x] **Security headers** — X-Frame-Options, Permissions-Policy, CSP, Referrer-Policy
 - [x] **GDPR cookie consent** — banner + GA Consent Mode v2
+- [x] **Imagine OG** — `og-image.png` (1800x945) referita corect in toate meta tags
 
 ### ❌ Ramase (necesita actiune din partea ta)
 
-#### 1. Imagine OG pentru sharing pe social media
-- **Fisier necesar**: `og-image.jpg` (1200x630 px) in radacina proiectului
-- **Folosit pentru**: previzualizarea link-ului pe WhatsApp/Facebook/LinkedIn
-- **Cum**: Canva → template „Social Media Cover 1200x630" → logo RXR Performance + tagline „Tuning ECU Stage 1 | Codari BMW | Cluj-Napoca"
-- **Status**: ❌ Lipseste (URL-ul e referit in meta tags dar fisierul nu exista inca)
-
-#### 2. Google Ads conversion tracking
+#### 1. Google Ads conversion tracking
 - **Fisiere**: `index.html`, `servicii.html`, `preturi.html`, `assets/js/utils.js`
 - **Cauta**: comentariile `// gtag('config', 'AW-XXXXXXXXX');` si `// 'send_to': 'AW-XXXXXXXXX/...'`
 - **Pasi**:
@@ -217,7 +212,7 @@ Site static pe **GitHub Pages**, branch `main`:
   4. Decomentezi liniile
 - **Status**: ❌ Placeholder activ (codul e gata, doar inlocuiesti ID-ul)
 
-#### 3. Facebook Pixel
+#### 2. Facebook Pixel
 - **Fisiere**: `index.html`, `servicii.html`
 - **Cauta**: comentariile `// fbq('init', 'XXXXXXXXXXXXXXXX');`
 - **Pasi**:
@@ -226,7 +221,7 @@ Site static pe **GitHub Pages**, branch `main`:
   3. Decomentezi liniile
 - **Status**: ❌ Placeholder activ
 
-#### 4. Google Places API pentru recenzii live
+#### 3. Google Places API pentru recenzii live
 - **Fisier**: `assets/js/reviews.js`
 - **Cauta**: `CONFIG.apiKey` si `CONFIG.placeId` (golite momentan)
 - **Pasi**:
@@ -236,7 +231,7 @@ Site static pe **GitHub Pages**, branch `main`:
   4. Completezi cele 2 valori in `reviews.js`
 - **Status**: ❌ Foloseste fallback static (3 carduri statice cu recenzii placeholder)
 
-#### 5. Apple Touch Icon real
+#### 4. Apple Touch Icon real
 - **Stare actuala**: SVG emoji 🏎️ (functional, dar generic pe iPhone home screen)
 - **Recomandare**: `apple-touch-icon-180x180.png` cu logo RXR pe fundal slate
 - **Status**: ⚠️ Functional dar nu premium

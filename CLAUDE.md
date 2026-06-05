@@ -193,7 +193,7 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 ## TODO
 
 See [`README.md`](./README.md) `## 📌 TODO` section for the full punch list:
-1. `og-image.jpg` (1200x630) for social sharing
+1. `og-image.png` (1200x630) for social sharing
 2. Google Ads conversion ID
 3. Facebook Pixel ID
 4. Google Places API key + Place ID for live reviews

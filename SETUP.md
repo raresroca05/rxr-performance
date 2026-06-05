@@ -36,11 +36,11 @@ Ghid complet pentru a finaliza configurarea site-ului. Fiecare sectiune contine 
    - **Accent cyan**: poti pune o linie sau forma cu culoarea `#0EA5E9`
    - **Logo masina/key visual**: optional, in colt
 6. Click `Share` (sus dreapta) → `Download` → format **JPG** sau **PNG** → `Download`
-7. Salvezi fisierul ca **`og-image.jpg`** (exact acest nume) in folderul proiectului `/Users/raresroca/Projects/Personal/rxr-performance/`
+7. Salvezi fisierul ca **`og-image.png`** (exact acest nume) in folderul proiectului `/Users/raresroca/Projects/Personal/rxr-performance/`
 8. Deschizi terminalul si executi:
    ```bash
    cd /Users/raresroca/Projects/Personal/rxr-performance
-   git add og-image.jpg
+   git add og-image.png
    git commit -m "add OG image for social sharing"
    git push origin main
    ```
@@ -353,7 +353,7 @@ Ghid complet pentru a finaliza configurarea site-ului. Fiecare sectiune contine 
 
 Daca nu vrei sa faci toate odata, asta e ordinea priorizata:
 
-1. **Astazi (15 min)**: og-image.jpg + Search Console (mai important pentru SEO si share-uri)
+1. **Astazi (15 min)**: og-image.png + Search Console (mai important pentru SEO si share-uri)
 2. **Cand ai chef (20 min)**: Apple Touch Icon + Bing Webmaster Tools
 3. **Cand vrei sa pornesti campanii (40 min)**: Google Ads + Facebook Pixel
 4. **Cand ai 20-50 recenzii Google pe business profile (20 min)**: Google Places API
