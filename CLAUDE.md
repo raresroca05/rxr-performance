@@ -60,7 +60,7 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 - **RXR namespace** — global `window.RXR` object for shared utilities
 - **Romanian UI** — all content in Romanian (no diacritics, to avoid encoding issues)
 - **No build step** — edit HTML/CSS/JS directly, deploy static files
-- **Commit author**: `Rares Roca <rares.roca05@gmail.com>`
+- **Commit author**: `Rares Roca <contact@rxr-performance.ro>`
 - **Shared shell classes** in `main.css`: `.page-shell`, `.page-container`, `.site-nav`, `.site-nav-inner`, `.site-nav-row`, `.site-footer`, `.site-footer-grid`, `.site-footer-social`, `.page-hero`, `.btn-cta`, `.btn-cta-wa`, `.btn-cta-ghost`, `.btn-cta-outline`
 - **Page-stack** for vertical rhythm between sections inside `<main>`
 
@@ -185,7 +185,7 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 ## Contact
 
 - Phone: +40 744 787 446
-- Email: rares.roca05@gmail.com (TODO: migrate to business email)
+- Email: contact@rxr-performance.ro (TODO: migrate to business email)
 - Address: Strada Traian Vuia 259, 400397 Cluj-Napoca
 - Hours: Luni-Sambata 09:00-18:00
 - Social: facebook.com/rxrperformance · instagram.com/rxrperformance · tiktok.com/@rxrperformance

@@ -8,7 +8,7 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 - 🌐 **Live**: [rxr-performance.ro](https://rxr-performance.ro)
 - 📍 **Locatie**: Strada Traian Vuia 259, 400397 Cluj-Napoca
 - 📞 **Telefon**: +40 744 787 446
-- 📧 **Email**: rares.roca05@gmail.com
+- 📧 **Email**: contact@rxr-performance.ro
 - 🕒 **Program**: Luni-Sambata, 09:00 — 18:00
 - 📱 **Social**: [Facebook](https://www.facebook.com/rxrperformance) · [Instagram](https://www.instagram.com/rxrperformance) · [TikTok](https://www.tiktok.com/@rxrperformance)
 
@@ -226,7 +226,7 @@ Site static pe **GitHub Pages**, branch `main`:
 - **Status**: ❌ Foloseste fallback static (3 carduri statice)
 
 #### 5. Email business pe domeniul propriu
-- **Stare actuala**: site-ul foloseste `rares.roca05@gmail.com` peste tot
+- **Stare actuala**: site-ul foloseste `contact@rxr-performance.ro` peste tot
 - **Recomandare**: cont nou (ex. `contact@rxr-performance.ro` via Google Workspace ~$6/luna sau `rxrperformance@gmail.com` gratis)
 - **Cand ai noul email**: `grep -rn "rares.roca05" .` ca sa vezi unde apare, apoi find & replace global
 - **Status**: ❌ Foloseste email personal
