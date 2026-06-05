@@ -199,6 +199,9 @@ Site static pe **GitHub Pages**, branch `main`:
 - [x] **Security headers** — X-Frame-Options, Permissions-Policy, CSP, Referrer-Policy
 - [x] **GDPR cookie consent** — banner + GA Consent Mode v2
 - [x] **Imagine OG** — `og-image.png` (1800x945) referita corect in toate meta tags
+- [x] **Apple Touch Icon** — `apple-touch-icon.png` (180x180) logo RXR pe slate, linkata pe toate paginile
+- [x] **Google Analytics live data** — confirmat (G-LQ96D9R5KF activ, primeste evenimente in 48h)
+- [x] **Google Search Console + sitemap** — verificat si sitemap-ul cu 7 URL-uri acceptat
 
 ### ❌ Ramase (necesita actiune din partea ta)
 
