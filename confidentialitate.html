@@ -35,13 +35,17 @@
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=(), payment=()">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://wa.me; frame-src 'self';">
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn-cookieyes.com https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://cdn-cookieyes.com https://log.cookieyes.com https://www.google-analytics.com https://www.googletagmanager.com https://wa.me; frame-src 'self';">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏎️</text></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <!-- Start cookieyes banner -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/57bb99c764307d7ce071a31fe0a303e0/script.js"></script>
+  <!-- End cookieyes banner -->
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -246,9 +250,10 @@
 
             <h3>7.1 Cookies esentiale (fara consimtamant)</h3>
             <ul>
-              <li><strong>rxr_cookie_consent</strong> (localStorage) — retine alegerea ta privind cookies (Accept/Refuz)</li>
+              <li><strong>cookieyes-consent</strong> (cookie, furnizat de CookieYes) — retine alegerea ta privind cookies (Accept/Refuz), expira in 1 an</li>
               <li><strong>preturi-unlock</strong> (sessionStorage, daca aplicabil) — sesiune temporara</li>
             </ul>
+            <p>Gestionarea consimtamantului este realizata prin platforma <a href="https://www.cookieyes.com" target="_blank" rel="noopener">CookieYes</a> (compatibil Google Consent Mode v2). Iti poti modifica sau retrage consimtamantul oricand din bannerul de cookies.</p>
 
             <h3>7.2 Cookies analytics (necesita consimtamant)</h3>
             <ul>
@@ -350,7 +355,6 @@
   </div>
 
   <script src="assets/js/navigation.js"></script>
-  <script src="assets/js/cookie-consent.js"></script>
 
   <script>
     (function() {
