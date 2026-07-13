@@ -5,30 +5,21 @@
   
   window.RXR = window.RXR || {};
   
+  // Push events to the GTM dataLayer. All analytics/ads tags (if any) are
+  // configured inside the GTM container — nothing vendor-specific lives here.
   RXR.trackEvent = function(eventName, eventParams = {}) {
-    if (typeof gtag !== 'undefined') {
-      gtag('event', eventName, eventParams);
-    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: eventName }, eventParams));
   };
 
   RXR.trackConversion = function(conversionLabel, value = 0) {
-    // Google Ads conversion tracking
-    if (typeof gtag !== 'undefined') {
-      // Uncomment and add your conversion ID when you have it
-      // gtag('event', 'conversion', {
-      //   'send_to': 'AW-XXXXXXXXX/' + conversionLabel,
-      //   'value': value,
-      //   'currency': 'RON'
-      // });
-    }
-    // Facebook Pixel conversion tracking
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'Lead', {
-        content_name: conversionLabel,
-        value: value,
-        currency: 'RON'
-      });
-    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'conversion',
+      conversion_label: conversionLabel,
+      value: value,
+      currency: 'RON'
+    });
   };
 
   

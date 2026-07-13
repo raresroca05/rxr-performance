@@ -34,9 +34,9 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 | CSS | Tailwind CSS 4 (CDN) + CSS custom (`base.css`, `main.css`) |
 | JavaScript | Vanilla ES6+ (pattern IIFE) |
 | Fonts | Google Fonts (Orbitron pentru brand, Inter pentru body) |
-| Analytics | Google Analytics 4 (`G-LQ96D9R5KF`) — cu Consent Mode v2 |
+| Tag management | Google Tag Manager (`GTM-TTF724N7`) — singura instalare de tracking; GA/Ads se gestioneaza in container, nimic hardcodat |
 | Instagram feed | [Behold.so](https://behold.so) widget |
-| Cookie consent | Custom (GDPR-friendly) |
+| Cookie consent | [CookieYes](https://www.cookieyes.com) — Consent Mode v2 |
 | Build | **Niciun build** — fisiere statice, fara npm |
 | Hosting | GitHub Pages |
 
@@ -72,7 +72,6 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
     │   ├── navigation.js         Mobile menu, sticky nav, scroll behavior
     │   ├── faq.js                Accordion details/summary
     │   ├── reviews.js            Loader recenzii Google Places (cu fallback static)
-    │   ├── cookie-consent.js     Banner GDPR + integrare GA Consent Mode v2
     │   ├── utils.js              Namespace `window.RXR`, tracking, helpers
     │   └── tailwind-config.js    Theme colors (folosit doar de servicii.html)
     └── instagram/                (rezervat pentru optiuni viitoare)
@@ -163,11 +162,11 @@ Toate preturile sunt orientative — final dupa consultatie gratuita pe WhatsApp
 - `sitemap.xml` (toate paginile) + `robots.txt` (cu sitemap)
 - `404.html` custom
 
-✅ **GDPR / Cookie consent**:
-- Banner cookie consent la prima vizita
-- Default „denied" pana la decizie utilizator
-- Integrat cu Google Analytics Consent Mode v2
-- Decizia salvata in `localStorage` cheia `rxr_cookie_consent`
+✅ **GDPR / Cookie consent** (via **CookieYes**):
+- Banner + Google Consent Mode v2 gestionate de CookieYes
+- Scriptul CookieYes se incarca in `<head>` **inainte** de GTM
+- Cookie: `cookieyes-consent` (~1 an); vechiul banner custom (`cookie-consent.js`) a fost eliminat
+- CSP whitelist: `cdn-cookieyes.com` + `log.cookieyes.com`
 
 ✅ **Anti-LLM scraping** (in `robots.txt`):
 - Blocheaza GPTBot, ChatGPT-User, CCBot, anthropic-ai, Google-Extended
@@ -197,34 +196,22 @@ Site static pe **GitHub Pages**, branch `main`:
 - [x] **Schema.org AutomotiveBusiness** — pe toate paginile
 - [x] **Open Graph + Twitter Card** — completate pe toate paginile
 - [x] **Security headers** — X-Frame-Options, Permissions-Policy, CSP, Referrer-Policy
-- [x] **GDPR cookie consent** — banner + GA Consent Mode v2
+- [x] **GDPR cookie consent** — CookieYes (Consent Mode v2), inaintea GTM
 - [x] **Imagine OG** — `og-image.png` (1800x945) referita corect in toate meta tags
 - [x] **Apple Touch Icon** — `apple-touch-icon.png` (180x180) logo RXR pe slate, linkata pe toate paginile
-- [x] **Google Analytics live data** — confirmat (G-LQ96D9R5KF activ, primeste evenimente in 48h)
+- [x] **Google Tag Manager** — `GTM-TTF724N7`, singura instalare de tracking (fara GA4/Ads hardcodat)
+- [x] **CTA-uri unificate** — toate butoanele „Scrie pe WhatsApp" + „Suna: 0744 787 446"
 - [x] **Google Search Console + sitemap** — verificat si sitemap-ul cu 7 URL-uri acceptat
 
 ### ❌ Ramase (necesita actiune din partea ta)
 
-#### 1. Google Ads conversion tracking
-- **Fisiere**: `index.html`, `servicii.html`, `preturi.html`, `assets/js/utils.js`
-- **Cauta**: comentariile `// gtag('config', 'AW-XXXXXXXXX');` si `// 'send_to': 'AW-XXXXXXXXX/...'`
-- **Pasi**:
-  1. Creezi cont [Google Ads](https://ads.google.com)
-  2. Setezi un Conversion (Lead — Click WhatsApp / Click Phone)
-  3. Inlocuiesti `AW-XXXXXXXXX` cu ID-ul tau real
-  4. Decomentezi liniile
-- **Status**: ❌ Placeholder activ (codul e gata, doar inlocuiesti ID-ul)
+> **Nota (2026-07):** Google Ads si Facebook Pixel **nu se doresc** — nu se instaleaza nimic hardcodat. Orice tracking se face exclusiv prin containerul GTM.
 
-#### 2. Facebook Pixel
-- **Fisiere**: `index.html`, `servicii.html`
-- **Cauta**: comentariile `// fbq('init', 'XXXXXXXXXXXXXXXX');`
-- **Pasi**:
-  1. Cont [Facebook Business Manager](https://business.facebook.com) → Events Manager → creezi Pixel
-  2. Inlocuiesti `XXXXXXXXXXXXXXXX` cu Pixel ID-ul tau (15-16 cifre)
-  3. Decomentezi liniile
-- **Status**: ❌ Placeholder activ
+#### 1. CookieYes → Consent Mode
+- **Unde**: dashboard-ul CookieYes (nu in cod)
+- **Pas**: activeaza **Google Consent Mode** ca tagurile din GTM sa respecte consimtamantul
 
-#### 3. Google Places API pentru recenzii live
+#### 2. Google Places API pentru recenzii live
 - **Fisier**: `assets/js/reviews.js`
 - **Cauta**: `CONFIG.apiKey` si `CONFIG.placeId` (golite momentan)
 - **Pasi**:
@@ -234,10 +221,8 @@ Site static pe **GitHub Pages**, branch `main`:
   4. Completezi cele 2 valori in `reviews.js`
 - **Status**: ❌ Foloseste fallback static (3 carduri statice cu recenzii placeholder)
 
-#### 4. Apple Touch Icon real
-- **Stare actuala**: SVG emoji 🏎️ (functional, dar generic pe iPhone home screen)
-- **Recomandare**: `apple-touch-icon-180x180.png` cu logo RXR pe fundal slate
-- **Status**: ⚠️ Functional dar nu premium
+#### 3. Email business
+- Migrare completa catre `contact@rxr-performance.ro` (activ pe site; de confirmat casuta)
 
 ### Optional (nice to have)
 

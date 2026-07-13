@@ -1,245 +1,68 @@
 # Ghid setup pas-cu-pas — RXR Performance
 
-Ghid complet pentru a finaliza configurarea site-ului. Fiecare sectiune contine **exact** ce sa apesi, unde sa cauti si ce sa copiezi unde.
+Ghid pentru ce mai ramane de configurat. Fiecare sectiune spune **exact** ce sa apesi si unde.
 
-**Convingere de timp total**: ~90 min daca le faci pe toate intr-o sedinta.
+> **Tracking (2026-07):** singura instalare din cod este **Google Tag Manager** (`GTM-TTF724N7`).
+> **Nu** exista GA4, Google Ads sau Facebook Pixel hardcodat — si nu se doresc. Orice tag de
+> analytics/reclame se adauga **doar din containerul GTM**, nu in HTML.
+> Consimtamantul (Consent Mode v2) este gestionat de **CookieYes**.
 
 ---
 
 ## 📋 Cuprins
 
-1. [Imagine OG (15 min, gratuit)](#1-imagine-og-pentru-share-uri)
-2. [Google Analytics — verificare ca merge (5 min)](#2-google-analytics--verificare)
-3. [Google Search Console — submit sitemap (10 min, gratuit)](#3-google-search-console--submit-sitemap)
-4. [Google Ads conversion (20 min, gratuit)](#4-google-ads-conversion-tracking)
-5. [Facebook Pixel (15 min, gratuit)](#5-facebook-pixel)
-6. [Google Places API pentru recenzii live (20 min, ~$0-5/luna)](#6-google-places-api-pentru-recenzii-live)
-7. [Apple Touch Icon (5 min, gratuit)](#7-apple-touch-icon)
-8. [Bonus: Bing Webmaster Tools (5 min, gratuit)](#8-bonus-bing-webmaster-tools)
+1. [Google Tag Manager — verificare ca merge (5 min)](#1-google-tag-manager--verificare)
+2. [CookieYes — activare Consent Mode (5 min)](#2-cookieyes--consent-mode)
+3. [Google Places API pentru recenzii live (20 min, ~$0-5/luna)](#3-google-places-api-pentru-recenzii-live)
+4. [Bonus: Bing Webmaster Tools (5 min, gratuit)](#4-bonus-bing-webmaster-tools)
+
+Deja rezolvate (nu mai necesita nimic): imagine OG, Apple Touch Icon, Google Search Console + sitemap, migrare la GTM, instalare CookieYes.
 
 ---
 
-## 1. Imagine OG pentru share-uri
+## 1. Google Tag Manager — verificare
 
-**De ce**: cand cineva trimite linkul `rxr-performance.ro` pe WhatsApp/Facebook/LinkedIn, apare o previzualizare cu imagine. Fara asta arata gri si neprofesional.
+**De ce**: sa confirmi ca GTM se incarca pe toate paginile si ca respecta consimtamantul.
 
 ### Pasi:
 
-1. Deschide [canva.com](https://canva.com) → Sign up gratis (cu Google)
-2. In bara de cautare sus, scrie `Facebook Cover` → enter
-3. Alege un template simplu (sau **Create blank** cu dimensiuni custom)
-4. **Setezi dimensiunea exacta**: Click pe `Resize` (sus dreapta) → `Custom size` → **1200 x 630 px** → `Resize`
-5. Designeaza imaginea:
-   - **Background**: slate dark (cod culoare: `#0F172A` sau `#1E293B`)
-   - **Text mare central**: `RXR PERFORMANCE`
-   - **Tagline mic sub**: `Tuning ECU Stage 1 | Codari BMW | Cluj-Napoca`
-   - **Accent cyan**: poti pune o linie sau forma cu culoarea `#0EA5E9`
-   - **Logo masina/key visual**: optional, in colt
-6. Click `Share` (sus dreapta) → `Download` → format **JPG** sau **PNG** → `Download`
-7. Salvezi fisierul ca **`og-image.png`** (exact acest nume) in folderul proiectului `/Users/raresroca/Projects/Personal/rxr-performance/`
-8. Deschizi terminalul si executi:
-   ```bash
-   cd /Users/raresroca/Projects/Personal/rxr-performance
-   git add og-image.png
-   git commit -m "add OG image for social sharing"
-   git push origin main
-   ```
+1. Instaleaza extensia Chrome **[Tag Assistant](https://tagassistant.google.com/)** (sau foloseste modul Preview din GTM)
+2. In [tagmanager.google.com](https://tagmanager.google.com) → containerul `GTM-TTF724N7` → click `Preview`
+3. Introdu `https://rxr-performance.ro` → `Connect`
+4. In fereastra Tag Assistant ar trebui sa vezi containerul **conectat** si tag-urile care se declanseaza
+5. Verifica ca GTM se incarca **dupa** CookieYes (in `<head>`, CookieYes e primul)
+
+### Important — analytics/reclame:
+
+- Daca **nu** vrei niciun tracking: asigura-te ca in container **nu** exista tag-uri GA4 / Google Ads.
+- Daca vrei GA4 pe viitor: adauga-l ca tag **in GTM** (nu in cod), legat de un trigger si de Consent Mode.
+
+✅ **Done.**
+
+---
+
+## 2. CookieYes — Consent Mode
+
+**De ce**: ca tag-urile din GTM sa porneasca doar dupa acceptul utilizatorului (Consent Mode v2).
+
+### Pasi:
+
+1. Loghin in [app.cookieyes.com](https://app.cookieyes.com)
+2. Selecteaza site-ul `rxr-performance.ro`
+3. In setari (`Settings` / `Consent`) → activeaza **Google Consent Mode**
+4. (Optional) personalizeaza textul si aspectul banner-ului
+5. Salveaza — scriptul e deja instalat pe site (`cdn-cookieyes.com/.../script.js`, in `<head>` pe toate paginile)
 
 ### Verificare:
 
-- Astepti 2 min sa redeployeze
-- Deschizi [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
-- Lipesti `https://rxr-performance.ro/` → click `Debug` → ar trebui sa vezi imaginea
-- Daca arata vechi, click `Scrape Again`
+- Deschide `rxr-performance.ro` in fereastra incognito → ar trebui sa apara banner-ul CookieYes
+- Dupa Accept, cookie-ul `cookieyes-consent` e setat (DevTools → Application → Cookies)
 
 ✅ **Done.**
 
 ---
 
-## 2. Google Analytics — verificare
-
-**De ce**: deja avem Google Analytics activ (ID `G-LQ96D9R5KF`), dar e bine sa verifici ca primesti date.
-
-### Pasi:
-
-1. Mergi la [analytics.google.com](https://analytics.google.com)
-2. Loghin cu contul Google care detine proprietatea
-3. Selecteaza proprietatea **RXR Performance** (sau cum se cheama)
-4. In stanga: **Reports** → **Realtime**
-5. In alt tab, deschide [rxr-performance.ro](https://rxr-performance.ro) si navigheaza prin pagini
-6. In tab-ul Analytics, ar trebui sa vezi `1 user in last 30 minutes`
-
-### Daca nu vezi nimic:
-
-- Verifica ca ID-ul `G-LQ96D9R5KF` din `index.html` (linia ~73) e corect
-- Asigura-te ca ai acceptat cookies pe site (banner-ul din colt jos)
-
-✅ **Done.**
-
----
-
-## 3. Google Search Console — submit sitemap
-
-**De ce**: Google sa stie ca site-ul tau exista si sa indexeze paginile.
-
-### Pasi:
-
-1. Mergi la [search.google.com/search-console](https://search.google.com/search-console)
-2. Loghin cu acelasi cont Google
-3. Click `Add property` → alegi **Domain** → introdu `rxr-performance.ro` → `Continue`
-4. Google iti da o **valoare TXT** pentru DNS verification
-5. **Verificare DNS** (cea mai durabila):
-   - Mergi la providerul tau de domeniu (probabil GoDaddy, Hostinger, NameCheap etc.)
-   - In DNS Management, adaugi un record nou: `Type: TXT`, `Name: @`, `Value: <valoarea de la Google>`
-   - Te intorci in Search Console → click `Verify` (poate dura 5-15 min sa se propage)
-6. Dupa verificare, in stanga: `Sitemaps`
-7. La `Add a new sitemap` introdu: `sitemap.xml`
-8. Click `Submit`
-9. Status ar trebui sa devina `Success` in cateva minute
-
-### Cautari sponsorizate (verificare):
-
-- Mai jos in meniul stang: `URL Inspection` → introduce `https://rxr-performance.ro/`
-- Click `Request Indexing` (ca Google sa indexeze imediat homepage-ul)
-- Repeti pentru `/servicii.html`, `/preturi.html`, etc. (max 10 pe zi)
-
-✅ **Done.**
-
----
-
-## 4. Google Ads conversion tracking
-
-**De ce**: ca sa stii cati clienti vin de pe reclame (cand vei face Google Ads campaign).
-
-### Pas A — Creezi cont Google Ads:
-
-1. Mergi la [ads.google.com](https://ads.google.com) → `Start Now`
-2. Loghin cu acelasi cont Google
-3. La intrebari initiale (Smart Mode / Expert Mode), alege **Expert Mode** (jos)
-4. La `Create your first campaign`, click **Skip campaign creation** (jos)
-5. Acum esti in dashboard-ul Google Ads gol
-
-### Pas B — Iei Conversion ID:
-
-1. In meniul de sus, click `Tools` (icon cu chei) → sub `Measurement` → click `Conversions`
-2. Click butonul albastru `+ New conversion action`
-3. Alegi sursa: **Website**
-4. La `Website domain` pune `rxr-performance.ro` → click `Scan`
-5. Click `Add a conversion action manually`
-6. **Setari pentru o conversie „WhatsApp Click"**:
-   - **Category**: `Lead` → `Submit lead form`
-   - **Conversion name**: `WhatsApp Click`
-   - **Value**: `Use the same value for each conversion` → introduce `5` (RON estimat per lead)
-   - **Count**: `One` (per click)
-   - **Click-through conversion window**: `30 days`
-   - **View-through**: `1 day`
-   - **Include in „Conversions"**: ✅ Yes
-   - **Attribution model**: `Data-driven`
-7. Click `Done` → `Save and continue`
-8. La `Set up the tag`: alege **Use Google Tag Manager** sau **Install the tag yourself**
-   - **Recomandat**: `Install the tag yourself` (mai simplu pentru tine)
-9. Apare un cod cu **2 valori importante**:
-   - **Conversion ID**: `AW-1234567890` (incepe cu `AW-`)
-   - **Conversion Label**: `abcDefGhIj-kLmN` (un string scurt)
-   - **Salveaza-le pe amandoua intr-un notepad temporar**
-
-### Pas C — Pui ID-urile in cod:
-
-1. Deschide `/Users/raresroca/Projects/Personal/rxr-performance/index.html`
-2. Cauta cu `Ctrl+F`: `AW-XXXXXXXXX`
-3. Vei gasi linia 83 (sau prin acolo):
-   ```javascript
-   // Google Ads - Replace AW-XXXXXXXXX with your Google Ads ID
-   // gtag('config', 'AW-XXXXXXXXX');
-   ```
-4. **Decomenteaza** (sterge `// `) si **inlocuieste** `AW-XXXXXXXXX` cu `AW-` + ID-ul tau real:
-   ```javascript
-   gtag('config', 'AW-1234567890');
-   ```
-5. Repeti acelasi pas in `servicii.html` si `preturi.html`
-
-6. Acum deschide `/Users/raresroca/Projects/Personal/rxr-performance/assets/js/utils.js`
-7. Cauta `'send_to': 'AW-XXXXXXXXX/'`
-8. Decomenteaza si inlocuieste cu:
-   ```javascript
-   gtag('event', 'conversion', {
-     'send_to': 'AW-1234567890/abcDefGhIj-kLmN',
-     'value': value,
-     'currency': 'RON'
-   });
-   ```
-   (`abcDefGhIj-kLmN` e Conversion Label-ul de la pas B)
-
-9. Salvezi toate fisierele si commit:
-   ```bash
-   cd /Users/raresroca/Projects/Personal/rxr-performance
-   git add index.html servicii.html preturi.html assets/js/utils.js
-   git commit -m "feat: enable Google Ads conversion tracking"
-   git push origin main
-   ```
-
-### Pas D — Verifici ca merge:
-
-1. Astepti 2 min sa redeployeze
-2. Deschide site-ul si dai click pe butonul WhatsApp
-3. In Google Ads dashboard → `Conversions` → ar trebui sa vezi `1` la `Last 7 days` (poate dura 24h sa apara)
-
-✅ **Done.**
-
----
-
-## 5. Facebook Pixel
-
-**De ce**: tracking pentru reclame Facebook/Instagram + remarketing audience.
-
-### Pas A — Creezi Pixel-ul:
-
-1. Mergi la [business.facebook.com](https://business.facebook.com) → loghin cu Facebook-ul tau
-2. Daca nu ai Business Manager, te ghideaza sa creezi (Business Name: `RXR Performance`, email: `contact@rxr-performance.ro`)
-3. In Business Manager, in stanga: `All tools` → sub `Manage business` → `Events Manager`
-4. Sau direct: [business.facebook.com/events_manager](https://business.facebook.com/events_manager)
-5. Click `Connect data sources` (sau iconita verde `+`) → alege **Web** → `Connect`
-6. **Name your dataset**: `RXR Performance Website` → `Create`
-7. Esti intrebat cum vrei sa instalezi → alege **Install code manually**
-8. **Apare codul base** care contine un numar lung — acel numar e **Pixel ID-ul tau** (15-16 cifre, ex. `1234567890123456`)
-9. **Copiaza Pixel ID-ul**
-
-### Pas B — Pui Pixel ID in cod:
-
-1. Deschide `/Users/raresroca/Projects/Personal/rxr-performance/index.html`
-2. Cauta cu `Ctrl+F`: `XXXXXXXXXXXXXXXX` (linia ~96)
-3. Vei gasi:
-   ```javascript
-   // fbq('init', 'XXXXXXXXXXXXXXXX');
-   // fbq('track', 'PageView');
-   ```
-4. **Decomenteaza ambele linii** si **inlocuieste** `XXXXXXXXXXXXXXXX` cu Pixel ID-ul tau:
-   ```javascript
-   fbq('init', '1234567890123456');
-   fbq('track', 'PageView');
-   ```
-5. Mai jos, in `<noscript>`, vei vedea inca un `XXXXXXXXXXXXXXXX` — decomenteaza si inlocuieste si acolo
-
-6. Repeti acelasi pas in `servicii.html`
-
-7. Commit + push:
-   ```bash
-   git add index.html servicii.html
-   git commit -m "feat: enable Facebook Pixel tracking"
-   git push origin main
-   ```
-
-### Pas C — Verifici cu Pixel Helper:
-
-1. Instaleaza extensia Chrome [Facebook Pixel Helper](https://chrome.google.com/webstore/detail/meta-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc)
-2. Deschide `rxr-performance.ro`
-3. Click pe iconita Pixel Helper — ar trebui sa vezi `1 pixel found` cu evenimentul `PageView`
-
-✅ **Done.**
-
----
-
-## 6. Google Places API pentru recenzii live
+## 3. Google Places API pentru recenzii live
 
 **De ce**: pe homepage apar 3 carduri cu recenzii. Acum sunt placeholder. Le vrem sa fie recenziile reale Google.
 
@@ -279,7 +102,7 @@ Ghid complet pentru a finaliza configurarea site-ului. Fiecare sectiune contine 
 
 ### Pas D — Pui cheia + Place ID in cod:
 
-1. Deschide `/Users/raresroca/Projects/Personal/rxr-performance/assets/js/reviews.js`
+1. Deschide `assets/js/reviews.js`
 2. Sus, in `CONFIG`, completezi:
    ```javascript
    const CONFIG = {
@@ -289,8 +112,10 @@ Ghid complet pentru a finaliza configurarea site-ului. Fiecare sectiune contine 
      maxReviews: 6
    };
    ```
+   > Daca folosesti cheia API prin `reviews.js`, adaug-o in CSP (`script-src` / `connect-src`) pentru `maps.googleapis.com` — spune-mi si o fac eu.
 3. Commit + push:
    ```bash
+   cd /Users/raresroca/Projects/Personal/rxr-performance
    git add assets/js/reviews.js
    git commit -m "feat: enable live Google Places reviews"
    git push origin main
@@ -309,30 +134,7 @@ Ghid complet pentru a finaliza configurarea site-ului. Fiecare sectiune contine 
 
 ---
 
-## 7. Apple Touch Icon
-
-**De ce**: cand cineva salveaza site-ul pe iPhone home screen, in loc de emoji 🏎️ apare un logo proper.
-
-### Pasi:
-
-1. In Canva (sau Figma), creezi o imagine **180x180 px**
-2. **Fundal**: slate dark (`#0F172A`)
-3. **Centru**: text mare `RXR` cu font Orbitron (sau similar) in culoare `#0EA5E9`
-4. Sub: text mic `PERFORMANCE`
-5. Download ca **PNG**
-6. Salveaza ca `apple-touch-icon.png` in radacina proiectului
-7. Adauga in fiecare HTML (sau eu pot face asta automat — spune-mi):
-   ```html
-   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-   ```
-   (chiar deasupra linkului existent `<link rel="apple-touch-icon" href="data:image/svg+xml,...">`)
-8. Commit + push
-
-✅ **Done.**
-
----
-
-## 8. Bonus: Bing Webmaster Tools
+## 4. Bonus: Bing Webmaster Tools
 
 **De ce**: ~3% din traficul de cautare vine de pe Bing. Easy win.
 
@@ -349,24 +151,11 @@ Ghid complet pentru a finaliza configurarea site-ului. Fiecare sectiune contine 
 
 ---
 
-## 🎯 Order recomandat de executie
-
-Daca nu vrei sa faci toate odata, asta e ordinea priorizata:
-
-1. **Astazi (15 min)**: og-image.png + Search Console (mai important pentru SEO si share-uri)
-2. **Cand ai chef (20 min)**: Apple Touch Icon + Bing Webmaster Tools
-3. **Cand vrei sa pornesti campanii (40 min)**: Google Ads + Facebook Pixel
-4. **Cand ai 20-50 recenzii Google pe business profile (20 min)**: Google Places API
-   *(Inainte de a avea recenzii, nu are sens — cardurile placeholder de azi arata mai bine decat 0 recenzii reale)*
-
----
-
 ## 🆘 Daca ramai blocat
 
 - **Probleme cu DNS / domeniu**: spune-mi providerul tau de domeniu si te ghidez exact unde sa adaugi record-urile
-- **Probleme cu Canva / design**: pot genera un SVG simplu pentru og-image si tu il convertesti la JPG
-- **Erori in cod dupa ce inlocuiesti placeholders**: trimite-mi mesajul de eroare din browser DevTools si rezolv
+- **Erori in cod / CSP dupa ce adaugi cheia Places**: trimite-mi mesajul de eroare din browser DevTools si rezolv
 
 ---
 
-**Toate sunt gratuite** sau au tier gratuit suficient pentru un site mic. Singurul lucru care **poate** costa: Google Places API daca depasesti 100,000 cereri pe luna (nu vei avea problema niciodata pe un site asa).
+**Toate sunt gratuite** sau au tier gratuit suficient pentru un site mic. Singurul lucru care **poate** costa: Google Places API daca depasesti pragul gratuit (nu vei avea problema pe un site asa).

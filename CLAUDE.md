@@ -14,9 +14,9 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 | CSS | Tailwind CSS 4 (CDN), custom CSS |
 | JavaScript | Vanilla ES6+ (IIFE modules) |
 | Fonts | Google Fonts (Orbitron for branding, Inter for body) |
-| Analytics | Google Analytics 4 (G-LQ96D9R5KF), Consent Mode v2 |
+| Tag management | Google Tag Manager (GTM-TTF724N7) — sole tracking install; GA/Ads managed in-container, nothing hardcoded |
 | Instagram feed | Behold.so widget |
-| Cookie consent | Custom GDPR banner |
+| Cookie consent | CookieYes (Consent Mode v2) |
 | Build | None — static files, no npm |
 
 **No backend, no database, no package.json.** Pure static site.
@@ -45,7 +45,6 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
     │   ├── navigation.js         # Mobile menu, sticky nav
     │   ├── faq.js                # Accordion
     │   ├── reviews.js            # Google Places reviews loader (with static fallback)
-    │   ├── cookie-consent.js     # GDPR banner + GA Consent Mode v2 integration
     │   ├── utils.js              # window.RXR namespace, tracking, helpers
     │   └── tailwind-config.js    # Theme tokens (used by servicii.html externally)
     └── css/
@@ -142,12 +141,10 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 
 ## Analytics & Tracking
 
-- **Google Analytics 4**: G-LQ96D9R5KF (active, gated by cookie consent)
-- **Google Ads**: placeholder ready (commented out — needs `AW-XXXXXXXXX`)
-- **Facebook Pixel**: placeholder ready (commented out — needs Pixel ID)
-- **Google Consent Mode v2**: integrated via `cookie-consent.js`
-- **Custom tracking**: `RXR.trackEvent()`, `RXR.trackConversion()` in `utils.js`
-- Events tracked: `whatsapp_click`, `phone_click`, `vehicle_lookup`
+- **Google Tag Manager**: `GTM-TTF724N7` — the **only** tracking install in the code (head snippet + `<noscript>` on every page). Loaded **after** CookieYes so Consent Mode gates it.
+- **No hardcoded GA4 / Google Ads / Facebook Pixel** — by explicit request (2026-07). Any analytics/ads must be configured **inside the GTM container**, not in the HTML. Do not re-add `gtag.js` or `G-*`/`AW-*` snippets.
+- **Consent Mode v2**: provided by CookieYes (loads before GTM).
+- **Custom helpers**: `RXR.trackEvent()`, `RXR.trackConversion()` in `utils.js` push to `window.dataLayer` (GTM-native) — no vendor SDK calls. `initContactTracking()` fires `whatsapp_click` / `phone_click` events on CTA clicks; wire these as GTM triggers.
 
 ## SEO
 
@@ -170,16 +167,17 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 
 ## GDPR / Cookie Consent
 
-- Custom banner via `cookie-consent.js`, shown on first visit
-- Choices stored in `localStorage` key `rxr_cookie_consent` (`accept` / `reject`)
-- Integrated with GA Consent Mode v2 (default denied, updated on user choice)
-- Privacy policy link currently `href="#"` — needs `confidentialitate.html` page
+- **CookieYes** manages the banner + Google Consent Mode v2. Script lives in `<head>` **before** the GTM snippet on every page (`cdn-cookieyes.com/client_data/…/script.js`).
+- Cookie set by CookieYes: `cookieyes-consent` (~1 year). The old custom banner (`cookie-consent.js`, `rxr_cookie_consent`) was removed 2026-07.
+- CSP whitelists `cdn-cookieyes.com` (script-src) + `cdn-cookieyes.com` / `log.cookieyes.com` (connect-src) on every page that has a CSP.
+- Privacy policy: `confidentialitate.html` (live, linked in footer on every page).
+- **Manual step (dashboard):** enable Google Consent Mode in the CookieYes account so GTM tags respect consent.
 
 ## Third-party integrations
 
 - **Behold.so** — Instagram feed widget on `galerie.html` (`feed-id="3nVTXEc9DkXMC5BLJr2Z"`)
 - **Google Maps** — embed on `contact.html` (coords for Cluj-Napoca)
-- **WhatsApp Web** — primary CTA via `wa.me/40744787446` links
+- **WhatsApp Web** — primary CTA via `wa.me/40744787446` links. All CTAs standardized (2026-07): WhatsApp buttons read **"Scrie pe WhatsApp"**, call buttons read **"Suna: 0744 787 446"** (number visible as text for tracking). Service sections use a **"Programeaza-te pentru [Serviciu]"** heading above the two buttons.
 - **Google Fonts** — Orbitron + Inter
 
 ## Contact
@@ -192,11 +190,10 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 
 ## TODO
 
-See [`README.md`](./README.md) `## 📌 TODO` section for the full punch list:
-1. `og-image.png` (1200x630) for social sharing
-2. Google Ads conversion ID
-3. Facebook Pixel ID
-4. Google Places API key + Place ID for live reviews
-5. Business email migration
-6. Privacy policy page (`confidentialitate.html`)
-7. Apple touch icon PNG
+See [`README.md`](./README.md) `## 📌 TODO` section for the full punch list. Open items:
+1. Google Places API key + Place ID for live reviews
+2. Business email migration (`contact@rxr-performance.ro`)
+3. CookieYes dashboard: enable Google Consent Mode
+
+Done: og-image, Apple touch icon, privacy policy page, GTM migration, CookieYes.
+Explicitly **not wanted** (2026-07): Google Ads, Facebook Pixel, hardcoded GA4.
