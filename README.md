@@ -72,6 +72,7 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
     │   ├── navigation.js         Mobile menu, sticky nav, scroll behavior
     │   ├── faq.js                Accordion details/summary
     │   ├── reviews.js            Loader recenzii Google Places (cu fallback static)
+    │   ├── gtm.js                Loader Google Tag Manager (snippet extern din `<head>`)
     │   ├── utils.js              Namespace `window.RXR`, tracking, helpers
     │   └── tailwind-config.js    Theme colors (folosit doar de servicii.html)
     └── instagram/                (rezervat pentru optiuni viitoare)

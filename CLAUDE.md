@@ -45,6 +45,7 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
     │   ├── navigation.js         # Mobile menu, sticky nav
     │   ├── faq.js                # Accordion
     │   ├── reviews.js            # Google Places reviews loader (with static fallback)
+    │   ├── gtm.js                # Google Tag Manager loader (externalized <head> snippet)
     │   ├── utils.js              # window.RXR namespace, tracking, helpers
     │   └── tailwind-config.js    # Theme tokens (used by servicii.html externally)
     └── css/
@@ -141,7 +142,7 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 
 ## Analytics & Tracking
 
-- **Google Tag Manager**: `GTM-TTF724N7` — the **only** tracking install in the code (head snippet + `<noscript>` on every page). Loaded **after** CookieYes so Consent Mode gates it.
+- **Google Tag Manager**: `GTM-TTF724N7` — the **only** tracking install in the code. Loader externalized to `assets/js/gtm.js`, imported in `<head>` **after** CookieYes (so Consent Mode gates it); paired `<noscript>` iframe stays inline in `<body>` on every page.
 - **No hardcoded GA4 / Google Ads / Facebook Pixel** — by explicit request (2026-07). Any analytics/ads must be configured **inside the GTM container**, not in the HTML. Do not re-add `gtag.js` or `G-*`/`AW-*` snippets.
 - **Consent Mode v2**: provided by CookieYes (loads before GTM).
 - **Custom helpers**: `RXR.trackEvent()`, `RXR.trackConversion()` in `utils.js` push to `window.dataLayer` (GTM-native) — no vendor SDK calls. `initContactTracking()` fires `whatsapp_click` / `phone_click` events on CTA clicks; wire these as GTM triggers.
