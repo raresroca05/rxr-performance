@@ -74,6 +74,13 @@
 @media (min-width: 640px) { .page-hero h1 { font-size: 2.5rem; } }
 @media (min-width: 768px) { .page-hero h1 { font-size: 3rem; } }
 @media (min-width: 1024px) { .page-hero h1 { font-size: 3.75rem; } }
+/* Mobile: keep "PERFORMANCE" on one line (the 0.3em brand tracking is too wide at hero size) */
+@media (max-width: 640px) {
+  .page-hero h1 .performance-text { letter-spacing: 0.1em; }
+}
+@media (max-width: 380px) {
+  .page-hero h1 { font-size: 1.6rem; }
+}
 .page-hero-divider {
   margin: 1.5rem auto 0;
   height: 1px;
