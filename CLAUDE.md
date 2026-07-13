@@ -16,7 +16,7 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 | Fonts | Google Fonts (Orbitron for branding, Inter for body) |
 | Tag management | Google Tag Manager (GTM-TTF724N7) — sole tracking install; GA/Ads managed in-container, nothing hardcoded |
 | Instagram feed | Behold.so widget |
-| Cookie consent | CookieYes (Consent Mode v2) |
+| Cookie consent | CookieYes (Consent Mode v2) — loaded via GTM, key `57bb99c7…a303e0` |
 | Build | None — static files, no npm |
 
 **No backend, no database, no package.json.** Pure static site.
@@ -142,7 +142,7 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 
 ## Analytics & Tracking
 
-- **Google Tag Manager**: `GTM-TTF724N7` — the **only** tracking install in the code. Loader externalized to `assets/js/gtm.js`, imported in `<head>` **after** CookieYes (so Consent Mode gates it); paired `<noscript>` iframe stays inline in `<body>` on every page.
+- **Google Tag Manager**: `GTM-TTF724N7` — the **only** tracking install in the code. Loader externalized to `assets/js/gtm.js`, imported in `<head>`; paired `<noscript>` iframe stays inline in `<body>` on every page. Consent (CookieYes) and GA4/Ads tags live **inside** the GTM container.
 - **No hardcoded GA4 / Google Ads / Facebook Pixel** — by explicit request (2026-07). Any analytics/ads must be configured **inside the GTM container**, not in the HTML. Do not re-add `gtag.js` or `G-*`/`AW-*` snippets.
 - **Consent Mode v2**: provided by CookieYes (loads before GTM).
 - **Custom helpers**: `RXR.trackEvent()`, `RXR.trackConversion()` in `utils.js` push to `window.dataLayer` (GTM-native) — no vendor SDK calls. `initContactTracking()` fires `whatsapp_click` / `phone_click` events on CTA clicks; wire these as GTM triggers.
@@ -168,7 +168,8 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 
 ## GDPR / Cookie Consent
 
-- **CookieYes** manages the banner + Google Consent Mode v2. Script lives in `<head>` **before** the GTM snippet on every page (`cdn-cookieyes.com/client_data/…/script.js`).
+- **CookieYes** manages the banner + Google Consent Mode v2. As of 2026-07 it is **loaded via GTM** (installed by the marketing/GTM owner), **not** hardcoded in the page `<head>`. Website key: `57bb99c764307d7ce071a31fe0a303e0`.
+- ⚠️ When loaded via GTM, use CookieYes's GTM template on the **Consent Initialization** trigger so consent defaults are set before other tags fire.
 - Cookie set by CookieYes: `cookieyes-consent` (~1 year). The old custom banner (`cookie-consent.js`, `rxr_cookie_consent`) was removed 2026-07.
 - CSP whitelists `cdn-cookieyes.com` (script-src) + `cdn-cookieyes.com` / `log.cookieyes.com` (connect-src) on every page that has a CSP.
 - Privacy policy: `confidentialitate.html` (live, linked in footer on every page).

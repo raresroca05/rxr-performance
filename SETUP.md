@@ -51,7 +51,7 @@ Deja rezolvate (nu mai necesita nimic): imagine OG, Apple Touch Icon, Google Sea
 2. Selecteaza site-ul `rxr-performance.ro`
 3. In setari (`Settings` / `Consent`) → activeaza **Google Consent Mode**
 4. (Optional) personalizeaza textul si aspectul banner-ului
-5. Salveaza — scriptul e deja instalat pe site (`cdn-cookieyes.com/.../script.js`, in `<head>` pe toate paginile)
+5. Instalare: CookieYes se adauga **prin GTM** (nu mai e hardcodat in cod). Website key: `57bb99c764307d7ce071a31fe0a303e0`. In GTM foloseste template-ul CookieYes pe trigger-ul **Consent Initialization**.
 
 ### Verificare:
 

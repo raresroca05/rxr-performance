@@ -36,7 +36,7 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 | Fonts | Google Fonts (Orbitron pentru brand, Inter pentru body) |
 | Tag management | Google Tag Manager (`GTM-TTF724N7`) — singura instalare de tracking; GA/Ads se gestioneaza in container, nimic hardcodat |
 | Instagram feed | [Behold.so](https://behold.so) widget |
-| Cookie consent | [CookieYes](https://www.cookieyes.com) — Consent Mode v2 |
+| Cookie consent | [CookieYes](https://www.cookieyes.com) — Consent Mode v2, incarcat prin GTM |
 | Build | **Niciun build** — fisiere statice, fara npm |
 | Hosting | GitHub Pages |
 
@@ -165,7 +165,8 @@ Toate preturile sunt orientative — final dupa consultatie gratuita pe WhatsApp
 
 ✅ **GDPR / Cookie consent** (via **CookieYes**):
 - Banner + Google Consent Mode v2 gestionate de CookieYes
-- Scriptul CookieYes se incarca in `<head>` **inainte** de GTM
+- Incarcat **prin GTM** (nu hardcodat in cod) — website key `57bb99c764307d7ce071a31fe0a303e0`
+- ⚠️ In GTM foloseste template-ul CookieYes pe trigger-ul **Consent Initialization** (ca defaults-urile de consimtamant sa fie setate inainte de restul tag-urilor)
 - Cookie: `cookieyes-consent` (~1 an); vechiul banner custom (`cookie-consent.js`) a fost eliminat
 - CSP whitelist: `cdn-cookieyes.com` + `log.cookieyes.com`
 
