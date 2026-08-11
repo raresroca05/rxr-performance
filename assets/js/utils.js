@@ -73,6 +73,8 @@
         RXR.trackEvent('whatsapp_click', {
           'event_category': 'engagement',
           'event_label': 'WhatsApp Contact',
+          'link_url': whatsappLink.href,
+          'page_path': location.pathname,
           'value': 1
         });
         RXR.trackConversion('whatsapp_contact');
@@ -83,6 +85,8 @@
         RXR.trackEvent('phone_click', {
           'event_category': 'engagement',
           'event_label': 'Phone Contact',
+          'phone_number': (phoneLink.getAttribute('href') || '').replace('tel:', ''),
+          'page_path': location.pathname,
           'value': 1
         });
         RXR.trackConversion('phone_contact');
