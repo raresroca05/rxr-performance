@@ -181,6 +181,7 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 - **Google Maps** — embed on `contact.html` (coords for Cluj-Napoca)
 - **WhatsApp Web** — primary CTA via `wa.me/40744787446` links. All CTAs standardized (2026-07): WhatsApp buttons read **"Scrie pe WhatsApp"**, call buttons read **"Suna: 0744 787 446"** (number visible as text for tracking). Service sections use a **"Programeaza-te pentru [Serviciu]"** heading above the two buttons.
 - **Google Fonts** — Orbitron + Inter
+- **WhatConverts** — call/lead tracking, loaded **via GTM** (2026-09). Script: `https://s.ksrndkehqnwntyxlhgto.com/176097.js`. The domain is whitelisted in `script-src` + `connect-src` of the CSP on every page that has one. WhatConverts serves the script from a per-account randomized domain — if the account is reissued, the CSP needs the new domain.
 
 ## Contact
 
