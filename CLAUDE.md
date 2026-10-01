@@ -187,6 +187,8 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 
   WhatConverts serves the script from a per-account randomized domain — if the account is reissued, the CSP needs the new domains.
 
+  **Number swap (2026-10):** WhatConverts swaps the displayed phone number with a tracking number. Every `wa.me` link carries `class="no-swap"` so the WhatsApp number stays the real one (0744 787 446) — only `tel:` links and the number shown as text get swapped. Any new WhatsApp button must get `no-swap` too (including the template in `assets/js/utils.js` → `RXR.createWhatsAppCTA`).
+
 ## Contact
 
 - Phone: +40 744 787 446
