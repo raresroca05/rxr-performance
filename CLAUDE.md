@@ -103,7 +103,7 @@ Active state via `.site-nav__link.is-active` / `.mobile-menu__link.is-active`. D
 Full-viewport hero (Instagram image crossfade + headline + 4 counters) → chapters: 01 Servicii (4 numbered rows linking to `servicii.html#…`) → 02 Calculator (ids unchanged for `main.js`) → 03 Proiecte (drag slider from Instagram) → 04 De ce RXR (3 pillars + certifications) → 05 Recenzii (`#reviews-grid` etc. for `reviews.js`) → 06 Contact (`.cta-band`) → Footer.
 
 ### `servicii.html`
-Page hero with anchor links → chapters: 01 Stage 1 ECU/TCU (`#tuning`), 02 Antipoluare (`#antipoluare`), 03 Codari BMW (`#codari-bmw`, 6 category cards), 04 Diagnoza (`#diagnoza`) → closing CTA band. Anchor ids are linked from index/despre-noi — keep them.
+Page hero with anchor links → chapters: 01 Stage 1 ECU/TCU (`#tuning`), 02 Codari BMW (`#codari-bmw`, 6 category cards), 03 Diagnoza (`#diagnoza`) → closing CTA band. Anchor ids are linked from index/despre-noi — keep them.
 
 ### `preturi.html`
 Pricing list with "incepand de la" prefix. No longer password-protected (changed 2026-06).
@@ -112,7 +112,6 @@ Pricing list with "incepand de la" prefix. No longer password-protected (changed
 - Stage 1 TCU: from 650 RON
 - Codari BMW: from 150 RON
 - Diagnoza: from 150 RON
-- DPF/EGR/AdBlue: la cerere
 
 ### `galerie.html`
 Renamed from "Galerie" → **"Proiecte"**. 01 Instagram grid (`[data-ig-grid]`, 12 posts via `instagram.js`, replaced the Behold `<behold-widget>`), 02 Social (buttons + stats band), CTA band.
@@ -200,6 +199,10 @@ Displayed values are clearly marked as estimates (amber banner + result card war
   WhatConverts serves the script from a per-account randomized domain — if the account is reissued, the CSP needs the new domains.
 
   **Number swap (2026-10):** WhatConverts swaps the displayed phone number with a tracking number. Every `wa.me` link carries `class="no-swap"` so the WhatsApp number stays the real one (0744 787 446) — only `tel:` links and the number shown as text get swapped. Any new WhatsApp button must get `no-swap` too (including the template in `assets/js/utils.js` → `RXR.createWhatsAppCTA`).
+
+## Removed services
+
+- **DPF / EGR / AdBlue (antipoluare)** — removed from the whole site on 2026-10-02 at the owner's request: no section, no price row, no meta/keywords, no JSON-LD offers, no footer mention. Do not re-add.
 
 ## Contact
 

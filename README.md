@@ -3,7 +3,7 @@
 [![Status](https://img.shields.io/badge/status-live-success)](https://rxr-performance.ro)
 [![License](https://img.shields.io/badge/license-private-lightgrey)](#)
 
-Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari BMW, diagnoza auto si optimizari DPF/EGR/AdBlue. Site complet static (HTML/CSS/JS) hostat pe **GitHub Pages**, fara backend.
+Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari BMW si diagnoza auto. Site complet static (HTML/CSS/JS) hostat pe **GitHub Pages**, fara backend.
 
 - 🌐 **Live**: [rxr-performance.ro](https://rxr-performance.ro)
 - 📍 **Locatie**: Strada Traian Vuia 259, 400397 Cluj-Napoca
@@ -48,7 +48,7 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 .
 ├── index.html                    Homepage: hero Instagram + 6 capitole (Servicii, Calculator,
 │                                 Proiecte, De ce RXR, Recenzii, Contact)
-├── servicii.html                 Detalii servicii (ECU/TCU, antipoluare, codari, diagnoza)
+├── servicii.html                 Detalii servicii (ECU/TCU, codari BMW, diagnoza)
 ├── preturi.html                  Lista preturi orientative
 ├── galerie.html                  „Proiecte" — grid Instagram (Behold JSON feed) + butoane sociale
 ├── despre-noi.html               Despre echipa + valori + cum lucram
@@ -91,11 +91,11 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 
 ### 🔧 `servicii.html` — Servicii
 
-Detalii pe sectiuni: Stage 1 ECU & TCU, Antipoluare (DPF/EGR/AdBlue), Codari BMW (40+ functii), Diagnoza Auto.
+Detalii pe sectiuni: Stage 1 ECU & TCU, Codari BMW (40+ functii), Diagnoza Auto. (DPF/EGR/AdBlue a fost scos complet de pe site in 2026-10.)
 
 ### 💰 `preturi.html` — Preturi
 
-Lista orientativa: Stage 1 ECU+TCU pack (incepand de la 1.500 RON), ECU (1.000), TCU (650), Codari BMW (150), Diagnoza (150), DPF/EGR/AdBlue (la cerere). Toate „incepand de la".
+Lista orientativa: Stage 1 ECU+TCU pack (incepand de la 1.500 RON), ECU (1.000), TCU (650), Codari BMW (150), Diagnoza (150). Toate „incepand de la".
 
 ### 📸 `galerie.html` — Proiecte
 
@@ -135,7 +135,6 @@ Toate valorile marcate **clar** ca orientative (banner amber + nota in card de r
 | Stage 1 Cutie (TCU) | de la **650** |
 | Codari BMW | de la **150** |
 | Diagnoza Auto | de la **150** |
-| DPF / EGR / AdBlue | la cerere |
 
 Toate preturile sunt orientative — final dupa consultatie gratuita pe WhatsApp.
 
