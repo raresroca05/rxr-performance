@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ro" class="overflow-x-hidden">
+<html lang="ro">
 
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Politica de Confidentialitate | RXR Performance</title>
   <meta name="description"
@@ -29,15 +29,16 @@
   <meta name="geo.region" content="RO">
   <meta name="geo.placename" content="Cluj-Napoca">
   <meta name="language" content="Romanian">
-  <meta name="theme-color" content="#0EA5E9">
+  <meta name="theme-color" content="#0a0b0d">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=(), payment=()">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn-cookieyes.com https://cdn.tailwindcss.com https://*.google.com https://*.google.ro https://*.googleapis.com https://*.gstatic.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://s.ksrndkehqnwntyxlhgto.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://cdn-cookieyes.com https://log.cookieyes.com https://wa.me https://*.google.com https://*.google.ro https://*.googleapis.com https://*.gstatic.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://s.ksrndkehqnwntyxlhgto.com https://p.ksrndkehqnwntyxlhgto.com https://process.iconnode.com; frame-src 'self' https://*.google.com https://*.google.ro https://*.doubleclick.net;">
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn-cookieyes.com https://*.google.com https://*.google.ro https://*.googleapis.com https://*.gstatic.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://s.ksrndkehqnwntyxlhgto.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://cdn-cookieyes.com https://log.cookieyes.com https://wa.me https://*.google.com https://*.google.ro https://*.googleapis.com https://*.gstatic.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://s.ksrndkehqnwntyxlhgto.com https://p.ksrndkehqnwntyxlhgto.com https://process.iconnode.com; frame-src 'self' https://*.google.com https://*.google.ro https://*.doubleclick.net;">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏎️</text></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
 
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
@@ -48,19 +49,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script>
-    const originalWarn = console.warn;
-    console.warn = function (...args) {
-      if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
-      originalWarn.apply(console, args);
-    };
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: { extend: { colors: { rxrPrimary: "#0EA5E9", rxrPrimarySoft: "#38BDF8", rxrElectric: "#06B6D4", rxrMViolet: "#D946EF", rxrMRed: "#F43F5E", rxrDeep: "#0F172A", rxrCard: "#1E293B", rxrOutline: "#334155" }}}
-    };
-  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Josefin+Sans:wght@200;300;400;600&amp;display=swap">
   <link rel="stylesheet" href="assets/css/main.css">
   <script src="assets/js/utils.js"></script>
 
@@ -75,101 +64,53 @@
   }
   </script>
 
-  <style>
-    .legal-section h2 {
-      color: #38BDF8;
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .legal-section h3 {
-      color: #f1f5f9;
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .legal-section p, .legal-section li {
-      color: #cbd5e1;
-      line-height: 1.7;
-      margin-bottom: 0.75rem;
-    }
-    .legal-section ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .legal-section a {
-      color: #38BDF8;
-      text-decoration: underline;
-    }
-    .legal-section a:hover { color: #06B6D4; }
-    .legal-section strong { color: #f1f5f9; }
-  </style>
+  
 </head>
 
-<body class="bg-rxrDeep text-zinc-100 antialiased overflow-x-hidden">
-  <!-- Google Tag Manager (noscript) -->
+<body data-page="confidentialitate">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTF724N7"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <a class="skip-link" href="#main">Sari la continut</a>
 
-  <div class="fixed inset-0 -z-10 overflow-hidden no-select" aria-hidden="true">
-    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="RXR Performance - Acasa"><span class="brand__mark">RXR</span><span class="brand__word">Performance</span></a>
+      <nav class="site-nav" aria-label="Navigare principala">
+        <a href="index.html" class="site-nav__link">Acasa</a><a href="servicii.html" class="site-nav__link">Servicii</a><a href="preturi.html" class="site-nav__link">Preturi</a><a href="galerie.html" class="site-nav__link">Proiecte</a><a href="contact.html" class="site-nav__link site-nav__link--cta">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Meniu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav class="mobile-menu__nav" aria-label="Meniu mobil">
+      <a href="index.html" class="mobile-menu__link"><small>01</small>Acasa</a><a href="servicii.html" class="mobile-menu__link"><small>02</small>Servicii</a><a href="preturi.html" class="mobile-menu__link"><small>03</small>Preturi</a><a href="galerie.html" class="mobile-menu__link"><small>04</small>Proiecte</a><a href="contact.html" class="mobile-menu__link"><small>05</small>Contact</a><a href="despre-noi.html" class="mobile-menu__link"><small>06</small>Despre noi</a>
+    </nav>
+    <div class="mobile-menu__meta">
+      <p><a href="tel:0744787446">0744 787 446</a><br><a href="mailto:contact@rxr-performance.ro">contact@rxr-performance.ro</a></p>
+      <p>Luni - Sambata, 09:00 - 18:00<br>Strada Traian Vuia 259, Cluj-Napoca</p>
+      <div class="social-row">
+        <a class="social-btn" href="https://www.instagram.com/rxrperformance" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
+        <a class="social-btn" href="https://www.tiktok.com/@rxrperformance" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.77 20.6a6.34 6.34 0 0 0 10.7-4.57V8.83a8.16 8.16 0 0 0 4.62 1.45V6.83a4.85 4.85 0 0 1-1.5-.14z"/></svg>TikTok</a>
+      </div>
+    </div>
   </div>
 
-  <div class="page-shell">
-    <div class="page-container">
+  <main id="main">
 
-      <!-- Navigation -->
-      <nav class="site-nav" role="navigation" id="main-nav">
-        <div class="site-nav-inner">
-          <div class="site-nav-row">
-            <a href="index.html" class="flex items-center space-x-2 group">
-              <span class="text-xl sm:text-2xl font-bold rxr-logo">RXR</span>
-              <span class="performance-text text-sm sm:text-base text-zinc-300 font-semibold hidden sm:inline">PERFORMANCE</span>
-            </a>
-            <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
-              <a href="index.html" class="nav-link">Acasa</a>
-              <a href="servicii.html" class="nav-link">Servicii</a>
-              <a href="preturi.html" class="nav-link">Preturi</a>
-              <a href="galerie.html" class="nav-link">Proiecte</a>
-              <a href="contact.html" class="nav-link nav-link-cta">Contact</a>
-            </div>
-            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-zinc-300 hover:bg-zinc-800 transition-colors" aria-label="Toggle menu">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-              </svg>
-            </button>
-          </div>
-          <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-zinc-800/50 mt-2">
-            <div class="flex flex-col space-y-1 pt-2">
-              <a href="index.html" class="mobile-nav-link">Acasa</a>
-              <a href="servicii.html" class="mobile-nav-link">Servicii</a>
-              <a href="preturi.html" class="mobile-nav-link">Preturi</a>
-              <a href="galerie.html" class="mobile-nav-link">Proiecte</a>
-              <a href="contact.html" class="mobile-nav-link mobile-nav-link-cta">Contact</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <main role="main" class="page-stack">
-
-        <!-- Page Hero -->
-        <section class="page-hero reveal">
-          <h1><span class="rxr-logo">Politica de Confidentialitate</span></h1>
-          <p class="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto mt-2">
-            Cum colectam, folosim si protejam datele tale, conform GDPR.
-          </p>
-          <p class="text-xs text-zinc-500 mt-3">Ultima actualizare: 5 iunie 2026</p>
-          <div class="page-hero-divider"></div>
-        </section>
-
-        <!-- Content -->
-        <section class="reveal">
-          <article class="legal-section max-w-3xl mx-auto bg-rxrCard/60 border border-rxrOutline rounded-2xl p-6 sm:p-10">
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <p class="eyebrow" data-reveal>Legal</p>
+        <h1 class="display-xl" data-reveal="title">Politica de confidentialitate.</h1>
+        <p class="lead" data-reveal style="--i:1">Cum colectam, folosim si protejam datele tale, conform GDPR.</p><p class="page-hero__meta" data-reveal style="--i:2">Ultima actualizare: 5 iunie 2026</p>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="container">
+        <article class="prose" data-reveal>
 
             <p>
               Aceasta politica de confidentialitate descrie modul in care <strong>RXR Performance</strong> ("noi", "operatorul") colecteaza, utilizeaza, divulga si protejeaza datele cu caracter personal ale vizitatorilor si clientilor site-ului <a href="https://rxr-performance.ro">rxr-performance.ro</a>, in conformitate cu <strong>Regulamentul (UE) 2016/679</strong> (GDPR) si <strong>Legea nr. 190/2018</strong>.
@@ -282,85 +223,61 @@
               Adresa: Strada Traian Vuia 259, 400397 Cluj-Napoca
             </p>
 
-            <div class="mt-10 pt-6 border-t border-zinc-700/50 text-center">
-              <p class="text-xs text-zinc-500">
+            <hr><p class="dim" style="font-size:.8rem">
                 Aceasta politica respecta Regulamentul (UE) 2016/679 (GDPR) si Legea nr. 190/2018.
               </p>
-            </div>
-          </article>
-        </section>
+          
+        </article>
+      </div>
+    </section>
+  </main>
 
-      </main>
-
-      <!-- Footer -->
-      <footer class="site-footer" role="contentinfo">
-        <div class="site-footer-grid">
-          <div>
-            <a href="index.html" class="flex items-center space-x-2 mb-3">
-              <span class="text-xl font-bold rxr-logo">RXR</span>
-              <span class="performance-text text-sm text-zinc-300 font-semibold">PERFORMANCE</span>
-            </a>
-            <p class="footer-text">Tuning ECU & TCU Profesional, Codari BMW, Diagnoza Auto Completa</p>
-          </div>
-          <div>
-            <h4>Link-uri</h4>
-            <ul>
-              <li><a href="servicii.html">Servicii</a></li>
-              <li><a href="preturi.html">Preturi</a></li>
-              <li><a href="galerie.html">Proiecte</a></li>
-              <li><a href="despre-noi.html">Despre Noi</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="confidentialitate.html">Confidentialitate</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <ul>
-              <li><a href="tel:0744787446">0744 787 446</a></li>
-              <li><a href="mailto:contact@rxr-performance.ro">contact@rxr-performance.ro</a></li>
-              <li><span class="footer-text">Luni - Sambata: 09:00 - 18:00</span></li>
-              <li><span class="footer-text">Strada Traian Vuia 259, Cluj-Napoca</span></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Social</h4>
-            <div class="site-footer-social">
-              <a href="https://www.facebook.com/rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              </a>
-              <a href="https://www.instagram.com/rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-              </a>
-              <a href="https://www.tiktok.com/@rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.77 20.6a6.34 6.34 0 0 0 10.7-4.57V8.83a8.16 8.16 0 0 0 4.62 1.45V6.83a4.85 4.85 0 0 1-1.5-.14z"/></svg>
-              </a>
-            </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="brand" href="index.html" aria-label="RXR Performance - Acasa"><span class="brand__mark">RXR</span><span class="brand__word">Performance</span></a>
+          <p>Tuning ECU &amp; TCU Stage 1, codari BMW si diagnoza auto in Cluj-Napoca. Software profesional, backup original, 100% reversibil.</p>
+        </div>
+        <div>
+          <h4>Navigare</h4>
+          <ul>
+            <li><a href="servicii.html">Servicii</a></li>
+            <li><a href="preturi.html">Preturi</a></li>
+            <li><a href="galerie.html">Proiecte</a></li>
+            <li><a href="despre-noi.html">Despre noi</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="confidentialitate.html">Confidentialitate</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:0744787446">0744 787 446</a></li>
+            <li><a href="mailto:contact@rxr-performance.ro">contact@rxr-performance.ro</a></li>
+            <li>Luni - Sambata, 09:00 - 18:00</li>
+            <li>Strada Traian Vuia 259, 400397 Cluj-Napoca</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Social</h4>
+          <div class="site-footer__social">
+            <a href="https://www.facebook.com/rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.instagram.com/rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.tiktok.com/@rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.77 20.6a6.34 6.34 0 0 0 10.7-4.57V8.83a8.16 8.16 0 0 0 4.62 1.45V6.83a4.85 4.85 0 0 1-1.5-.14z"/></svg></a>
           </div>
         </div>
-        <div class="site-footer-bottom">
-          <p>&copy; <span id="year">2024</span> RXR Performance &bull; Tuning ECU & TCU Profesional Romania</p>
-          <p>ECU &bull; TCU &bull; Tuning &bull; DPF &bull; EGR &bull; AdBlue &bull; Codari BMW &bull; Diagnoza Auto</p>
-        </div>
-      </footer>
-
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="year">2026</span> RXR Performance. Toate drepturile rezervate.</p>
+        <p>ECU &middot; TCU &middot; DPF &middot; EGR &middot; AdBlue &middot; Codari BMW &middot; Diagnoza auto</p>
+      </div>
     </div>
-  </div>
+  </footer>
 
-  <script src="assets/js/navigation.js"></script>
+  <a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20aflu%20mai%20multe%20despre%20tuning%20ECU..." target="_blank" rel="noopener noreferrer" class="wa-float no-swap whatsapp-float" aria-label="Scrie pe WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
-  <script>
-    (function() {
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            entry.target.classList.add('active');
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
-    })();
-  </script>
-
+  <script src="assets/js/site.js"></script>
 </body>
+
 </html>

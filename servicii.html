@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ro" class="overflow-x-hidden">
+<html lang="ro">
 
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicii Tuning ECU, Codari BMW, Diagnoza Auto | RXR Performance</title>
   <meta name="description"
@@ -43,8 +43,8 @@
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=(), payment=()">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn-cookieyes.com https://cdn.tailwindcss.com https://*.google.com https://*.google.ro https://*.googleapis.com https://*.gstatic.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://s.ksrndkehqnwntyxlhgto.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.facebook.com https://www.google.com https://www.google.ro; connect-src 'self' https://cdn-cookieyes.com https://log.cookieyes.com https://wa.me https://www.facebook.com https://*.google.com https://*.google.ro https://*.googleapis.com https://*.gstatic.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://s.ksrndkehqnwntyxlhgto.com https://p.ksrndkehqnwntyxlhgto.com https://process.iconnode.com; frame-src 'self' https://www.facebook.com https://*.google.com https://*.google.ro https://*.doubleclick.net;">
-  <meta name="theme-color" content="#1C69D4">
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn-cookieyes.com https://*.google.com https://*.google.ro https://*.googleapis.com https://*.gstatic.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://s.ksrndkehqnwntyxlhgto.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.facebook.com https://www.google.com https://www.google.ro; connect-src 'self' https://cdn-cookieyes.com https://log.cookieyes.com https://wa.me https://www.facebook.com https://*.google.com https://*.google.ro https://*.googleapis.com https://*.gstatic.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://s.ksrndkehqnwntyxlhgto.com https://p.ksrndkehqnwntyxlhgto.com https://process.iconnode.com; frame-src 'self' https://www.facebook.com https://*.google.com https://*.google.ro https://*.doubleclick.net;">
+  <meta name="theme-color" content="#0a0b0d">
   <meta name="format-detection" content="telephone=yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -75,17 +75,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script>
-    const originalWarn = console.warn;
-    console.warn = function (...args) {
-      if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
-        return;
-      }
-      originalWarn.apply(console, args);
-    };
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Josefin+Sans:wght@200;300;400;600&amp;display=swap">
   <link rel="stylesheet" href="assets/css/main.css">
   <script src="assets/js/utils.js"></script>
 
@@ -109,68 +99,6 @@
     ]
   }
   </script>
-
-  <style>
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .stagger-1 { transition-delay: 0.1s; }
-    .stagger-2 { transition-delay: 0.2s; }
-    .stagger-3 { transition-delay: 0.3s; }
-    .stagger-4 { transition-delay: 0.4s; }
-    .stagger-5 { transition-delay: 0.5s; }
-    .stagger-6 { transition-delay: 0.6s; }
-
-    .service-section-card {
-      position: relative;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
-      border: 1px solid rgba(59, 130, 246, 0.15);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    .service-section-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(59, 130, 246, 0.35);
-    }
-
-    .info-glass {
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      border-radius: 1rem;
-    }
-
-    .gradient-border-violet { border-color: rgba(217, 70, 239, 0.4); }
-    .gradient-border-violet:hover { border-color: rgba(217, 70, 239, 0.7); }
-    .gradient-border-blue { border-color: rgba(59, 130, 246, 0.4); }
-    .gradient-border-blue:hover { border-color: rgba(59, 130, 246, 0.7); }
-    .gradient-border-orange { border-color: rgba(249, 115, 22, 0.4); }
-    .gradient-border-orange:hover { border-color: rgba(249, 115, 22, 0.7); }
-    .gradient-border-green { border-color: rgba(34, 197, 94, 0.4); }
-    .gradient-border-green:hover { border-color: rgba(34, 197, 94, 0.7); }
-    .gradient-border-red { border-color: rgba(244, 63, 94, 0.4); }
-    .gradient-border-red:hover { border-color: rgba(244, 63, 94, 0.7); }
-
-    .step-number {
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.875rem;
-      flex-shrink: 0;
-    }
-  </style>
 
   <script type="application/ld+json">
   {
@@ -209,789 +137,200 @@
   </script>
 </head>
 
-<body class="bg-rxrDeep text-zinc-100 antialiased overflow-x-hidden">
-  <!-- Google Tag Manager (noscript) -->
+<body data-page="servicii">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTF724N7"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <a class="skip-link" href="#main">Sari la continut</a>
 
-  <div class="fixed inset-0 -z-10 overflow-hidden no-select" aria-hidden="true">
-    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
-  </div>
-
-  <div class="page-shell">
-    <div class="page-container">
-
-      <!-- Navigation -->
-      <nav class="site-nav" role="navigation" id="main-nav">
-        <div class="site-nav-inner">
-          <div class="site-nav-row">
-            <div class="flex items-center">
-              <a href="index.html" class="flex items-center space-x-2 group">
-                <span class="text-xl sm:text-2xl font-bold rxr-logo">RXR</span>
-                <span class="performance-text text-sm sm:text-base text-zinc-300 font-semibold hidden sm:inline">PERFORMANCE</span>
-              </a>
-            </div>
-
-            <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
-              <a href="index.html" class="nav-link">Acasa</a>
-              <a href="servicii.html" class="nav-link nav-link-active">Servicii</a>
-              <a href="preturi.html" class="nav-link">Preturi</a>
-              <a href="galerie.html" class="nav-link">Proiecte</a>
-              <a href="contact.html" class="nav-link nav-link-cta">Contact</a>
-            </div>
-
-            <button id="mobile-menu-btn"
-              class="md:hidden p-2 rounded-lg text-zinc-300 hover:bg-zinc-800 transition-colors"
-              aria-label="Toggle menu">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-
-          <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-zinc-800/50 mt-2">
-            <div class="flex flex-col space-y-1 pt-2">
-              <a href="index.html" class="mobile-nav-link">Acasa</a>
-              <a href="servicii.html" class="mobile-nav-link active">Servicii</a>
-              <a href="preturi.html" class="mobile-nav-link">Preturi</a>
-              <a href="galerie.html" class="mobile-nav-link">Proiecte</a>
-              <a href="contact.html" class="mobile-nav-link mobile-nav-link-cta">Contact</a>
-            </div>
-          </div>
-        </div>
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="RXR Performance - Acasa"><span class="brand__mark">RXR</span><span class="brand__word">Performance</span></a>
+      <nav class="site-nav" aria-label="Navigare principala">
+        <a href="index.html" class="site-nav__link">Acasa</a><a href="servicii.html" class="site-nav__link is-active" aria-current="page">Servicii</a><a href="preturi.html" class="site-nav__link">Preturi</a><a href="galerie.html" class="site-nav__link">Proiecte</a><a href="contact.html" class="site-nav__link site-nav__link--cta">Contact</a>
       </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Meniu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  </header>
 
-      <!-- Page Hero -->
-      <header class="page-hero reveal" role="banner">
-        <h1>
-          <span class="rxr-logo">Serviciile</span>
-          <span class="performance-text text-gray-100 ml-2 sm:ml-3">Noastre</span>
-        </h1>
-        <p class="text-sm sm:text-base md:text-lg text-zinc-400 max-w-2xl mx-auto px-4">
-          Servicii complete de tuning ECU, codari si diagnoza auto profesionala
-        </p>
-        <div class="page-hero-divider"></div>
-      </header>
-
-      <main role="main" class="space-y-10 sm:space-y-14 md:space-y-16">
-
-        <!-- ========================================== -->
-        <!-- SECTION: Stage 1 Tuning ECU & TCU          -->
-        <!-- ========================================== -->
-        <section id="tuning" class="scroll-mt-20 reveal">
-          <article class="price-card bg-gradient-to-br from-rxrCard via-slate-800/95 to-slate-900 border-2 border-rxrOutline/80 rounded-2xl sm:rounded-3xl">
-            <div class="p-4 sm:p-6 lg:p-8 space-y-6">
-
-              <!-- Section Header -->
-              <div class="text-center space-y-3">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs sm:text-sm font-medium">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                  Tuning Performance
-                </div>
-                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                  Stage 1 Tuning <span class="text-purple-400">ECU & TCU</span>
-                </h2>
-                <p class="text-sm sm:text-base text-zinc-400 max-w-3xl mx-auto">
-                  Remaparea ECU (Engine Control Unit) optimizeaza parametrii motorului pentru performanta maxima, iar remaparea TCU (Transmission Control Unit) imbunatateste comportamentul cutiei automate. Rezultat: o masina complet transformata, cu putere si raspuns superior.
-                </p>
-              </div>
-
-              <!-- ECU & TCU Cards -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-
-                <!-- ECU Card -->
-                <div class="service-section-card gradient-border-violet reveal stagger-1">
-                  <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
-                      </div>
-                      <div>
-                        <h3 class="text-lg font-bold text-white">ECU (Motor)</h3>
-                        <p class="text-xs text-zinc-500">Engine Control Unit</p>
-                      </div>
-                    </div>
-
-                    <p class="text-sm text-zinc-400">
-                      Optimizarea software-ului ECU pentru cresterea puterii, cuplului si a raspunsului la acceleratie. Proces complet in 4 pasi:
-                    </p>
-
-                    <div class="space-y-3">
-                      <div class="flex items-start gap-3">
-                        <div class="step-number bg-purple-500/20 text-purple-400">1</div>
-                        <div>
-                          <p class="text-sm font-medium text-zinc-200">Citire software original</p>
-                          <p class="text-xs text-zinc-500">Extragerea datelor ECU prin OBD sau bench</p>
-                        </div>
-                      </div>
-                      <div class="flex items-start gap-3">
-                        <div class="step-number bg-purple-500/20 text-purple-400">2</div>
-                        <div>
-                          <p class="text-sm font-medium text-zinc-200">Backup complet</p>
-                          <p class="text-xs text-zinc-500">Salvare software original pentru siguranta</p>
-                        </div>
-                      </div>
-                      <div class="flex items-start gap-3">
-                        <div class="step-number bg-purple-500/20 text-purple-400">3</div>
-                        <div>
-                          <p class="text-sm font-medium text-zinc-200">Optimizare harti motor</p>
-                          <p class="text-xs text-zinc-500">Ajustare presiune turbo, injectie, timing aprindere</p>
-                        </div>
-                      </div>
-                      <div class="flex items-start gap-3">
-                        <div class="step-number bg-purple-500/20 text-purple-400">4</div>
-                        <div>
-                          <p class="text-sm font-medium text-zinc-200">Upload + teste</p>
-                          <p class="text-xs text-zinc-500">Incarcare software nou si verificare parametri</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="flex items-center justify-between pt-3 border-t border-zinc-800">
-                      <span class="text-sm text-zinc-400">Rezultat:</span>
-                      <span class="text-sm font-bold text-purple-400">+15-30% putere</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- TCU Card -->
-                <div class="service-section-card gradient-border-violet reveal stagger-2">
-                  <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                      </div>
-                      <div>
-                        <h3 class="text-lg font-bold text-white">TCU (Cutie Automata)</h3>
-                        <p class="text-xs text-zinc-500">Transmission Control Unit</p>
-                      </div>
-                    </div>
-
-                    <p class="text-sm text-zinc-400">
-                      Optimizarea software-ului cutiei automate pentru treceri mai rapide si comportament sportiv. Proces complet in 4 pasi:
-                    </p>
-
-                    <div class="space-y-3">
-                      <div class="flex items-start gap-3">
-                        <div class="step-number bg-purple-500/20 text-purple-400">1</div>
-                        <div>
-                          <p class="text-sm font-medium text-zinc-200">Citire software TCU</p>
-                          <p class="text-xs text-zinc-500">Extragerea datelor cutiei automate</p>
-                        </div>
-                      </div>
-                      <div class="flex items-start gap-3">
-                        <div class="step-number bg-purple-500/20 text-purple-400">2</div>
-                        <div>
-                          <p class="text-sm font-medium text-zinc-200">Backup complet</p>
-                          <p class="text-xs text-zinc-500">Salvare software original TCU</p>
-                        </div>
-                      </div>
-                      <div class="flex items-start gap-3">
-                        <div class="step-number bg-purple-500/20 text-purple-400">3</div>
-                        <div>
-                          <p class="text-sm font-medium text-zinc-200">Optimizare parametri transmisie</p>
-                          <p class="text-xs text-zinc-500">Ajustare puncte schimbare, presiune cuplaj, launch control</p>
-                        </div>
-                      </div>
-                      <div class="flex items-start gap-3">
-                        <div class="step-number bg-purple-500/20 text-purple-400">4</div>
-                        <div>
-                          <p class="text-sm font-medium text-zinc-200">Upload + calibrare</p>
-                          <p class="text-xs text-zinc-500">Incarcare si adaptare la noul software motor</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="flex items-center justify-between pt-3 border-t border-zinc-800">
-                      <span class="text-sm text-zinc-400">Rezultat:</span>
-                      <span class="text-sm font-bold text-purple-400">Treceri mai rapide si sportive</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Stage Info Box -->
-              <div class="info-glass p-4 sm:p-6 reveal stagger-3">
-                <h3 class="text-base sm:text-lg font-bold text-white mb-3 flex items-center gap-2">
-                  <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  Stage 1 vs Stage 2 vs Stage 3
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-                  <div class="space-y-2">
-                    <p class="font-semibold text-purple-400">Stage 1</p>
-                    <p class="text-zinc-400">Optimizare software <strong class="text-zinc-300">fara modificari hardware</strong>. Masina ramane 100% stock fizic. Cresteri de +15-30% putere si cuplu. Cea mai populara optiune.</p>
-                  </div>
-                  <div class="space-y-2">
-                    <p class="font-semibold text-zinc-500">Stage 2</p>
-                    <p class="text-zinc-500">Necesita modificari hardware (downpipe, intercooler). Cresteri +25-45%. Nu oferim acest serviciu.</p>
-                  </div>
-                  <div class="space-y-2">
-                    <p class="font-semibold text-zinc-500">Stage 3</p>
-                    <p class="text-zinc-500">Turbo upgrade, interne motor. Cresteri +50-100%. Nu oferim acest serviciu.</p>
-                  </div>
-                </div>
-              </div>
-
-
-              <!-- CTA: Programare -->
-              <div class="text-center reveal stagger-5 space-y-4">
-                <h3 class="text-lg sm:text-xl font-bold text-white">Programeaza-te pentru Tuning Stage 1</h3>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20aflu%20mai%20multe%20despre%20Stage%201%20Tuning..."
-                  target="_blank" rel="noopener noreferrer" class="btn-cta-wa w-full sm:w-auto no-swap">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                  Scrie pe WhatsApp
-                </a>
-                <a href="tel:0744787446" class="btn-cta w-full sm:w-auto">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                  Suna: 0744 787 446
-                </a>
-                </div>
-              </div>
-
-            </div>
-          </article>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-line-divider"></div>
-
-        <!-- ========================================== -->
-        <!-- SECTION: Optimizare Sisteme Antipoluare    -->
-        <!-- ========================================== -->
-        <section id="antipoluare" class="scroll-mt-20 reveal">
-          <article class="price-card bg-gradient-to-br from-rxrCard via-slate-800/95 to-slate-900 border-2 border-rxrOutline/80 rounded-2xl sm:rounded-3xl">
-            <div class="p-4 sm:p-6 lg:p-8 space-y-6">
-
-              <div class="text-center space-y-3">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs sm:text-sm font-medium">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
-                  Optimizare Software
-                </div>
-                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                  Optimizare <span class="text-rose-400">Sisteme Antipoluare</span>
-                </h2>
-                <p class="text-sm sm:text-base text-zinc-400 max-w-3xl mx-auto">
-                  Solutii software profesionale pentru optimizarea sistemelor DPF, EGR si AdBlue. Eliminam erorile si problemele recurente cauzate de aceste sisteme.
-                </p>
-              </div>
-
-              <!-- 3 Cards -->
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-
-                <!-- DPF -->
-                <div class="service-section-card gradient-border-red reveal stagger-1">
-                  <div class="space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center">
-                      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">DPF</h3>
-                    <p class="text-xs text-rose-400 font-medium">Diesel Particulate Filter</p>
-                    <p class="text-sm text-zinc-400">
-                      Optimizare software filtru de particule. Eliminarea regenerarilor fortate, a erorilor recurente si a limitarilor de putere cauzate de DPF-ul ineficient.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- EGR -->
-                <div class="service-section-card gradient-border-red reveal stagger-2">
-                  <div class="space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center">
-                      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">EGR</h3>
-                    <p class="text-xs text-rose-400 font-medium">Exhaust Gas Recirculation</p>
-                    <p class="text-sm text-zinc-400">
-                      Optimizare supapa de recirculare a gazelor de esapament. Eliminarea problemelor de cocsificare, pierdere putere si erorilor asociate cu EGR-ul defect.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- AdBlue -->
-                <div class="service-section-card gradient-border-red reveal stagger-3">
-                  <div class="space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center">
-                      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">AdBlue</h3>
-                    <p class="text-xs text-rose-400 font-medium">Selective Catalytic Reduction</p>
-                    <p class="text-sm text-zinc-400">
-                      Optimizare sistem AdBlue/SCR. Rezolvarea erorilor de calitate, nivel si presiune AdBlue. Eliminarea limitarilor de viteza si a problemelor cu pompa/injectorul AdBlue.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CTA: Programare -->
-              <div class="text-center reveal stagger-4 space-y-4">
-                <h3 class="text-lg sm:text-xl font-bold text-white">Programeaza-te pentru Optimizare DPF / EGR / AdBlue</h3>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20aflu%20mai%20multe%20despre%20optimizare%20DPF/EGR/AdBlue..."
-                  target="_blank" rel="noopener noreferrer" class="btn-cta-wa w-full sm:w-auto no-swap">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                  Scrie pe WhatsApp
-                </a>
-                <a href="tel:0744787446" class="btn-cta w-full sm:w-auto">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                  Suna: 0744 787 446
-                </a>
-                </div>
-              </div>
-
-            </div>
-          </article>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-line-divider"></div>
-
-        <!-- ========================================== -->
-        <!-- SECTION: Codari BMW                        -->
-        <!-- ========================================== -->
-        <section id="codari-bmw" class="scroll-mt-20 reveal">
-          <article class="price-card bg-gradient-to-br from-rxrCard via-slate-800/95 to-slate-900 border-2 border-rxrOutline/80 rounded-2xl sm:rounded-3xl">
-            <div class="p-4 sm:p-6 lg:p-8 space-y-6">
-
-              <div class="text-center space-y-3">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs sm:text-sm font-medium">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                  BMW Coding
-                </div>
-                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                  Codari <span class="text-blue-400">BMW</span>
-                </h2>
-                <p class="text-sm sm:text-base text-zinc-400 max-w-3xl mx-auto">
-                  Activarea functiilor ascunse si personalizarea BMW-ului tau. Peste 40 de optiuni disponibile, de la confort la performanta, aplicate profesional si in siguranta.
-                </p>
-              </div>
-
-              <!-- 6 Category Cards -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-
-                <!-- Confort & Comoditate -->
-                <div class="service-section-card gradient-border-blue reveal stagger-1">
-                  <div class="space-y-3">
-                    <div class="flex items-center gap-3">
-                      <div class="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                      </div>
-                      <h3 class="text-base font-bold text-white">Confort & Comoditate</h3>
-                    </div>
-                    <ul class="space-y-1.5 text-sm text-zinc-400">
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Inchidere oglinzi la blocare</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Comfort Access personalizat</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Scaune cu memorie avansata</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Stop auto motor (Auto Start/Stop)</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Siguranta & Asistenta -->
-                <div class="service-section-card gradient-border-blue reveal stagger-2">
-                  <div class="space-y-3">
-                    <div class="flex items-center gap-3">
-                      <div class="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                      </div>
-                      <h3 class="text-base font-bold text-white">Siguranta & Asistenta</h3>
-                    </div>
-                    <ul class="space-y-1.5 text-sm text-zinc-400">
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Video in mers (DVD/TV unlock)</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Senzori parcare extinsi</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Lane Assist personalizat</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Xenon/LED configurare avansata</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Visual & Entertainment -->
-                <div class="service-section-card gradient-border-blue reveal stagger-3">
-                  <div class="space-y-3">
-                    <div class="flex items-center gap-3">
-                      <div class="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-2 4h.01M7 8h.01M12 8h.01M7 12h.01M12 12h.01M17 12h.01M7 16h.01M12 16h.01M17 16h.01"/></svg>
-                      </div>
-                      <h3 class="text-base font-bold text-white">Visual & Entertainment</h3>
-                    </div>
-                    <ul class="space-y-1.5 text-sm text-zinc-400">
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Needles sweep la pornire</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Logo proiectat pe podea</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Ambient lighting extins</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Sport display in bord</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Performanta & Conducere -->
-                <div class="service-section-card gradient-border-blue reveal stagger-4">
-                  <div class="space-y-3">
-                    <div class="flex items-center gap-3">
-                      <div class="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                      </div>
-                      <h3 class="text-base font-bold text-white">Performanta & Conducere</h3>
-                    </div>
-                    <ul class="space-y-1.5 text-sm text-zinc-400">
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Sport Mode+ activare</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Launch Control</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Rev Matching (blipping)</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Exhaust Flap control</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Digital & Conectivitate -->
-                <div class="service-section-card gradient-border-blue reveal stagger-5">
-                  <div class="space-y-3">
-                    <div class="flex items-center gap-3">
-                      <div class="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                      </div>
-                      <h3 class="text-base font-bold text-white">Digital & Conectivitate</h3>
-                    </div>
-                    <ul class="space-y-1.5 text-sm text-zinc-400">
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Apple CarPlay Full Screen</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> BMW Apps activare</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Navigation upgrade</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Voice Control extins</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Personalizari Speciale -->
-                <div class="service-section-card gradient-border-blue reveal stagger-6">
-                  <div class="space-y-3">
-                    <div class="flex items-center gap-3">
-                      <div class="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-                      </div>
-                      <h3 class="text-base font-bold text-white">Personalizari Speciale</h3>
-                    </div>
-                    <ul class="space-y-1.5 text-sm text-zinc-400">
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Usa deschisa - alarma off</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Centuri reminder dezactivat</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Digital Speedometer</li>
-                      <li class="flex items-center gap-2"><span class="text-blue-400 text-xs">&#9679;</span> Service Reset manual</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Important Info Box -->
-              <div class="info-glass p-4 sm:p-6 reveal">
-                <h3 class="text-base sm:text-lg font-bold text-white mb-3 flex items-center gap-2">
-                  <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  Informatii Importante
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-zinc-400">
-                  <div class="flex items-start gap-2">
-                    <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <p><strong class="text-zinc-300">Compatibilitate:</strong> Verificam disponibilitatea fiecarei functii pentru modelul tau specific inainte de codare.</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <p><strong class="text-zinc-300">Siguranta:</strong> Backup complet inainte de orice modificare. Revenire la original oricand.</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <p><strong class="text-zinc-300">Legal:</strong> Codarile nu afecteaza garantia producatorului si sunt 100% reversibile.</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <p><strong class="text-zinc-300">Durata:</strong> 30-90 minute in functie de numarul de codari solicitate.</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <p><strong class="text-zinc-300">Pachete:</strong> Pachete personalizate cu discount. Contacteaza-ne pentru detalii.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Process & Guarantees -->
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 reveal">
-                <div class="text-center p-4 rounded-xl bg-blue-500/5 border border-blue-500/20">
-                  <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-2">
-                    <span class="text-blue-400 font-bold">1</span>
-                  </div>
-                  <p class="text-sm font-medium text-zinc-200">Consultatie</p>
-                  <p class="text-xs text-zinc-500 mt-1">Analizam modelul si discutam optiunile disponibile</p>
-                </div>
-                <div class="text-center p-4 rounded-xl bg-blue-500/5 border border-blue-500/20">
-                  <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-2">
-                    <span class="text-blue-400 font-bold">2</span>
-                  </div>
-                  <p class="text-sm font-medium text-zinc-200">Codare Profesionala</p>
-                  <p class="text-xs text-zinc-500 mt-1">Aplicam codarile cu echipament profesional BMW</p>
-                </div>
-                <div class="text-center p-4 rounded-xl bg-blue-500/5 border border-blue-500/20">
-                  <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-2">
-                    <span class="text-blue-400 font-bold">3</span>
-                  </div>
-                  <p class="text-sm font-medium text-zinc-200">Testare & Verificare</p>
-                  <p class="text-xs text-zinc-500 mt-1">Testam fiecare functie si confirmam functionarea corecta</p>
-                </div>
-              </div>
-
-              <!-- CTA: Programare -->
-              <div class="text-center reveal space-y-4">
-                <h3 class="text-lg sm:text-xl font-bold text-white">Programeaza-te pentru Codari BMW</h3>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20aflu%20mai%20multe%20despre%20codari%20BMW..."
-                  target="_blank" rel="noopener noreferrer" class="btn-cta-wa w-full sm:w-auto no-swap">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                  Scrie pe WhatsApp
-                </a>
-                <a href="tel:0744787446" class="btn-cta w-full sm:w-auto">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                  Suna: 0744 787 446
-                </a>
-                </div>
-              </div>
-
-            </div>
-          </article>
-        </section>
-
-        <div class="section-line-divider"></div>
-
-        <!-- ========================================== -->
-        <!-- SECTION: Diagnoza Auto                     -->
-        <!-- ========================================== -->
-        <section id="diagnoza" class="scroll-mt-20 reveal">
-          <article class="price-card bg-gradient-to-br from-rxrCard via-slate-800/95 to-slate-900 border-2 border-rxrOutline/80 rounded-2xl sm:rounded-3xl">
-            <div class="p-4 sm:p-6 lg:p-8 space-y-6">
-
-              <div class="text-center space-y-3">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-xs sm:text-sm font-medium">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                  Diagnoza Profesionala
-                </div>
-                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                  Diagnoza <span class="text-green-400">Auto</span>
-                </h2>
-                <p class="text-sm sm:text-base text-zinc-400 max-w-3xl mx-auto">
-                  Diagnoza completa cu echipament profesional pentru toate marcile si modelele. Identificam rapid problemele si oferim solutii.
-                </p>
-              </div>
-
-              <!-- 3 Cards -->
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-
-                <!-- Citire Erori -->
-                <div class="service-section-card gradient-border-green reveal stagger-1">
-                  <div class="space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
-                      <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Citire Erori</h3>
-                    <p class="text-sm text-zinc-400">
-                      Scanare completa a tuturor modulelor electronice: motor, cutie, ABS, airbag, climatizare, multimedia si multe altele. Identificare coduri de eroare active si memorate.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Stergere Erori -->
-                <div class="service-section-card gradient-border-green reveal stagger-2">
-                  <div class="space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
-                      <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Stergere Erori</h3>
-                    <p class="text-sm text-zinc-400">
-                      Stergerea codurilor de eroare dupa reparatie sau verificare. Resetare martori de bord, adaptari cutie automata si reinvatare parametri motor.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Date Live -->
-                <div class="service-section-card gradient-border-green reveal stagger-3">
-                  <div class="space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
-                      <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Date Live</h3>
-                    <p class="text-sm text-zinc-400">
-                      Monitorizare in timp real a senzorilor si parametrilor motor: temperaturi, presiuni, debite, tensiuni. Ideal pentru diagnosticarea problemelor intermitente.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Process and Analysis -->
-              <div class="info-glass p-4 sm:p-6 reveal">
-                <h3 class="text-base sm:text-lg font-bold text-white mb-3 flex items-center gap-2">
-                  <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
-                  Proces si Analiza
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-zinc-400">
-                  <div>
-                    <p class="font-medium text-zinc-300 mb-2">Ce include diagnoza:</p>
-                    <ul class="space-y-1.5">
-                      <li class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Scanare toate modulele electronice</li>
-                      <li class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Interpretare coduri eroare</li>
-                      <li class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Verificare date live senzori</li>
-                      <li class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Raport detaliat cu recomandari</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p class="font-medium text-zinc-300 mb-2">Marci compatibile:</p>
-                    <p class="text-zinc-400">BMW, Audi, Volkswagen, Skoda, Seat, Mercedes, Opel, Ford, Renault, Dacia, Toyota, Hyundai, Kia si multe altele. Echipament multimarca profesional.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Duration -->
-              <div class="reveal">
-                <div class="text-center p-4 rounded-xl bg-green-500/5 border border-green-500/20 max-w-xs mx-auto">
-                  <svg class="w-6 h-6 text-green-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  <p class="text-xs text-zinc-500 uppercase tracking-wider mb-1">Durata</p>
-                  <p class="text-xl font-bold text-green-400">15-30 minute</p>
-                </div>
-              </div>
-
-              <!-- CTA: Programare -->
-              <div class="text-center reveal space-y-4">
-                <h3 class="text-lg sm:text-xl font-bold text-white">Programeaza-te pentru Diagnoza Auto</h3>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20programez%20o%20diagnoza%20auto..."
-                  target="_blank" rel="noopener noreferrer" class="btn-cta-wa w-full sm:w-auto no-swap">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                  Scrie pe WhatsApp
-                </a>
-                <a href="tel:0744787446" class="btn-cta w-full sm:w-auto">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                  Suna: 0744 787 446
-                </a>
-                </div>
-              </div>
-
-            </div>
-          </article>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-line-divider"></div>
-
-        <!-- ========================================== -->
-        <!-- CTA Banner                                 -->
-        <!-- ========================================== -->
-        <section class="reveal">
-          <article class="price-card bg-gradient-to-br from-rxrCard via-slate-800/95 to-slate-900 border-2 border-rxrOutline/80 rounded-2xl sm:rounded-3xl">
-            <div class="p-6 sm:p-8 lg:p-10 text-center space-y-5">
-              <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                Interesat de un serviciu?
-              </h2>
-              <p class="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto">
-                Contacteaza-ne pe WhatsApp sau telefonic pentru o consultatie gratuita. Raspundem rapid si oferim cele mai bune solutii pentru masina ta.
-              </p>
-              <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                <a href="https://wa.me/40744787446?text=Buna!%20Sunt%20interesat%20de%20serviciile%20RXR%20Performance..."
-                  target="_blank" rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all hover:scale-105 w-full sm:w-auto justify-center no-swap">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                  Scrie pe WhatsApp
-                </a>
-                <a href="tel:0744787446"
-                  class="inline-flex items-center gap-2 px-6 py-3 bg-rxrPrimary hover:bg-rxrPrimary/80 text-white font-semibold rounded-xl transition-all hover:scale-105 w-full sm:w-auto justify-center">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                  Suna: 0744 787 446
-                </a>
-              </div>
-            </div>
-          </article>
-        </section>
-
-      </main>
-
-      <!-- Footer -->
-      <footer class="site-footer" role="contentinfo">
-        <div class="site-footer-grid">
-          <div>
-            <a href="index.html" class="flex items-center space-x-2 mb-3">
-              <span class="text-xl font-bold rxr-logo">RXR</span>
-              <span class="performance-text text-sm text-zinc-300 font-semibold">PERFORMANCE</span>
-            </a>
-            <p class="footer-text">Tuning ECU & TCU Profesional, Codari BMW, Diagnoza Auto Completa</p>
-          </div>
-          <div>
-            <h4>Link-uri</h4>
-            <ul>
-              <li><a href="servicii.html">Servicii</a></li>
-              <li><a href="preturi.html">Preturi</a></li>
-              <li><a href="galerie.html">Proiecte</a></li>
-              <li><a href="despre-noi.html">Despre Noi</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="confidentialitate.html">Confidentialitate</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <ul>
-              <li><a href="tel:0744787446">0744 787 446</a></li>
-              <li><a href="mailto:contact@rxr-performance.ro">contact@rxr-performance.ro</a></li>
-              <li><span class="footer-text">Luni - Sambata: 09:00 - 18:00</span></li>
-              <li><span class="footer-text">Strada Traian Vuia 259, Cluj-Napoca</span></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Social</h4>
-            <div class="site-footer-social">
-              <a href="https://www.facebook.com/rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              </a>
-              <a href="https://www.instagram.com/rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-              </a>
-              <a href="https://www.tiktok.com/@rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.77 20.6a6.34 6.34 0 0 0 10.7-4.57V8.83a8.16 8.16 0 0 0 4.62 1.45V6.83a4.85 4.85 0 0 1-1.5-.14z"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="site-footer-bottom">
-          <p>&copy; <span id="year">2024</span> RXR Performance &bull; Tuning ECU & TCU Profesional Romania</p>
-          <p>ECU &bull; TCU &bull; Tuning &bull; DPF &bull; EGR &bull; AdBlue &bull; Codari BMW &bull; Diagnoza Auto</p>
-        </div>
-      </footer>
-
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav class="mobile-menu__nav" aria-label="Meniu mobil">
+      <a href="index.html" class="mobile-menu__link"><small>01</small>Acasa</a><a href="servicii.html" class="mobile-menu__link is-active"><small>02</small>Servicii</a><a href="preturi.html" class="mobile-menu__link"><small>03</small>Preturi</a><a href="galerie.html" class="mobile-menu__link"><small>04</small>Proiecte</a><a href="contact.html" class="mobile-menu__link"><small>05</small>Contact</a><a href="despre-noi.html" class="mobile-menu__link"><small>06</small>Despre noi</a>
+    </nav>
+    <div class="mobile-menu__meta">
+      <p><a href="tel:0744787446">0744 787 446</a><br><a href="mailto:contact@rxr-performance.ro">contact@rxr-performance.ro</a></p>
+      <p>Luni - Sambata, 09:00 - 18:00<br>Strada Traian Vuia 259, Cluj-Napoca</p>
+      <div class="social-row">
+        <a class="social-btn" href="https://www.instagram.com/rxrperformance" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
+        <a class="social-btn" href="https://www.tiktok.com/@rxrperformance" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.77 20.6a6.34 6.34 0 0 0 10.7-4.57V8.83a8.16 8.16 0 0 0 4.62 1.45V6.83a4.85 4.85 0 0 1-1.5-.14z"/></svg>TikTok</a>
+      </div>
     </div>
   </div>
+  <nav class="chapters" id="chapters" aria-label="Capitole"></nav>
 
-  <!-- WhatsApp Float Button -->
-  <a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20aflu%20mai%20multe%20despre%20serviciile%20RXR%20Performance..."
-    target="_blank" rel="noopener noreferrer" class="whatsapp-float no-swap" aria-label="WhatsApp Contact">
-    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-    </svg>
-  </a>
+  <main id="main">
 
-  <!-- Scripts -->
-  <script src="assets/js/utils.js"></script>
-  <script src="assets/js/navigation.js"></script>
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <p class="eyebrow" data-reveal>Servicii</p>
+        <h1 class="display-xl" data-reveal="title">Tuning, codari si diagnoza.</h1>
+        <p class="lead" data-reveal style="--i:1">Patru servicii, un singur principiu: software profesional, backup original si rezultate masurabile.</p><div class="anchor-row" data-reveal style="--i:2"><a class="link-arrow" href="#tuning">Stage 1 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a><a class="link-arrow" href="#antipoluare">Antipoluare <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a><a class="link-arrow" href="#codari-bmw">Codari BMW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a><a class="link-arrow" href="#diagnoza">Diagnoza <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a></div>
+      </div>
+    </section>
+    <section class="chapter" id="tuning" data-chapter="Stage 1">
+      <div class="container">
+      <div class="chapter__head">
+        <p class="eyebrow"><span class="eyebrow__num">01</span>Stage 1 ECU &amp; TCU</p>
+        <h2 class="display-lg" data-reveal="title">Motor si cutie, calibrate impreuna.</h2>
+        <p class="lead" data-reveal>Remaparea ECU optimizeaza parametrii motorului pentru performanta maxima, iar remaparea TCU imbunatateste comportamentul cutiei automate. Rezultatul: o masina complet transformata, cu putere si raspuns superior.</p>
+      </div>
+        <div class="grid grid--2"><article class="card" data-reveal style="--i:0"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg></div><h3 class="card__title">ECU (Motor)</h3><p class="card__sub">Engine Control Unit</p><p class="card__text">Optimizarea software-ului ECU pentru cresterea puterii, cuplului si a raspunsului la acceleratie. Proces complet in 4 pasi:</p><div class="steps"><div class="step"><span class="step__num">01</span><div><p class="step__title">Citire software original</p><p class="step__text">Extragerea datelor ECU prin OBD sau bench</p></div></div><div class="step"><span class="step__num">02</span><div><p class="step__title">Backup complet</p><p class="step__text">Salvare software original pentru siguranta</p></div></div><div class="step"><span class="step__num">03</span><div><p class="step__title">Optimizare harti motor</p><p class="step__text">Ajustare presiune turbo, injectie, timing aprindere</p></div></div><div class="step"><span class="step__num">04</span><div><p class="step__title">Upload + teste</p><p class="step__text">Incarcare software nou si verificare parametri</p></div></div></div><div class="card__foot"><span>Rezultat</span><strong>+15-30% putere</strong></div></article><article class="card" data-reveal style="--i:1"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><h3 class="card__title">TCU (Cutie automata)</h3><p class="card__sub">Transmission Control Unit</p><p class="card__text">Optimizarea software-ului cutiei automate pentru treceri mai rapide si comportament sportiv. Proces complet in 4 pasi:</p><div class="steps"><div class="step"><span class="step__num">01</span><div><p class="step__title">Citire software TCU</p><p class="step__text">Extragerea datelor cutiei automate</p></div></div><div class="step"><span class="step__num">02</span><div><p class="step__title">Backup complet</p><p class="step__text">Salvare software original TCU</p></div></div><div class="step"><span class="step__num">03</span><div><p class="step__title">Optimizare parametri transmisie</p><p class="step__text">Ajustare puncte schimbare, presiune cuplaj, launch control</p></div></div><div class="step"><span class="step__num">04</span><div><p class="step__title">Upload + calibrare</p><p class="step__text">Incarcare si adaptare la noul software motor</p></div></div></div><div class="card__foot"><span>Rezultat</span><strong>Treceri mai rapide si sportive</strong></div></article></div>
+        
+        <div class="card" data-reveal style="margin-top:1.25rem">
+          <h3 class="card__title">Stage 1 vs Stage 2 vs Stage 3</h3>
+          <div class="grid grid--3" style="margin-top:1.2rem">
+            <div><p class="card__sub">Stage 1</p><p class="card__text">Optimizare software <strong style="color:var(--text)">fara modificari hardware</strong>. Masina ramane 100% stock fizic. Cresteri de +15-30% putere si cuplu. Cea mai populara optiune.</p></div>
+            <div><p class="card__sub" style="color:var(--text-3)">Stage 2</p><p class="card__text dim">Necesita modificari hardware (downpipe, intercooler). Cresteri +25-45%. Nu oferim acest serviciu.</p></div>
+            <div><p class="card__sub" style="color:var(--text-3)">Stage 3</p><p class="card__text dim">Turbo upgrade, interne motor. Cresteri +50-100%. Nu oferim acest serviciu.</p></div>
+          </div>
+        </div>
+        <div class="section-cta" data-reveal><p class="display-sm">Programeaza-te pentru Tuning Stage 1</p><div class="btn-row"><a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20aflu%20mai%20multe%20despre%20Stage%201%20Tuning..." target="_blank" rel="noopener noreferrer" class="btn btn--wa no-swap btn-cta-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>Scrie pe WhatsApp</span></a><a href="tel:0744787446" class="btn btn--ghost btn-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span>Suna: 0744 787 446</span></a></div></div>
+      </div>
+    </section>
+    <section class="chapter chapter--alt" id="antipoluare" data-chapter="Antipoluare">
+      <div class="container">
+      <div class="chapter__head">
+        <p class="eyebrow"><span class="eyebrow__num">02</span>Antipoluare</p>
+        <h2 class="display-lg" data-reveal="title">Optimizare DPF, EGR si AdBlue.</h2>
+        <p class="lead" data-reveal>Solutii software profesionale pentru sistemele antipoluare. Eliminam erorile si problemele recurente cauzate de aceste sisteme.</p>
+      </div>
+        <div class="grid grid--3">
+          <article class="card" data-reveal style="--i:0"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div><h3 class="card__title">DPF</h3><p class="card__sub">Diesel Particulate Filter</p><p class="card__text">Optimizare software filtru de particule. Eliminarea regenerarilor fortate, a erorilor recurente si a limitarilor de putere cauzate de DPF-ul ineficient.</p></article>
+          <article class="card" data-reveal style="--i:1"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg></div><h3 class="card__title">EGR</h3><p class="card__sub">Exhaust Gas Recirculation</p><p class="card__text">Optimizare supapa de recirculare a gazelor de esapament. Eliminarea problemelor de cocsificare, pierdere putere si erorilor asociate cu EGR-ul defect.</p></article>
+          <article class="card" data-reveal style="--i:2"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h3 class="card__title">AdBlue</h3><p class="card__sub">Selective Catalytic Reduction</p><p class="card__text">Optimizare sistem AdBlue/SCR. Rezolvarea erorilor de calitate, nivel si presiune AdBlue. Eliminarea limitarilor de viteza si a problemelor cu pompa sau injectorul AdBlue.</p></article>
+        </div>
+        <div class="section-cta" data-reveal><p class="display-sm">Programeaza-te pentru optimizare DPF / EGR / AdBlue</p><div class="btn-row"><a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20aflu%20mai%20multe%20despre%20optimizare%20DPF/EGR/AdBlue..." target="_blank" rel="noopener noreferrer" class="btn btn--wa no-swap btn-cta-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>Scrie pe WhatsApp</span></a><a href="tel:0744787446" class="btn btn--ghost btn-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span>Suna: 0744 787 446</span></a></div></div>
+      </div>
+    </section>
+    <section class="chapter" id="codari-bmw" data-chapter="Codari BMW">
+      <div class="container">
+      <div class="chapter__head">
+        <p class="eyebrow"><span class="eyebrow__num">03</span>Codari BMW</p>
+        <h2 class="display-lg" data-reveal="title">Peste 40 de functii ascunse, activate profesional.</h2>
+        <p class="lead" data-reveal>Activarea functiilor ascunse si personalizarea BMW-ului tau. De la confort la performanta, aplicate profesional si in siguranta.</p>
+      </div>
+        <div class="grid grid--3"><article class="card" data-reveal style="--i:0"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div><h3 class="card__title">Confort &amp; comoditate</h3><ul class="list-dot"><li>Inchidere oglinzi la blocare</li><li>Comfort Access personalizat</li><li>Scaune cu memorie avansata</li><li>Stop auto motor (Auto Start/Stop)</li></ul></article><article class="card" data-reveal style="--i:1"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><h3 class="card__title">Siguranta &amp; asistenta</h3><ul class="list-dot"><li>Video in mers (DVD/TV unlock)</li><li>Senzori parcare extinsi</li><li>Lane Assist personalizat</li><li>Xenon/LED configurare avansata</li></ul></article><article class="card" data-reveal style="--i:2"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-2 4h.01M7 8h.01M12 8h.01M7 12h.01M12 12h.01M17 12h.01M7 16h.01M12 16h.01M17 16h.01"/></svg></div><h3 class="card__title">Visual &amp; entertainment</h3><ul class="list-dot"><li>Needles sweep la pornire</li><li>Logo proiectat pe podea</li><li>Ambient lighting extins</li><li>Sport display in bord</li></ul></article><article class="card" data-reveal style="--i:3"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h3 class="card__title">Performanta &amp; conducere</h3><ul class="list-dot"><li>Sport Mode+ activare</li><li>Launch Control</li><li>Rev Matching (blipping)</li><li>Exhaust Flap control</li></ul></article><article class="card" data-reveal style="--i:4"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div><h3 class="card__title">Digital &amp; conectivitate</h3><ul class="list-dot"><li>Apple CarPlay Full Screen</li><li>BMW Apps activare</li><li>Navigation upgrade</li><li>Voice Control extins</li></ul></article><article class="card" data-reveal style="--i:5"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></div><h3 class="card__title">Personalizari speciale</h3><ul class="list-dot"><li>Usa deschisa - alarma off</li><li>Centuri reminder dezactivat</li><li>Digital Speedometer</li><li>Service Reset manual</li></ul></article></div>
+        <div class="grid grid--2" style="margin-top:1.25rem">
+          <div class="card" data-reveal>
+            <h3 class="card__title">Informatii importante</h3>
+            <ul class="list-check" style="margin-top:1.2rem"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><strong style="color:var(--text);font-weight:600">Compatibilitate:</strong> Verificam disponibilitatea fiecarei functii pentru modelul tau specific inainte de codare.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><strong style="color:var(--text);font-weight:600">Siguranta:</strong> Backup complet inainte de orice modificare. Revenire la original oricand.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><strong style="color:var(--text);font-weight:600">Legal:</strong> Codarile nu afecteaza garantia producatorului si sunt 100% reversibile.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><strong style="color:var(--text);font-weight:600">Durata:</strong> 30-90 minute in functie de numarul de codari solicitate.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><strong style="color:var(--text);font-weight:600">Pachete:</strong> Pachete personalizate cu discount. Contacteaza-ne pentru detalii.</span></li></ul>
+          </div>
+          <div class="card" data-reveal style="--i:1">
+            <h3 class="card__title">Cum decurge</h3>
+            <div style="margin-top:1.2rem"><div class="steps"><div class="step"><span class="step__num">01</span><div><p class="step__title">Consultatie</p><p class="step__text">Analizam modelul si discutam optiunile disponibile</p></div></div><div class="step"><span class="step__num">02</span><div><p class="step__title">Codare profesionala</p><p class="step__text">Aplicam codarile cu echipament profesional BMW</p></div></div><div class="step"><span class="step__num">03</span><div><p class="step__title">Testare &amp; verificare</p><p class="step__text">Testam fiecare functie si confirmam functionarea corecta</p></div></div></div></div>
+          </div>
+        </div>
+        <div class="section-cta" data-reveal><p class="display-sm">Programeaza-te pentru Codari BMW</p><div class="btn-row"><a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20aflu%20mai%20multe%20despre%20codari%20BMW..." target="_blank" rel="noopener noreferrer" class="btn btn--wa no-swap btn-cta-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>Scrie pe WhatsApp</span></a><a href="tel:0744787446" class="btn btn--ghost btn-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span>Suna: 0744 787 446</span></a></div></div>
+      </div>
+    </section>
+    <section class="chapter chapter--alt" id="diagnoza" data-chapter="Diagnoza">
+      <div class="container">
+      <div class="chapter__head">
+        <p class="eyebrow"><span class="eyebrow__num">04</span>Diagnoza auto</p>
+        <h2 class="display-lg" data-reveal="title">Diagnoza completa, toate marcile.</h2>
+        <p class="lead" data-reveal>Echipament profesional multimarca. Identificam rapid problemele si oferim solutii.</p>
+      </div>
+        <div class="grid grid--3">
+          <article class="card" data-reveal style="--i:0"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div><h3 class="card__title">Citire erori</h3><p class="card__text">Scanare completa a tuturor modulelor electronice: motor, cutie, ABS, airbag, climatizare, multimedia si multe altele. Identificare coduri de eroare active si memorate.</p></article>
+          <article class="card" data-reveal style="--i:1"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></div><h3 class="card__title">Stergere erori</h3><p class="card__text">Stergerea codurilor de eroare dupa reparatie sau verificare. Resetare martori de bord, adaptari cutie automata si reinvatare parametri motor.</p></article>
+          <article class="card" data-reveal style="--i:2"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div><h3 class="card__title">Date live</h3><p class="card__text">Monitorizare in timp real a senzorilor si parametrilor motor: temperaturi, presiuni, debite, tensiuni. Ideal pentru diagnosticarea problemelor intermitente.</p></article>
+        </div>
+        <div class="grid grid--3" style="margin-top:1.25rem">
+          <div class="card" data-reveal>
+            <h3 class="card__title">Ce include</h3>
+            <div style="margin-top:1.2rem"><ul class="list-check"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Scanare toate modulele electronice</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Interpretare coduri eroare</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Verificare date live senzori</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Raport detaliat cu recomandari</span></li></ul></div>
+          </div>
+          <div class="card" data-reveal style="--i:1">
+            <h3 class="card__title">Marci compatibile</h3>
+            <p class="card__text" style="margin-top:1.2rem">BMW, Audi, Volkswagen, Skoda, Seat, Mercedes, Opel, Ford, Renault, Dacia, Toyota, Hyundai, Kia si multe altele. Echipament multimarca profesional.</p>
+          </div>
+          <div class="card" data-reveal style="--i:2">
+            <h3 class="card__title">Durata</h3>
+            <p class="stat__value" style="margin-top:1.2rem">15-30 min</p>
+            <p class="card__text" style="margin-top:.6rem">In functie de numarul de module si de complexitatea problemei.</p>
+          </div>
+        </div>
+        <div class="section-cta" data-reveal><p class="display-sm">Programeaza-te pentru Diagnoza auto</p><div class="btn-row"><a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20programez%20o%20diagnoza%20auto..." target="_blank" rel="noopener noreferrer" class="btn btn--wa no-swap btn-cta-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>Scrie pe WhatsApp</span></a><a href="tel:0744787446" class="btn btn--ghost btn-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span>Suna: 0744 787 446</span></a></div></div>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="container">
+      <div class="cta-band" data-reveal>
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 class="display-lg" style="margin:1.2rem 0 1rem">Interesat de un serviciu?</h2>
+          <p class="lead" style="margin-bottom:1.8rem">Contacteaza-ne pe WhatsApp sau telefonic pentru o consultatie gratuita. Raspundem rapid si oferim cele mai bune solutii pentru masina ta.</p>
+          <div class="btn-row"><a href="https://wa.me/40744787446?text=Buna!%20Sunt%20interesat%20de%20serviciile%20RXR%20Performance..." target="_blank" rel="noopener noreferrer" class="btn btn--wa no-swap btn-cta-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>Scrie pe WhatsApp</span></a><a href="tel:0744787446" class="btn btn--ghost btn-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span>Suna: 0744 787 446</span></a></div>
+        </div>
+        <div class="cta-band__meta">
+          <p><strong>Atelier</strong>Strada Traian Vuia 259, 400397 Cluj-Napoca</p>
+          <p><strong>Program</strong>Luni - Sambata, 09:00 - 18:00</p>
+          <p><strong>Email</strong><a href="mailto:contact@rxr-performance.ro">contact@rxr-performance.ro</a></p>
+          <a class="link-arrow" href="contact.html">Toate datele de contact <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
 
-  <!-- Scroll Reveal Observer -->
-  <script>
-    (function() {
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="brand" href="index.html" aria-label="RXR Performance - Acasa"><span class="brand__mark">RXR</span><span class="brand__word">Performance</span></a>
+          <p>Tuning ECU &amp; TCU Stage 1, codari BMW si diagnoza auto in Cluj-Napoca. Software profesional, backup original, 100% reversibil.</p>
+        </div>
+        <div>
+          <h4>Navigare</h4>
+          <ul>
+            <li><a href="servicii.html">Servicii</a></li>
+            <li><a href="preturi.html">Preturi</a></li>
+            <li><a href="galerie.html">Proiecte</a></li>
+            <li><a href="despre-noi.html">Despre noi</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="confidentialitate.html">Confidentialitate</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:0744787446">0744 787 446</a></li>
+            <li><a href="mailto:contact@rxr-performance.ro">contact@rxr-performance.ro</a></li>
+            <li>Luni - Sambata, 09:00 - 18:00</li>
+            <li>Strada Traian Vuia 259, 400397 Cluj-Napoca</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Social</h4>
+          <div class="site-footer__social">
+            <a href="https://www.facebook.com/rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.instagram.com/rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.tiktok.com/@rxrperformance" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.77 20.6a6.34 6.34 0 0 0 10.7-4.57V8.83a8.16 8.16 0 0 0 4.62 1.45V6.83a4.85 4.85 0 0 1-1.5-.14z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="year">2026</span> RXR Performance. Toate drepturile rezervate.</p>
+        <p>ECU &middot; TCU &middot; DPF &middot; EGR &middot; AdBlue &middot; Codari BMW &middot; Diagnoza auto</p>
+      </div>
+    </div>
+  </footer>
 
-      document.querySelectorAll('.reveal').forEach(function(el) {
-        observer.observe(el);
-      });
+  <a href="https://wa.me/40744787446?text=Buna!%20Vreau%20sa%20aflu%20mai%20multe%20despre%20serviciile%20RXR%20Performance..." target="_blank" rel="noopener noreferrer" class="wa-float no-swap whatsapp-float" aria-label="Scrie pe WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
-      // Update year
-      const yearEl = document.getElementById('year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-    })();
-  </script>
-
+  <script src="assets/js/site.js"></script>
 </body>
 
 </html>

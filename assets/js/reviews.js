@@ -36,12 +36,12 @@
 
   function renderStars(rating) {
     const r = Math.round(rating);
-    let html = '<div class="flex items-center gap-1 mb-3" aria-label="' + r + ' stele">';
+    let html = '<span class="stars" aria-label="' + r + ' stele">';
     for (let i = 0; i < 5; i++) {
-      const color = i < r ? '#facc15' : '#3f3f46';
-      html += '<svg class="w-4 h-4" style="color:' + color + '" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+      const style = i < r ? '' : ' style="color:var(--text-3)"';
+      html += '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"' + style + '><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
     }
-    html += '</div>';
+    html += '</span>';
     return html;
   }
 
@@ -51,14 +51,14 @@
     const text = (review.text || '').replace(/[<>]/g, '');
     const truncated = text.length > 220 ? text.slice(0, 220).trim() + '…' : text;
     return [
-      '<article class="review-card bg-rxrCard/80 backdrop-blur-sm border border-rxrOutline/60 rounded-2xl p-6 hover:border-rxrPrimary/40 transition-all">',
+      '<article class="card review is-in">',
         renderStars(review.rating || 5),
-        '<p class="text-zinc-300 text-sm leading-relaxed mb-4">"', truncated, '"</p>',
-        '<div class="flex items-center gap-3 pt-3 border-t border-zinc-800">',
-          '<div class="w-9 h-9 rounded-full bg-rxrPrimary/15 border border-rxrPrimary/30 flex items-center justify-center text-rxrPrimary font-bold text-sm">', initial, '</div>',
+        '<p class="review__text">„', truncated, '”</p>',
+        '<div class="review__author">',
+          '<span class="review__avatar">', initial, '</span>',
           '<div>',
-            '<p class="text-sm font-semibold text-white">', author, '</p>',
-            '<p class="text-xs text-zinc-500">Recenzie Google</p>',
+            '<p class="review__name">', author, '</p>',
+            '<p class="review__meta">Recenzie Google</p>',
           '</div>',
         '</div>',
       '</article>'

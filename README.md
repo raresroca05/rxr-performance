@@ -31,11 +31,11 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 | Strat | Tehnologie |
 |---|---|
 | HTML | HTML5 semantic, Schema.org structured data |
-| CSS | Tailwind CSS 4 (CDN) + CSS custom (`base.css`, `main.css`) |
+| CSS | CSS custom, fara framework (`base.css` = tokens/tipografie/butoane, `main.css` = layout/componente) |
 | JavaScript | Vanilla ES6+ (pattern IIFE) |
-| Fonts | Google Fonts (Orbitron pentru brand, Inter pentru body) |
+| Fonts | Google Fonts (Josefin Sans pentru titluri/brand, Inter pentru body) |
 | Tag management | Google Tag Manager (`GTM-TTF724N7`) — singura instalare de tracking; GA/Ads se gestioneaza in container, nimic hardcodat |
-| Instagram feed | [Behold.so](https://behold.so) widget |
+| Instagram feed | [Behold.so](https://behold.so) JSON feed (`feeds.behold.so`), randat de `instagram.js` |
 | Cookie consent | [CookieYes](https://www.cookieyes.com) — Consent Mode v2, incarcat prin GTM |
 | Build | **Niciun build** — fisiere statice, fara npm |
 | Hosting | GitHub Pages |
@@ -46,11 +46,11 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 
 ```
 .
-├── index.html                    Homepage (Hero, Servicii, Calculator HP/Nm,
-│                                 Recenzii Google, CTA, Footer)
+├── index.html                    Homepage: hero Instagram + 6 capitole (Servicii, Calculator,
+│                                 Proiecte, De ce RXR, Recenzii, Contact)
 ├── servicii.html                 Detalii servicii (ECU/TCU, antipoluare, codari, diagnoza)
 ├── preturi.html                  Lista preturi orientative
-├── galerie.html                  „Proiecte" — widget Instagram Behold + butoane sociale
+├── galerie.html                  „Proiecte" — grid Instagram (Behold JSON feed) + butoane sociale
 ├── despre-noi.html               Despre echipa + valori + cum lucram
 ├── contact.html                  Form contact, harta Google Maps, FAQ
 ├── 404.html                      Pagina custom 404
@@ -63,19 +63,17 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 │
 └── assets/
     ├── css/
-    │   ├── base.css              Reset, fonts, animatii, butoane partajate
-    │   └── main.css              Shell (page-shell, site-nav, site-footer, btn-cta*),
-    │                             vehicle lookup, FAQ
+    │   ├── base.css              Tokens (culori, fonturi, gutter), reset, tipografie, butoane, reveal
+    │   └── main.css              Header, meniu mobil, chapters nav, hero, sectiuni, carduri,
+    │                             calculator, slider Instagram, preturi, contact/FAQ, footer
     ├── js/
     │   ├── main.js               Calculator vehicule (cascade Marca→Model→Gen→Motor)
     │   ├── vehicle-database.js   Baza date: 5.827 vehicule, 67 marci, 699 modele
-    │   ├── navigation.js         Mobile menu, sticky nav, scroll behavior
-    │   ├── faq.js                Accordion details/summary
+    │   ├── site.js               Header, meniu mobil, reveal on scroll, chapters nav, countere, slider
+    │   ├── instagram.js          Behold JSON feed -> hero (index), slider (index), grid (galerie)
     │   ├── reviews.js            Loader recenzii Google Places (cu fallback static)
     │   ├── gtm.js                Loader Google Tag Manager (snippet extern din `<head>`)
-    │   ├── utils.js              Namespace `window.RXR`, tracking, helpers
-    │   └── tailwind-config.js    Theme colors (folosit doar de servicii.html)
-    └── instagram/                (rezervat pentru optiuni viitoare)
+    │   └── utils.js              Namespace `window.RXR`, tracking, helpers
 ```
 
 ---
@@ -101,7 +99,7 @@ Lista orientativa: Stage 1 ECU+TCU pack (incepand de la 1.500 RON), ECU (1.000),
 
 ### 📸 `galerie.html` — Proiecte
 
-Widget Instagram **Behold.so** (gratis, HTTPS, fara branding) + 3 butoane sociale (FB / IG / TikTok).
+Postarile Instagram vin din feed-ul JSON **Behold.so** (`feeds.behold.so/3nVTXEc9DkXMC5BLJr2Z`, CORS deschis), randate de `assets/js/instagram.js` in stilul site-ului. Pe homepage aceleasi postari alimenteaza fundalul hero si slider-ul „Proiecte". Daca feed-ul pica, sectiunea arata un link catre Instagram. Plus 3 butoane sociale (FB / IG / TikTok).
 
 ### 👥 `despre-noi.html` — Despre Noi
 
@@ -147,7 +145,6 @@ Toate preturile sunt orientative — final dupa consultatie gratuita pe WhatsApp
 
 ✅ **Securitate** — pe fiecare pagina:
 - `Content-Security-Policy` (per pagina, cu domeniile necesare)
-- `X-Frame-Options: SAMEORIGIN`
 - `X-Content-Type-Options: nosniff`
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: geolocation=(self), microphone=(), camera=(), payment=()`
@@ -197,7 +194,7 @@ Site static pe **GitHub Pages**, branch `main`:
 - [x] **404 custom** — `404.html` cu butoane CTA
 - [x] **Schema.org AutomotiveBusiness** — pe toate paginile
 - [x] **Open Graph + Twitter Card** — completate pe toate paginile
-- [x] **Security headers** — X-Frame-Options, Permissions-Policy, CSP, Referrer-Policy
+- [x] **Security headers** — Permissions-Policy, CSP, Referrer-Policy, X-Content-Type-Options
 - [x] **GDPR cookie consent** — CookieYes (Consent Mode v2), inaintea GTM
 - [x] **Imagine OG** — `og-image.png` (1800x945) referita corect in toate meta tags
 - [x] **Apple Touch Icon** — `apple-touch-icon.png` (180x180) logo RXR pe slate, linkata pe toate paginile

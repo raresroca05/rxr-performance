@@ -11,9 +11,9 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 | Layer | Technology |
 |-------|-----------|
 | HTML | HTML5 (semantic, Schema.org structured data) |
-| CSS | Tailwind CSS 4 (CDN), custom CSS |
+| CSS | Custom CSS only, no framework (`base.css` tokens + `main.css` components). Tailwind removed 2026-10. |
 | JavaScript | Vanilla ES6+ (IIFE modules) |
-| Fonts | Google Fonts (Orbitron for branding, Inter for body) |
+| Fonts | Google Fonts (Josefin Sans 200-600 for display/brand, Inter for body) |
 | Tag management | Google Tag Manager (GTM-TTF724N7) — sole tracking install; GA/Ads managed in-container, nothing hardcoded |
 | Instagram feed | Behold.so widget |
 | Cookie consent | CookieYes (Consent Mode v2) — loaded via GTM, key `57bb99c7…a303e0` |
@@ -42,17 +42,29 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
     ├── js/
     │   ├── main.js               # Vehicle calculator (cascading dropdowns + Nm formula)
     │   ├── vehicle-database.js   # 5,827 vehicles, 67 brands, 699 models
-    │   ├── navigation.js         # Mobile menu, sticky nav
-    │   ├── faq.js                # Accordion
+    │   ├── site.js               # Header, mobile menu, reveal-on-scroll, chapters nav, counters, drag slider
+    │   ├── instagram.js          # Behold JSON feed -> hero slides + "Proiecte" slider (index), grid (galerie)
     │   ├── reviews.js            # Google Places reviews loader (with static fallback)
     │   ├── gtm.js                # Google Tag Manager loader (externalized <head> snippet)
-    │   ├── utils.js              # window.RXR namespace, tracking, helpers
-    │   └── tailwind-config.js    # Theme tokens (used by servicii.html externally)
+    │   └── utils.js              # window.RXR namespace, tracking, helpers
     └── css/
-        ├── base.css              # Reset, fonts, animations, shared button styles
-        └── main.css              # Shell utilities (page-shell, site-nav, site-footer,
-                                  # btn-cta*, page-hero), vehicle lookup, FAQ
+        ├── base.css              # Design tokens (:root), reset, type scale (.display-*), .eyebrow,
+        │                         # .btn*, [data-reveal] animations, reduced-motion
+        └── main.css              # @imports base.css. Header/mobile menu, .chapters nav, .hero,
+                                  # .page-hero, .chapter sections, cards/grids, calculator, slider,
+                                  # reviews, .cta-band, pricing, contact/FAQ, .prose, footer, .wa-float
 ```
+
+## Design (redesign 2026-10, inspired by mont-fort.com)
+
+- **Dark premium**: near-black `#0a0b0d`, one accent (cyan `#0ea5e9` / `#38bdf8`), thin uppercase Josefin Sans headlines, generous whitespace, 1px hairlines instead of filled cards where possible.
+- **Chapters**: every content section is `<section class="chapter" id="…" data-chapter="Label">`. `site.js` builds the fixed right-hand numbered nav (`#chapters`, visible >=1280px) from these and highlights the one in view. Hero/CTA sections without `data-chapter` are not listed.
+- **Section head pattern**: `.chapter__head` = `.eyebrow` (with `.eyebrow__num` "01") + `h2.display-lg[data-reveal="title"]` + `.lead`, offset to the right on desktop.
+- **Reveal**: add `data-reveal` (fade/rise) or `data-reveal="title"` (blur/rise) and optional `style="--i:n"` for stagger. Do not use `clip-path` for hidden states — IntersectionObserver never fires for zero-area targets.
+- **Buttons**: `.btn.btn--wa` (WhatsApp, green, must keep `no-swap`), `.btn.btn--primary` (accent), `.btn.btn--ghost` (outline, used for phone), `.link-arrow`.
+- **Tracking aliases (keep!)**: every WhatsApp button also carries the legacy class `btn-cta-wa`, every `tel:` button `btn-cta`, and the float `whatsapp-float`. They have no CSS — they exist only so GTM triggers built on *Click Classes* keep matching after the redesign. Hrefs, `target`, `rel`, `no-swap`, `#whatsapp-cta` and the visible texts are unchanged from the pre-redesign site.
+- **Instagram as media**: no photos exist in the repo. `instagram.js` fetches the Behold JSON feed and uses `sizes.large/medium.mediaUrl` (stable `behold.pictures` URLs) for the hero background crossfade, the home slider and the Proiecte grid. Needs `https://feeds.behold.so` in `connect-src` (index + galerie); `img-src https:` already covers the images. On failure the section shows `.ig-fallback`.
+- **Hero stat "5.800+ vehicule in calculator"** is the real DB size (was "200+" before the redesign).
 
 ## Key Patterns
 
@@ -61,37 +73,37 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 - **Romanian UI** — all content in Romanian (no diacritics, to avoid encoding issues)
 - **No build step** — edit HTML/CSS/JS directly, deploy static files
 - **Commit author**: `Rares Roca <contact@rxr-performance.ro>`
-- **Shared shell classes** in `main.css`: `.page-shell`, `.page-container`, `.site-nav`, `.site-nav-inner`, `.site-nav-row`, `.site-footer`, `.site-footer-grid`, `.site-footer-social`, `.page-hero`, `.btn-cta`, `.btn-cta-wa`, `.btn-cta-ghost`, `.btn-cta-outline`
-- **Page-stack** for vertical rhythm between sections inside `<main>`
+- **Shared shell** on every page (duplicated markup, keep in sync): `.site-header` (`#site-header`, `#menu-toggle`, `#scroll-progress`), `#mobile-menu` (`hidden` attr toggled by `site.js`), `<nav class="chapters" id="chapters">`, `<main id="main">`, `.site-footer`, `.wa-float.no-swap`
+- **Head is preserved per page** (meta, OG, CSP, JSON-LD, GTM, `utils.js`); only `<body>` was rebuilt in the redesign
+- `.hidden` and `[hidden]` are `display:none !important` (calculator result and mobile menu rely on this)
 
-## Color Theme (lighter slate, applied 2026-06)
+## Color Theme (dark premium, applied 2026-10)
 
 ```
-rxrPrimary:     #0EA5E9  (cyan)
-rxrPrimarySoft: #38BDF8  (light cyan)
-rxrElectric:    #06B6D4  (teal)
-rxrMViolet:     #D946EF  (fuchsia)
-rxrMRed:        #F43F5E  (rose)
-rxrDeep:        #0F172A  (slate-900 — lifted from near-black #030712)
-rxrCard:        #1E293B  (slate-800 — lifted from #050816)
-rxrOutline:     #334155  (slate-700 — lifted from #1f2937)
+--bg:        #0a0b0d   --bg-2:      #0f1115   (alternate chapters)
+--surface:   #15181d   --surface-2: #1b1f26
+--line:      rgba(255,255,255,.08)   --line-strong: rgba(255,255,255,.18)
+--text:      #f4f5f7   --text-2:    #a7aeb8   --text-3: #6f7784
+--accent:    #0ea5e9   --accent-2:  #38bdf8   (the only brand color)
+--wa:        #22c55e   --wa-deep:   #16a34a   (WhatsApp buttons only)
+--star:      #facc15
 ```
 
-Body gradient: `linear-gradient(180deg, #0F172A 0%, #1E293B 50%, #334155 100%)`.
+Defined once in `assets/css/base.css` `:root`. Solid body background with a faint radial accent glow (`body::before`).
 
 ## Navigation (consistent across all pages)
 
 5 items: **Acasa | Servicii | Preturi | Proiecte | Contact**
 
-Active state via `.nav-link-active` / `.mobile-nav-link.active`. Despre-Noi available only via footer link.
+Active state via `.site-nav__link.is-active` / `.mobile-menu__link.is-active`. Despre-Noi available via footer and the mobile menu.
 
 ## Pages
 
 ### `index.html`
-Sections: Hero → Services overview (3 cards) → Vehicle Calculator (with amber estimate disclaimer) → Why Us → Google Reviews (3 fallback cards + JS hook) → CTA Banner → Footer.
+Full-viewport hero (Instagram image crossfade + headline + 4 counters) → chapters: 01 Servicii (4 numbered rows linking to `servicii.html#…`) → 02 Calculator (ids unchanged for `main.js`) → 03 Proiecte (drag slider from Instagram) → 04 De ce RXR (3 pillars + certifications) → 05 Recenzii (`#reviews-grid` etc. for `reviews.js`) → 06 Contact (`.cta-band`) → Footer.
 
 ### `servicii.html`
-Detailed sections for Stage 1 ECU/TCU, antipoluare (DPF/EGR/AdBlue), BMW coding (40+ functions), diagnoza.
+Page hero with anchor links → chapters: 01 Stage 1 ECU/TCU (`#tuning`), 02 Antipoluare (`#antipoluare`), 03 Codari BMW (`#codari-bmw`, 6 category cards), 04 Diagnoza (`#diagnoza`) → closing CTA band. Anchor ids are linked from index/despre-noi — keep them.
 
 ### `preturi.html`
 Pricing list with "incepand de la" prefix. No longer password-protected (changed 2026-06).
@@ -103,13 +115,13 @@ Pricing list with "incepand de la" prefix. No longer password-protected (changed
 - DPF/EGR/AdBlue: la cerere
 
 ### `galerie.html`
-Renamed from "Galerie" → **"Proiecte"**. Hosts Behold.so Instagram widget + 3 social CTA buttons (FB / IG / TikTok).
+Renamed from "Galerie" → **"Proiecte"**. 01 Instagram grid (`[data-ig-grid]`, 12 posts via `instagram.js`, replaced the Behold `<behold-widget>`), 02 Social (buttons + stats band), CTA band.
 
 ### `despre-noi.html`
-About us, values (4), process (4 steps), CTA.
+Page hero → 01 Cine suntem (quote), 02 Valori (4 pillars), 03 Ce oferim (service rows + stats), 04 Cum lucram (4 steps), CTA. Canonical fixed to `despre-noi.html` (matches sitemap).
 
 ### `contact.html`
-Contact cards (WhatsApp + Phone), info grid, Google Maps embed (Strada Traian Vuia 259, Cluj-Napoca, 46.7832778, 23.6977778), FAQ accordion, social media row.
+01 WhatsApp + phone cards and info grid, 02 Google Maps embed (Strada Traian Vuia 259, Cluj-Napoca, 46.7832778, 23.6977778), 03 FAQ (`<details>` with CSS-only plus/rotate, no JS), 04 social row.
 
 ### `404.html`
 Custom 404 with home + services CTAs.
@@ -177,7 +189,7 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 
 ## Third-party integrations
 
-- **Behold.so** — Instagram feed widget on `galerie.html` (`feed-id="3nVTXEc9DkXMC5BLJr2Z"`)
+- **Behold.so** — Instagram JSON feed `https://feeds.behold.so/3nVTXEc9DkXMC5BLJr2Z` (CORS `*`, cached 10s), consumed by `assets/js/instagram.js` on `index.html` (hero + slider) and `galerie.html` (grid). The old `<behold-widget>` / `w.behold.so` script is gone. Images come from `behold.pictures` (`sizes.large|medium.mediaUrl`), captions' first line becomes the card title.
 - **Google Maps** — embed on `contact.html` (coords for Cluj-Napoca)
 - **WhatsApp Web** — primary CTA via `wa.me/40744787446` links. All CTAs standardized (2026-07): WhatsApp buttons read **"Scrie pe WhatsApp"**, call buttons read **"Suna: 0744 787 446"** (number visible as text for tracking). Service sections use a **"Programeaza-te pentru [Serviciu]"** heading above the two buttons.
 - **Google Fonts** — Orbitron + Inter
