@@ -127,7 +127,7 @@ Page hero → 01 Cine suntem (quote), 02 Valori (4 pillars), 03 Ce oferim (servi
 
 ### `contact.html`
 
-01 WhatsApp + phone cards and info grid, 02 Google Maps embed (Strada Traian Vuia 259, Cluj-Napoca, 46.7832778, 23.6977778), 03 FAQ (`<details>` with CSS-only plus/rotate, no JS), 04 social row.
+01 WhatsApp + phone cards and info grid, 02 Google Maps embed by address query (Strada Sannicoara 6, 407042 Cluj-Napoca; no GPS coords in JSON-LD until the exact pin is known), 03 FAQ (`<details>` with CSS-only plus/rotate, no JS), 04 social row.
 
 ### `404.html`
 
@@ -216,7 +216,7 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 
 - Phone: +40 744 787 446
 - Email: contact@rxr-performance.ro (TODO: migrate to business email)
-- Address: Strada Traian Vuia 259, 400397 Cluj-Napoca
+- Address: Strada Sannicoara 6, 407042 Cluj-Napoca
 - Hours: Luni-Sambata 09:00-18:00
 - Social: facebook.com/rxrperformance · instagram.com/rxrperformance · tiktok.com/@rxrperformance
 

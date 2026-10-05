@@ -6,7 +6,7 @@
 Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari BMW si diagnoza auto. Site complet static (HTML/CSS/JS) hostat pe **GitHub Pages**, fara backend.
 
 - 🌐 **Live**: [rxr-performance.ro](https://rxr-performance.ro)
-- 📍 **Locatie**: Strada Traian Vuia 259, 400397 Cluj-Napoca
+- 📍 **Locatie**: Strada Sannicoara 6, 407042 Cluj-Napoca
 - 📞 **Telefon**: +40 744 787 446
 - 📧 **Email**: contact@rxr-performance.ro
 - 🕒 **Program**: Luni-Sambata, 09:00 — 18:00
