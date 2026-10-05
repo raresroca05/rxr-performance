@@ -8,16 +8,16 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| HTML | HTML5 (semantic, Schema.org structured data) |
-| CSS | Custom CSS only, no framework (`base.css` tokens + `main.css` components). Tailwind removed 2026-10. |
-| JavaScript | Vanilla ES6+ (IIFE modules) |
-| Fonts | Google Fonts (Josefin Sans 200-600 for display/brand, Inter for body) |
+| Layer          | Technology                                                                                                |
+| -------------- | --------------------------------------------------------------------------------------------------------- |
+| HTML           | HTML5 (semantic, Schema.org structured data)                                                              |
+| CSS            | Custom CSS only, no framework (`base.css` tokens + `main.css` components). Tailwind removed 2026-10.      |
+| JavaScript     | Vanilla ES6+ (IIFE modules)                                                                               |
+| Fonts          | Google Fonts (Josefin Sans 200-600 for display/brand, Inter for body)                                     |
 | Tag management | Google Tag Manager (GTM-TTF724N7) — sole tracking install; GA/Ads managed in-container, nothing hardcoded |
-| Instagram feed | Behold.so widget |
-| Cookie consent | CookieYes (Consent Mode v2) — loaded via GTM, key `57bb99c7…a303e0` |
-| Build | None — static files, no npm |
+| Instagram feed | Behold.so widget                                                                                          |
+| Cookie consent | CookieYes (Consent Mode v2) — loaded via GTM, key `57bb99c7…a303e0`                                       |
+| Build          | None — static files, no npm                                                                               |
 
 **No backend, no database, no package.json.** Pure static site.
 
@@ -62,9 +62,9 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 - **Section head pattern**: `.chapter__head` = `.eyebrow` (with `.eyebrow__num` "01") + `h2.display-lg[data-reveal="title"]` + `.lead`, offset to the right on desktop.
 - **Reveal**: add `data-reveal` (fade/rise) or `data-reveal="title"` (blur/rise) and optional `style="--i:n"` for stagger. Do not use `clip-path` for hidden states — IntersectionObserver never fires for zero-area targets.
 - **Buttons**: `.btn.btn--wa` (WhatsApp, green, must keep `no-swap`), `.btn.btn--primary` (accent), `.btn.btn--ghost` (outline, used for phone), `.link-arrow`.
-- **Tracking aliases (keep!)**: every WhatsApp button also carries the legacy class `btn-cta-wa`, every `tel:` button `btn-cta`, and the float `whatsapp-float`. They have no CSS — they exist only so GTM triggers built on *Click Classes* keep matching after the redesign. Hrefs, `target`, `rel`, `no-swap`, `#whatsapp-cta` and the visible texts are unchanged from the pre-redesign site.
+- **Tracking aliases (keep!)**: every WhatsApp button also carries the legacy class `btn-cta-wa`, every `tel:` button `btn-cta`, and the float `whatsapp-float`. They have no CSS — they exist only so GTM triggers built on _Click Classes_ keep matching after the redesign. Hrefs, `target`, `rel`, `no-swap`, `#whatsapp-cta` and the visible texts are unchanged from the pre-redesign site.
 - **Instagram as media**: no photos exist in the repo. `instagram.js` fetches the Behold JSON feed and uses `sizes.large/medium.mediaUrl` (stable `behold.pictures` URLs) for the hero background crossfade, the home slider and the Proiecte grid. Needs `https://feeds.behold.so` in `connect-src` (index + galerie); `img-src https:` already covers the images. On failure the section shows `.ig-fallback`.
-- **Hero stat "5.800+ vehicule in calculator"** is the real DB size (was "200+" before the redesign).
+- **Hero stat "2.500+ vehicule in calculator"** is the real DB size (was "200+" before the redesign).
 
 ## Key Patterns
 
@@ -100,13 +100,17 @@ Active state via `.site-nav__link.is-active` / `.mobile-menu__link.is-active`. D
 ## Pages
 
 ### `index.html`
+
 Full-viewport hero (Instagram image crossfade + headline + 4 counters) → chapters: 01 Servicii (4 numbered rows linking to `servicii.html#…`) → 02 Calculator (ids unchanged for `main.js`) → 03 Proiecte (drag slider from Instagram) → 04 De ce RXR (3 pillars + certifications) → 05 Recenzii (`#reviews-grid` etc. for `reviews.js`) → 06 Contact (`.cta-band`) → Footer.
 
 ### `servicii.html`
+
 Page hero with anchor links → chapters: 01 Stage 1 ECU/TCU (`#tuning`), 02 Codari BMW (`#codari-bmw`, 6 category cards), 03 Diagnoza (`#diagnoza`) → closing CTA band. Anchor ids are linked from index/despre-noi — keep them.
 
 ### `preturi.html`
+
 Pricing list with "incepand de la" prefix. No longer password-protected (changed 2026-06).
+
 - Pack Stage 1 ECU + TCU: from 1.500 RON
 - Stage 1 ECU: from 1.000 RON
 - Stage 1 TCU: from 650 RON
@@ -114,15 +118,19 @@ Pricing list with "incepand de la" prefix. No longer password-protected (changed
 - Diagnoza: from 150 RON
 
 ### `galerie.html`
+
 Renamed from "Galerie" → **"Proiecte"**. 01 Instagram grid (`[data-ig-grid]`, 12 posts via `instagram.js`, replaced the Behold `<behold-widget>`), 02 Social (buttons + stats band), CTA band.
 
 ### `despre-noi.html`
+
 Page hero → 01 Cine suntem (quote), 02 Valori (4 pillars), 03 Ce oferim (service rows + stats), 04 Cum lucram (4 steps), CTA. Canonical fixed to `despre-noi.html` (matches sitemap).
 
 ### `contact.html`
+
 01 WhatsApp + phone cards and info grid, 02 Google Maps embed (Strada Traian Vuia 259, Cluj-Napoca, 46.7832778, 23.6977778), 03 FAQ (`<details>` with CSS-only plus/rotate, no JS), 04 social row.
 
 ### `404.html`
+
 Custom 404 with home + services CTAs.
 
 ## Vehicle Database (`vehicle-database.js`)
@@ -215,6 +223,7 @@ Displayed values are clearly marked as estimates (amber banner + result card war
 ## TODO
 
 See [`README.md`](./README.md) `## 📌 TODO` section for the full punch list. Open items:
+
 1. Google Places API key + Place ID for live reviews
 2. Business email migration (`contact@rxr-performance.ro`)
 3. CookieYes dashboard: enable Google Consent Mode

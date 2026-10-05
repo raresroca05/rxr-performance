@@ -351,7 +351,14 @@
   z-index: 1;
   background:
     linear-gradient(90deg, rgba(10, 11, 13, 0.82) 0%, rgba(10, 11, 13, 0.45) 55%, rgba(10, 11, 13, 0.25) 100%),
-    linear-gradient(180deg, rgba(10, 11, 13, 0.35) 0%, rgba(10, 11, 13, 0.2) 40%, var(--bg) 100%);
+    linear-gradient(180deg, rgba(10, 11, 13, 0.3) 0%, rgba(10, 11, 13, 0.55) 45%, rgba(10, 11, 13, 0.92) 75%, var(--bg) 100%);
+}
+
+@media (max-width: 899px) {
+  .hero__overlay {
+    background:
+      linear-gradient(180deg, rgba(10, 11, 13, 0.35) 0%, rgba(10, 11, 13, 0.7) 35%, rgba(10, 11, 13, 0.94) 65%, var(--bg) 100%);
+  }
 }
 
 .hero__content {
@@ -366,6 +373,12 @@
 .hero__content .display-xl {
   max-width: none;
   font-size: clamp(2.4rem, 6vw, 5.2rem);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.hero__content .lead {
+  color: #dde1e7;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 }
 
 .hero__stats {
@@ -379,7 +392,7 @@
 
 .stat__value {
   font-family: var(--font-display);
-  font-weight: 200;
+  font-weight: 400;
   font-size: clamp(2rem, 3.6vw, 3rem);
   line-height: 1;
   color: var(--text);
@@ -387,10 +400,11 @@
 
 .stat__label {
   margin-top: 0.45rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-3);
+  color: var(--text-2);
 }
 
 @media (min-width: 760px) {
@@ -557,7 +571,7 @@
 
 .service-row__num {
   font-family: var(--font-display);
-  font-weight: 200;
+  font-weight: 300;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   line-height: 1;
   color: var(--text-3);
@@ -576,7 +590,7 @@
 
 .service-row__title {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: clamp(1.15rem, 1.8vw, 1.5rem);
@@ -657,7 +671,7 @@
 
 .card__title {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 1.05rem;
@@ -675,6 +689,21 @@
 .card__text {
   color: var(--text-2);
   font-size: 0.95rem;
+}
+
+@media (max-width: 899px) {
+  .stat__value,
+  .metric__value,
+  .price__value {
+    font-weight: 400;
+  }
+
+  .pillar__num,
+  .card__num,
+  .service-row__num {
+    font-weight: 400;
+    color: var(--text-2);
+  }
 }
 
 .card__foot {
@@ -807,7 +836,7 @@
 
 .pillar__title {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 1.1rem;
@@ -1030,7 +1059,7 @@
 
 .calc-result__name {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: clamp(1.3rem, 2.4vw, 1.9rem);
@@ -1093,7 +1122,7 @@
 
 .metric__value {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(2.2rem, 4vw, 3rem);
   line-height: 1;
   color: var(--accent-2);
@@ -1195,7 +1224,7 @@
 
 .slide__model {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 1rem;
@@ -1499,7 +1528,7 @@
 
 .price__value {
   font-family: var(--font-display);
-  font-weight: 200;
+  font-weight: 300;
   font-size: clamp(2.4rem, 5vw, 4rem);
   line-height: 1;
   color: var(--text);
@@ -1543,7 +1572,7 @@
 
 .price-row__name {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 1.15rem;
