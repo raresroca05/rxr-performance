@@ -87,9 +87,11 @@ video {
 a {
   color: inherit;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button {
+  -webkit-tap-highlight-color: transparent;
   font: inherit;
   color: inherit;
   background: none;
@@ -300,6 +302,11 @@ address {
   transform: translateY(-2px);
 }
 
+.btn:active {
+  transform: scale(0.97);
+  transition-duration: 0.1s;
+}
+
 .btn--primary {
   background: var(--accent);
   color: var(--accent-ink);
@@ -318,6 +325,10 @@ address {
   padding: 0.9rem 1.5rem 0.9rem 1.3rem;
   gap: 0.75rem;
   box-shadow: 0 0 0 0 var(--accent-glow), 0 12px 30px -10px var(--accent-glow);
+}
+
+.hero .btn--call,
+.card--call .btn--call {
   animation: callPulse 2.6s var(--ease) infinite;
 }
 
@@ -522,6 +533,21 @@ address {
   opacity: 1;
   transform: none;
   filter: none;
+}
+
+@media (hover: none) {
+  body::after {
+    display: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  .btn--call:hover::after {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

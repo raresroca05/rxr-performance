@@ -61,7 +61,7 @@
   }
 
   function renderHero(posts) {
-    const picks = posts.slice(0, HERO_SLIDES).map(function (p) { return imageFor(p, 'large'); }).filter(Boolean);
+    const picks = posts.slice(0, HERO_SLIDES).map(function (p) { return imageFor(p, window.innerWidth < 760 ? 'medium' : 'large'); }).filter(Boolean);
     if (!picks.length) return;
 
     const slides = picks.map(function (url) {
