@@ -33,7 +33,7 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 | HTML | HTML5 semantic, Schema.org structured data |
 | CSS | CSS custom, fara framework (`base.css` = tokens/tipografie/butoane, `main.css` = layout/componente) |
 | JavaScript | Vanilla ES6+ (pattern IIFE) |
-| Fonts | Google Fonts (Josefin Sans pentru titluri/brand, Inter pentru body) |
+| Fonts | Google Fonts (Archivo pentru titluri/brand, Inter pentru body) |
 | Tag management | Google Tag Manager (`GTM-TTF724N7`) — singura instalare de tracking; GA/Ads se gestioneaza in container, nimic hardcodat |
 | Instagram feed | [Behold.so](https://behold.so) JSON feed (`feeds.behold.so`), randat de `instagram.js` |
 | Cookie consent | [CookieYes](https://www.cookieyes.com) — Consent Mode v2, incarcat prin GTM |
@@ -82,7 +82,7 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 
 ### 🏠 `index.html` — Homepage
 
-- **Hero** cu CTA (WhatsApp + Vezi servicii) + statistici (200+ vehicule, +15-30% putere etc.)
+- **Hero** cu CTA (Suna acum + Vezi servicii), ticker cu servicii/marci + statistici (200+ vehicule, +15-30% putere etc.)
 - **Servicii overview** — 3 carduri (Stage 1, Codari BMW, Diagnoza)
 - **Calculator Stage 1**: cascada Marca → Model → Generatie → Motor → afiseaza Stock HP/Nm si Stage 1 HP/Nm (+28%), cu banner de avertizare ca valorile sunt orientative
 - **De ce noi** — 3 piloni (experienta, siguranta, suport)
@@ -95,7 +95,7 @@ Detalii pe sectiuni: Stage 1 ECU & TCU, Codari BMW (40+ functii), Diagnoza Auto.
 
 ### 💰 `preturi.html` — Preturi
 
-Lista orientativa: Stage 1 ECU+TCU pack (incepand de la 1.500 RON), ECU (1.000), TCU (650), Codari BMW (150), Diagnoza (150). Toate „incepand de la".
+Lista orientativa: Stage 1 ECU+TCU pack (incepand de la 1.750 RON), ECU (1.000), TCU (750), Codari BMW (250), Diagnoza (250). Toate „incepand de la".
 
 ### 📸 `galerie.html` — Proiecte
 
@@ -107,7 +107,7 @@ Cine suntem, valori, ce oferim, cum lucram (proces 4 pasi).
 
 ### 📞 `contact.html` — Contact
 
-Carduri WhatsApp + Telefon, info card (telefon/email/program), **harta Google Maps embed** (coordonate Cluj-Napoca), FAQ, butoane sociale.
+Card „Suna-ne acum" + card email, info card (telefon/email/program), **harta Google Maps embed** (coordonate Cluj-Napoca), FAQ, butoane sociale.
 
 ### Calculator vehicule — algoritm Nm
 
@@ -130,13 +130,13 @@ Toate valorile marcate **clar** ca orientative (banner amber + nota in card de r
 
 | Serviciu | Pret (RON) |
 |---|---|
-| Stage 1 ECU + TCU (pachet) | de la **1.500** |
+| Stage 1 ECU + TCU (pachet) | de la **1.750** |
 | Stage 1 Motor (ECU) | de la **1.000** |
-| Stage 1 Cutie (TCU) | de la **650** |
-| Codari BMW | de la **150** |
-| Diagnoza Auto | de la **150** |
+| Stage 1 Cutie (TCU) | de la **750** |
+| Codari BMW | de la **250** |
+| Diagnoza Auto | de la **250** |
 
-Toate preturile sunt orientative — final dupa consultatie gratuita pe WhatsApp.
+Toate preturile sunt orientative — final dupa consultatie gratuita telefonica.
 
 ---
 
@@ -198,7 +198,7 @@ Site static pe **GitHub Pages**, branch `main`:
 - [x] **Imagine OG** — `og-image.png` (1800x945) referita corect in toate meta tags
 - [x] **Apple Touch Icon** — `apple-touch-icon.png` (180x180) logo RXR pe slate, linkata pe toate paginile
 - [x] **Google Tag Manager** — `GTM-TTF724N7`, singura instalare de tracking (fara GA4/Ads hardcodat)
-- [x] **CTA-uri unificate** — toate butoanele „Scrie pe WhatsApp" + „Suna: 0744 787 446"
+- [x] **CTA-uri unificate** — un singur CTA, „Suna acum 0744 787 446" (WhatsApp eliminat complet, 2026-10-07)
 - [x] **Google Search Console + sitemap** — verificat si sitemap-ul cu 7 URL-uri acceptat
 
 ### ❌ Ramase (necesita actiune din partea ta)

@@ -209,10 +209,6 @@
         trackConversion('vehicle_lookup');
       }
 
-      const whatsappMessage = encodeURIComponent(
-        `Buna! Sunt interesat de tuning Stage 1 pentru ${brand} ${model} ${engine}. Vreau mai multe detalii despre cresterea la ${stage1HP} HP / ${stage1Nm} Nm (de la ${vehicle.stockHP} HP / ${stockNm} Nm).`
-      );
-      document.getElementById('whatsapp-cta').href = `https://wa.me/40744787446?text=${whatsappMessage}`;
 
       vehicleResult.classList.remove('hidden');
       setTimeout(() => {

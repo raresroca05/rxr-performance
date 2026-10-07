@@ -1,20 +1,20 @@
 :root {
-  --bg: #0a0b0d;
-  --bg-2: #0f1115;
-  --surface: #15181d;
-  --surface-2: #1b1f26;
+  --bg: #09090b;
+  --bg-2: #0e0f12;
+  --surface: #141518;
+  --surface-2: #1a1c21;
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.18);
-  --text: #f4f5f7;
-  --text-2: #b9c0ca;
-  --text-3: #8891a0;
-  --accent: #0ea5e9;
-  --accent-2: #38bdf8;
-  --accent-ink: #05243a;
-  --wa: #22c55e;
-  --wa-deep: #16a34a;
+  --text: #f6f5f3;
+  --text-2: #b8b9bd;
+  --text-3: #85878d;
+  --accent: #ff4d1c;
+  --accent-2: #ff6a3d;
+  --accent-ink: #ffffff;
+  --accent-rgb: 255, 77, 28;
+  --accent-glow: rgba(255, 77, 28, 0.38);
   --star: #facc15;
-  --font-display: 'Josefin Sans', 'Century Gothic', 'Futura', sans-serif;
+  --font-display: 'Archivo', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --gutter: clamp(18px, 8vw, 150px);
   --max: 1440px;
@@ -57,8 +57,20 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(60vw 40vh at 85% -10%, rgba(14, 165, 233, 0.12), transparent 60%),
-    radial-gradient(50vw 50vh at -10% 110%, rgba(14, 165, 233, 0.06), transparent 60%);
+    radial-gradient(55vw 38vh at 88% -8%, rgba(255, 77, 28, 0.16), transparent 62%),
+    radial-gradient(45vw 45vh at -8% 108%, rgba(255, 77, 28, 0.07), transparent 60%);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  mix-blend-mode: screen;
 }
 
 body.menu-open {
@@ -110,7 +122,7 @@ address {
 }
 
 ::selection {
-  background: rgba(14, 165, 233, 0.35);
+  background: rgba(255, 77, 28, 0.45);
   color: #fff;
 }
 
@@ -167,40 +179,41 @@ address {
 .display-md,
 .display-sm {
   font-family: var(--font-display);
+  font-stretch: 118%;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
 .display-xl {
-  font-weight: 400;
-  font-size: clamp(2.4rem, 6.4vw, 5.6rem);
-  line-height: 1;
+  font-weight: 800;
+  font-size: clamp(2.1rem, 5.4vw, 4.8rem);
+  line-height: 0.98;
 }
 
 .display-lg {
-  font-weight: 400;
-  font-size: clamp(1.75rem, 3.6vw, 3.4rem);
-  line-height: 1.08;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.8rem);
+  line-height: 1.04;
 }
 
 .display-md {
-  font-weight: 400;
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
-  line-height: 1.2;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  line-height: 1.15;
 }
 
 .display-sm {
-  font-weight: 400;
-  font-size: 1.05rem;
+  font-weight: 600;
+  font-size: 1rem;
   line-height: 1.3;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
 }
 
 .display-xl em,
 .display-lg em {
   font-style: normal;
-  color: var(--accent-2);
+  color: var(--accent);
 }
 
 .eyebrow {
@@ -208,7 +221,7 @@ address {
   align-items: center;
   gap: 0.85rem;
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent-2);
@@ -216,15 +229,16 @@ address {
 
 .eyebrow__num {
   font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 0.9rem;
+  font-stretch: 110%;
+  font-weight: 600;
+  font-size: 0.85rem;
   color: var(--text);
 }
 
 .eyebrow::before {
   content: '';
   width: 2rem;
-  height: 1px;
+  height: 2px;
   background: var(--accent);
 }
 
@@ -251,11 +265,13 @@ address {
 
 .num {
   font-family: var(--font-display);
-  font-weight: 300;
-  letter-spacing: 0.02em;
+  font-stretch: 110%;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -265,12 +281,13 @@ address {
   border-radius: 999px;
   border: 1px solid transparent;
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1;
   white-space: nowrap;
-  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease);
+  overflow: hidden;
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .btn svg {
@@ -280,25 +297,145 @@ address {
 }
 
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .btn--primary {
   background: var(--accent);
   color: var(--accent-ink);
+  box-shadow: 0 8px 24px -8px var(--accent-glow);
 }
 
 .btn--primary:hover {
   background: var(--accent-2);
+  box-shadow: 0 14px 32px -8px var(--accent-glow);
 }
 
-.btn--wa {
-  background: var(--wa-deep);
-  color: #fff;
+.btn--call {
+  background: var(--accent);
+  color: var(--accent-ink);
+  min-height: 3.5rem;
+  padding: 0.9rem 1.5rem 0.9rem 1.3rem;
+  gap: 0.75rem;
+  box-shadow: 0 0 0 0 var(--accent-glow), 0 12px 30px -10px var(--accent-glow);
+  animation: callPulse 2.6s var(--ease) infinite;
 }
 
-.btn--wa:hover {
-  background: var(--wa);
+.btn--call::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 45%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+  transform: skewX(-18deg);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn--call:hover {
+  background: var(--accent-2);
+  animation: none;
+  box-shadow: 0 0 0 6px rgba(255, 77, 28, 0.18), 0 18px 40px -10px var(--accent-glow);
+}
+
+.btn--call:hover::after {
+  opacity: 1;
+  animation: shine 0.9s var(--ease) forwards;
+}
+
+.btn--call svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  animation: ringPhone 2.6s var(--ease) infinite;
+  transform-origin: 50% 60%;
+}
+
+.btn--call:hover svg {
+  animation: none;
+}
+
+.btn--call .btn__num {
+  font-family: var(--font-display);
+  font-stretch: 108%;
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
+  padding-left: 0.75rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  line-height: 1;
+}
+
+.btn--call.btn--lg {
+  min-height: 4rem;
+  padding: 1rem 1.9rem 1rem 1.6rem;
+  font-size: 0.84rem;
+}
+
+.btn--call.btn--lg .btn__num {
+  font-size: 1.2rem;
+}
+
+.btn--call.btn--sm {
+  min-height: 2.6rem;
+  padding: 0.55rem 1rem 0.55rem 0.9rem;
+  font-size: 0.68rem;
+  gap: 0.55rem;
+  animation: none;
+  box-shadow: 0 8px 20px -10px var(--accent-glow);
+}
+
+.btn--call.btn--sm svg {
+  width: 1rem;
+  height: 1rem;
+  animation: none;
+}
+
+.btn--call.btn--sm .btn__num {
+  font-size: 0.82rem;
+  padding-left: 0.55rem;
+}
+
+@keyframes callPulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--accent-glow), 0 12px 30px -10px var(--accent-glow);
+  }
+  60% {
+    box-shadow: 0 0 0 14px rgba(255, 77, 28, 0), 0 12px 30px -10px var(--accent-glow);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 28, 0), 0 12px 30px -10px var(--accent-glow);
+  }
+}
+
+@keyframes ringPhone {
+  0%,
+  60%,
+  100% {
+    transform: rotate(0);
+  }
+  65% {
+    transform: rotate(-14deg);
+  }
+  70% {
+    transform: rotate(12deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(8deg);
+  }
+  85% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes shine {
+  to {
+    left: 130%;
+  }
 }
 
 .btn--ghost {
@@ -325,8 +462,8 @@ address {
   align-items: center;
   gap: 0.6rem;
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text);
 }
@@ -352,6 +489,20 @@ address {
   .btn-row .btn {
     width: 100%;
   }
+
+  .btn--call,
+  .btn--call.btn--lg {
+    min-height: 3.5rem;
+    padding: 0.85rem 1rem;
+    gap: 0.55rem;
+    font-size: 0.74rem;
+  }
+
+  .btn--call .btn__num,
+  .btn--call.btn--lg .btn__num {
+    font-size: 0.98rem;
+    padding-left: 0.55rem;
+  }
 }
 
 [data-reveal] {
@@ -373,13 +524,6 @@ address {
   filter: none;
 }
 
-@media (min-width: 900px) {
-  .display-xl,
-  .display-lg {
-    font-weight: 300;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -391,6 +535,11 @@ address {
     transform: none;
     filter: none;
     transition: none;
+  }
+
+  .btn--call,
+  .btn--call svg {
+    animation: none;
   }
 
   *,

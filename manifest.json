@@ -1,11 +1,11 @@
 {
   "name": "RXR Performance",
   "short_name": "RXR Performance",
-  "description": "Tuning ECU, Remapare Motor & Cutie, Codări BMW & VAG, Diagnoza Auto",
+  "description": "Tuning ECU, Remapare Motor & Cutie, Codari BMW, Diagnoza Auto",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0b0d",
-  "theme_color": "#0ea5e9",
+  "theme_color": "#ff4d1c",
   "icons": [
     {
       "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏎️</text></svg>",
