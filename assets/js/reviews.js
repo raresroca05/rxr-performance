@@ -34,9 +34,17 @@
     }
   }
 
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   function renderStars(rating) {
     const r = Math.round(rating);
-    let html = '<span class="stars" aria-label="' + r + ' stele">';
+    let html = '<span class="stars" role="img" aria-label="' + r + ' stele">';
     for (let i = 0; i < 5; i++) {
       const style = i < r ? '' : ' style="color:var(--text-3)"';
       html += '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"' + style + '><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
@@ -46,12 +54,12 @@
   }
 
   function reviewCard(review) {
-    const author = (review.author_name || 'Anonim').trim();
+    const author = escapeHtml((review.author_name || 'Anonim').trim());
     const initial = author.charAt(0).toUpperCase();
-    const text = (review.text || '').replace(/[<>]/g, '');
-    const truncated = text.length > 220 ? text.slice(0, 220).trim() + '…' : text;
+    const text = review.text || '';
+    const truncated = escapeHtml(text.length > 220 ? text.slice(0, 220).trim() + '…' : text);
     return [
-      '<article class="card review is-in">',
+      '<article class="review">',
         renderStars(review.rating || 5),
         '<p class="review__text">„', truncated, '”</p>',
         '<div class="review__author">',

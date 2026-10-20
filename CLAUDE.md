@@ -1,6 +1,6 @@
 # RXR Performance — Automotive Tuning Services Website
 
-Promotional website for automotive ECU tuning, car coding, and diagnostic services. Static HTML/CSS/JS site with a dynamic vehicle database for performance lookup.
+Promotional website for automotive ECU tuning, car coding, and diagnostic services. Static HTML/CSS/JS site, **one page** (since 2026-10-20), with a dynamic vehicle database for performance lookup.
 
 **Domain**: rxr-performance.ro
 **Repo**: github.com/raresroca05/rxr-performance
@@ -10,12 +10,12 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 
 | Layer          | Technology                                                                                                |
 | -------------- | --------------------------------------------------------------------------------------------------------- |
-| HTML           | HTML5 (semantic, Schema.org structured data)                                                              |
-| CSS            | Custom CSS only, no framework (`base.css` tokens + `main.css` components). Tailwind removed 2026-10.      |
-| JavaScript     | Vanilla ES6+ (IIFE modules)                                                                               |
-| Fonts          | Google Fonts (Archivo variable, wdth 100-125 / wght 500-800, for display/brand; Inter for body)            |
+| HTML           | HTML5 (semantic, Schema.org structured data), inline SVG icon sprite (`<symbol id="i-…">` + `<use>`)       |
+| CSS            | Custom CSS only, one file `assets/css/main.css` (tokens in `:root`). No framework.                         |
+| JavaScript     | Vanilla ES6+ (IIFE modules), all `defer`                                                                   |
+| Fonts          | Google Fonts Archivo (wdth 100-125, wght 700-800) for headings/buttons, loaded non-blocking (`media=print` swap). Body text uses the system font. |
 | Tag management | Google Tag Manager (GTM-TTF724N7) — sole tracking install; GA/Ads managed in-container, nothing hardcoded |
-| Instagram feed | Behold.so widget                                                                                          |
+| Instagram feed | Behold.so JSON feed                                                                                       |
 | Cookie consent | CookieYes (Consent Mode v2) — loaded via GTM, key `57bb99c7…a303e0`                                       |
 | Build          | None — static files, no npm                                                                               |
 
@@ -25,51 +25,46 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 
 ```
 /
-├── index.html                # Homepage (Hero, Services, Calculator, Reviews, CTA)
-├── servicii.html             # Services details
-├── preturi.html              # Pricing (public, no longer password-protected)
-├── galerie.html              # Proiecte (Behold.so IG widget + social buttons)
-├── despre-noi.html           # About us
-├── contact.html              # Contact + Google Maps + FAQ
-├── 404.html                  # Custom 404
-├── manifest.json             # PWA manifest
-├── sitemap.xml               # SEO sitemap
-├── robots.txt                # Crawler rules (incl. AI bots blocked)
-├── CNAME                     # Domain config
-├── README.md                 # Public docs
-├── CLAUDE.md                 # This file
+├── index.html                # The whole site: hero, Proiecte, Servicii si preturi, Calculator,
+│                             # De ce RXR, Recenzii, Intrebari, Contact
+├── servicii.html             # Redirect -> ./#servicii (maps #tuning/#codari-bmw/#diagnoza/#alte-servicii)
+├── preturi.html              # Redirect -> ./#preturi
+├── galerie.html              # Redirect -> ./#proiecte
+├── despre-noi.html           # Redirect -> ./#despre
+├── contact.html              # Redirect -> ./#contact
+├── confidentialitate.html    # Privacy policy (same header/footer shell)
+├── 404.html                  # Custom 404 (absolute /assets paths, served at any depth)
+├── manifest.json · sitemap.xml · robots.txt · CNAME · README.md · CLAUDE.md
+├── data/vehicles/*.json      # verified engine specs with source URLs (source of truth for the calculator)
+├── tools/build-vehicle-db.py # builds assets/js/vehicle-database.js from data/vehicles
 └── assets/
-    ├── js/
-    │   ├── main.js               # Vehicle calculator (cascading dropdowns + Nm formula)
-    │   ├── vehicle-database.js   # 5,827 vehicles, 67 brands, 699 models
-    │   ├── site.js               # Header, mobile menu, reveal-on-scroll, chapters nav, counters, drag slider
-    │   ├── instagram.js          # Behold JSON feed -> hero slides + "Proiecte" slider (index), grid (galerie)
-    │   ├── reviews.js            # Google Places reviews loader (with static fallback)
-    │   ├── gtm.js                # Google Tag Manager loader (externalized <head> snippet)
-    │   └── utils.js              # window.RXR namespace, tracking, helpers
-    └── css/
-        ├── base.css              # Design tokens (:root), reset, type scale (.display-*), .eyebrow,
-        │                         # .btn*, [data-reveal] animations, reduced-motion
-        └── main.css              # @imports base.css. Header/mobile menu, .chapters nav, .hero,
-                                  # .page-hero, .chapter sections, cards/grids, calculator, slider,
-                                  # reviews, .cta-band, pricing, contact/FAQ, .prose, footer, .call-float
+    ├── css/main.css          # Everything: tokens, buttons, header + crumbs, hero, sections, cards,
+    │                         # projects, calculator, tiles, reviews, FAQ, contact, footer, action bar
+    └── js/
+        ├── main.js           # Calculator; loads vehicle-database.js only when #calculator is near
+        ├── vehicle-database.js # generated from data/vehicles/*.json (6,974 engines, 30 brands)
+        ├── site.js           # Active section in .nav (desktop) and .crumbs (mobile); hides the
+        │                     # mobile .action-bar while a [data-main-cta] row is on screen
+        ├── instagram.js      # Behold feed -> [data-ig-grid] cards, fetched when the grid is near
+        ├── reviews.js        # Google Places reviews loader (static fallback in HTML)
+        ├── gtm.js            # Google Tag Manager loader
+        └── utils.js          # window.RXR: trackEvent, trackConversion, whatsappUrl, phone/WhatsApp click tracking
 ```
 
-## Design (redesign 2026-10, inspired by mont-fort.com; recolored 2026-10-07)
+The redirect pages keep `location.search` (so `?gclid=` from ads survives) and fall back to a `meta refresh`. Ads should still point straight at `https://rxr-performance.ro/`.
 
-- **Dark performance**: near-black `#09090b`, one accent (hot orange-red `#ff4d1c` / `#ff6a3d`, used only for CTAs, active states, numerals and `<em>` in headlines), wide bold uppercase Archivo headlines (`font-stretch: 118%`), generous whitespace, 1px hairlines, a fixed grain overlay (`body::after`, SVG noise at ~4.5%) and one radial accent glow (`body::before`).
-- **Ticker**: `.ticker` on index right under the hero (two identical `.ticker__list`s, CSS marquee, paused on hover, off under reduced-motion).
-- **Chapters**: every content section is `<section class="chapter" id="…" data-chapter="Label">`. `site.js` builds the fixed right-hand numbered nav (`#chapters`, visible >=1280px) from these and highlights the one in view. Hero/CTA sections without `data-chapter` are not listed.
-- **Section head pattern**: `.chapter__head` = `.eyebrow` (with `.eyebrow__num` "01") + `h2.display-lg[data-reveal="title"]` + `.lead`, offset to the right on desktop.
-- **Reveal**: add `data-reveal` (fade/rise) or `data-reveal="title"` (blur/rise) and optional `style="--i:n"` for stagger. Do not use `clip-path` for hidden states — IntersectionObserver never fires for zero-area targets.
-- **Buttons**: `.btn.btn--call` (the primary CTA: accent fill, pulse ring, ringing phone icon, shimmer on hover; variants `btn--sm` header, `btn--lg` contact card; markup = phone svg + `<span>Suna acum</span><b class="btn__num">0744 787 446</b>`), `.btn.btn--primary` (accent, non-call actions), `.btn.btn--ghost` (outline), `.link-arrow`.
-- **Call CTA everywhere**: header (`.site-nav__call` desktop, `.header-phone` icon on mobile), first button of every `.btn-row`, mobile menu, and the sticky `.call-float` (full-width bar on mobile, pill bottom-right on desktop) on every page.
-- **Tracking alias (keep!)**: every `tel:` link that is a CTA carries the legacy class `btn-cta` (no CSS) so GTM triggers built on _Click Classes_ keep matching. The phone number must stay visible as text for WhatConverts number swap.
-- **Mobile first (90% of traffic, 2026-10-07)**: `viewport-fit=cover` on every page and `env(safe-area-inset-bottom)` on `.call-float` / body padding; selects are 16px so iOS does not zoom; the calculator form is ordered above the warning note under 700px; hero stats are compact under 760px; the grain overlay, hover lifts and the button pulse are off for touch devices (`@media (hover: none)`) and only the hero / contact-card buttons pulse at all; `instagram.js` uses the `medium` Behold size for hero slides under 760px. Keep tap targets >= 44px.
-- **Project cards (2026-10-09)**: `instagram.js` reads the first caption line, picks the car line (brand list, diacritic-safe), and builds up to 3 chips — one service label (Stage 2 / Stage 1 / Codari / TCU / Diagnoza / Retrofit) plus the power and torque figures it finds (`~680 CP`, `800+ Nm`). Cards carry a numbered badge (`.slide__num`), the chips (`.slide__tags`) and a big uppercase model name; the caption detail line only shows when there are fewer than 2 chips. Home slider cards are `clamp(300px, 32vw, 460px)` in 4:5 (84vw on phones) with the first card widened to `clamp(420px, 48vw, 700px)` on desktop; the Proiecte grid is 3 square columns with the first tile spanning 2x2. Behold only serves square crops (`?class=squareLarge`), so the grid stays 1:1. Hover shows a `.slide__open` chip; index section 03 is `.chapter--showcase` (radial accent glow) with a `.live-dot` in the eyebrow.
-- **Instagram as media**: no photos exist in the repo. `instagram.js` fetches the Behold JSON feed and uses `sizes.large/medium.mediaUrl` (stable `behold.pictures` URLs) for the hero background crossfade, the home slider and the Proiecte grid. Needs `https://feeds.behold.so` in `connect-src` (index + galerie); `img-src https:` already covers the images. On failure the section shows `.ig-fallback`.
-- **Hero sharpness (2026-10-09)**: Behold caps every image at 900x900 (`?class=squareLarge` and `squareFull` return the same file; `large`/`original`/`xlarge` are 403), so a full-bleed hero always upscales. Mitigations in place: `heroPosts()` puts non-VIDEO posts first (reel thumbnails are the softest source), Ken Burns is 1.01 -> 1.05 over 14s instead of 1.04 -> 1.14, and the hero overlay is lighter. A genuinely sharp hero needs a real photo file in the repo.
-- **Hero stat "2.500+ vehicule in calculator"** is the number the owner wants shown (2026-10-07); the DB itself has 5,827 entries. Do not change it to the real count.
+## Design (one-page redesign 2026-10-20)
+
+- **Why**: marketing said the first month with WhatsApp + the original blue design converted best; the owner asked for a single landing page where projects and contact are one tap away. The look goes back to the original dark slate + blue, cleaner and lighter.
+- **Everything centered**: hero, section heads (`.section__head`), FAQ column, contact card, footer. Card contents stay readable (service cards are left-aligned inside).
+- **Equal frames**: `.cards`, `.tiles`, `.reviews`, `.info` use `grid-auto-rows: 1fr`, so every card in a group has the same height. Keep card content short; no expanding blocks inside cards.
+- **Header**: logo + (desktop) `.nav` links + two icon-only buttons (WhatsApp, phone). On mobile a breadcrumb strip `.crumbs` sits under the header row (Acasa / Proiecte / Preturi / Calculator / Recenzii / Contact), highlights the section in view and scrolls itself to keep it centered.
+- **Buttons are small** (46px main, 44px icon). Main call button text is `<span>Suna</span><span>0744 787 446</span>` (same font for both). Service cards use icon-only WhatsApp + phone buttons with `sr-only` labels.
+- **Mobile action bar** (`.action-bar`, < 900px): "Suna 0744 787 446" + "WhatsApp". It slides away while the hero or contact buttons (`[data-main-cta]`) are visible, so there are never two pairs of the same buttons on screen.
+- **No reveal animations, no grain, no ticker, no side chapter nav** — content is visible without JS. Only motion: skeleton shimmer, small hovers, smooth scroll (all off under reduced motion).
+- **Mobile first (90% of traffic)**: `viewport-fit=cover`, safe-area padding on the bar, 16px selects, tap targets >= 44px, buttons `white-space: nowrap`, no horizontal scroll at 360px.
+- **Speed**: hero has no images (CSS gradients + M-stripes only). Instagram JSON is fetched when the projects grid is within 800px; images use Behold `srcset` (400/700/1000w) with `loading="lazy"`. The 786 KB vehicle database loads only when the calculator is within 600px, or on first tap/focus inside it.
+- **Hero stat "2.500+ vehicule in calculator"** is the number the owner wants shown (2026-10-07); the DB itself now has 6,974 entries, so the claim is true. Do not change it unless the owner asks.
 
 ## Key Patterns
 
@@ -78,144 +73,102 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 - **Romanian UI** — all content in Romanian (no diacritics, to avoid encoding issues)
 - **No build step** — edit HTML/CSS/JS directly, deploy static files
 - **Commit author**: `Rares Roca <contact@rxr-performance.ro>`
-- **Shared shell** on every page (duplicated markup, keep in sync): `.site-header` (`#site-header`, `#menu-toggle`, `#scroll-progress`), `#mobile-menu` (`hidden` attr toggled by `site.js`), `<nav class="chapters" id="chapters">`, `<main id="main">`, `.site-footer`, `.call-float.btn-cta`
-- **Head is preserved per page** (meta, OG, CSP, JSON-LD, GTM, `utils.js`); only `<body>` was rebuilt in the redesign
-- `.hidden` and `[hidden]` are `display:none !important` (calculator result and mobile menu rely on this)
+- **Shared shell** (header, crumbs, footer, action bar, icon sprite) is duplicated in `index.html`, `confidentialitate.html` and `404.html` — keep them in sync. On other pages the links point to `index.html#…` (`/#…` on 404).
+- **Tracking aliases (keep!)**: every `tel:` link carries `btn-cta`; every `wa.me` link carries `btn-cta-wa no-swap`. GTM triggers use these classes; `no-swap` is the official WhatConverts class that stops it from swapping the WhatsApp number.
+- `.hidden` and `[hidden]` are `display:none !important` (calculator result relies on this)
 
-## Color Theme (dark performance, applied 2026-10-07)
+## Color Theme (dark slate + blue, 2026-10-20)
 
 ```
---bg:        #09090b   --bg-2:      #0e0f12   (alternate chapters)
---surface:   #141518   --surface-2: #1a1c21
---line:      rgba(255,255,255,.08)   --line-strong: rgba(255,255,255,.18)
---text:      #f6f5f3   --text-2:    #b8b9bd   --text-3: #85878d
---accent:    #ff4d1c   --accent-2:  #ff6a3d   (the only brand color)
---accent-ink #ffffff   --accent-glow rgba(255,77,28,.38)
+--bg:        #0a1120   --bg-2:      #0d1627   (alternate sections)
+--surface:   #111b2e   --surface-2: #17233a
+--line:      rgba(148,163,184,.14)   --line-strong: rgba(148,163,184,.3)
+--text:      #eef3f9   --text-2:    #b4c0d3   --text-3: #8a99b0
+--accent:    #2563eb   (call buttons, white text 5.2:1)   --accent-text: #6cb2ff (accent on dark)
+--wa:        #14843f   --wa-ink: #ffffff (WhatsApp buttons, white text 4.8:1; brighter greens are unreadable with white)
+--wa-text:   #25d366   (green text and check icons on the dark background)
+--m-light:   #5ab0ff   --m-dark: #2340a8   --m-red: #e5262e   (M-stripes: logo underline, eyebrows, hero)
 --star:      #facc15
 ```
 
-Defined once in `assets/css/base.css` `:root`. Solid body background with a faint radial accent glow (`body::before`).
+All defined once in `assets/css/main.css` `:root`.
 
-## Navigation (consistent across all pages)
+## Pricing (updated 2026-10-20)
 
-5 items: **Acasa | Servicii | Preturi | Proiecte | Contact**
+All "incepand de la", set from a market check of Romanian tuning shops (2026-10-20): Pack Stage 1 ECU + TCU 2.000 RON (card says "Economisesti 500 lei" vs 1.500 + 1.000) · Stage 1 ECU 1.500 RON · Stage 1 TCU 1.000 RON · Codari BMW 150 RON · Diagnoza 150 RON, free with a tuning job · Alte servicii la cerere. Market then: Stage 1 mostly 1.300-1.800 RON, TCU 1.000-1.500 RON, diagnosis 100-150 RON, one BMW coding 50-150 RON. Hero shows "Stage 1 de la 1.500 RON" and the meta description says "De la 1.500 RON" — keep them in sync with the cards.
 
-Active state via `.site-nav__link.is-active` / `.mobile-menu__link.is-active`. Despre-Noi available via footer and the mobile menu.
+## Vehicle Database (rebuilt 2026-10-20)
 
-## Pages
+- **6,974 engine versions**, **30 brands**, **265 models**, model years 2000-2026, European-market versions only. Every row was read from a real spec page (mostly auto-data.net, checked against ultimatespecs / German Wikipedia / cars-data / maker pages); the source URL is kept per row.
+- **Source of truth**: `data/vehicles/*.json` (one file per brand group, with `source` URLs). `assets/js/vehicle-database.js` is generated from them: `python3 tools/build-vehicle-db.py --write`. Never edit the generated file by hand; fix the JSON and rebuild.
+- Source row: `{brand, model, generation, facelift, genStart, genEnd, engine, displacement, fuel (diesel|benzina), induction (turbo|atmosferic), hybrid (null|mild|plug-in), ps, nm, engStart, engEnd, source}`.
+- Generated record: `{brand, model, generation: "F30 LCI (2015-2019)", engine: "320d 2.0 190 CP", stockHP, stockNm, stage1HP, stage1Nm, na?}`. `stockHP` holds metric PS (CP).
+- Romanian naming: Opel (not Vauxhall), Mercedes-Benz, BMW "Seria 3", Mercedes "Clasa C"; BMW facelift = "LCI", others "facelift"; bare roman numerals get the model name ("308 II").
+- Left out on purpose: electric cars, full hybrids (Toyota HSD etc.), LPG/CNG-only versions, versions not sold in the EU (US/China/Turkey specs, the diesel Logan III/Sandero III/Duster III/Jogger/Bigster), trucks, tractors, marine engines, exotics without OBD tuning.
+- The build script rejects rows with impossible values (PS 40-900, Nm 60-1500, Nm/PS ratio by engine type, years) and merges rows that differ only by years.
+- To update: add/fix rows in the right JSON with a source URL, run the build, bump `?v=` on the database URL in `main.js` (cache busting).
 
-### `index.html`
+### Calculator algorithm (`main.js` + `tools/build-vehicle-db.py`)
 
-Full-viewport hero (Instagram image crossfade + headline + 4 counters) → chapters: 01 Servicii (4 numbered rows linking to `servicii.html#…`) → 02 Calculator (ids unchanged for `main.js`) → 03 Proiecte (drag slider from Instagram) → 04 De ce RXR (3 pillars + certifications) → 05 Recenzii (`#reviews-grid` etc. for `reviews.js`) → 06 Contact (`.cta-band`) → Footer.
+Stock power and torque are the real figures. Stage 1 is an estimate by engine type, computed at build time:
 
-### `servicii.html`
-
-Page hero with anchor links → chapters: 01 Stage 1 ECU/TCU (`#tuning`), 02 Codari BMW (`#codari-bmw`, 6 category cards), 03 Diagnoza (`#diagnoza`) → closing CTA band. Anchor ids are linked from index/despre-noi — keep them.
-
-### `preturi.html`
-
-Pricing list with "incepand de la" prefix. No longer password-protected (changed 2026-06).
-
-- Pack Stage 1 ECU + TCU: from 1.750 RON
-- Stage 1 ECU: from 1.000 RON
-- Stage 1 TCU: from 750 RON
-- Codari BMW: from 250 RON
-- Diagnoza: from 250 RON
-
-### `galerie.html`
-
-Renamed from "Galerie" → **"Proiecte"**. 01 Instagram grid (`[data-ig-grid]`, 12 posts via `instagram.js`, replaced the Behold `<behold-widget>`), 02 Social (buttons + stats band), CTA band.
-
-### `despre-noi.html`
-
-Page hero → 01 Cine suntem (quote), 02 Valori (4 pillars), 03 Ce oferim (service rows + stats), 04 Cum lucram (4 steps), CTA. Canonical fixed to `despre-noi.html` (matches sitemap).
-
-### `contact.html`
-
-01 Call card (`.card--call`, big `btn--call btn--lg`) + email card and info grid, 02 Google Maps embed by address query (Strada Sannicoara 6, 407042 Cluj-Napoca; no GPS coords in JSON-LD until the exact pin is known), 03 FAQ (`<details>` with CSS-only plus/rotate, no JS), 04 social row.
-
-### `404.html`
-
-Custom 404 with home + services CTAs.
-
-## Vehicle Database (`vehicle-database.js`)
-
-- **5,827 vehicles** across **67 brands** and **699 distinct models**
-- Format: `{ brand, model, generation, engine, stockHP, stage1HP }`
-- All models cleaned and consolidated (2026-06):
-  - Body codes in generation field (e.g., BMW 3 Series → E36/E46/E9x/F3x/G2x)
-  - No model names with parenthesized body codes
-  - No empty generations
-  - No year-only multi-gen models for major brands
-- Brands covered: Abarth, Alfa Romeo, Alpine, Aston Martin, Audi, BMW, Bentley, Cadillac, Chevrolet, Chrysler, Citroen, Cupra, DAF, DS, Dacia, Dodge, Ferrari, Fiat, Ford, Great Wall, Holden, Honda, Hyundai, Infiniti, Isuzu, Iveco, JCB, Jaguar, Jeep, KTM, Kia, LDV, Lamborghini, Land Rover, Lexus, MAN, MG, Maserati, Massey Ferguson, Mazda, McLaren, Mercedes Benz, Mercedes Trucks, Mercury, Mini, Mitsubishi, New Holland, Nissan, Peugeot, Porsche, Renault, Renault Trucks, Rover, Saab, Scania, Seat, Skoda, Smart, Ssangyong, Subaru, Suzuki, Toyota, Vauxhall, Volkswagen, Volvo, Volvo Trucks, Yamaha.
-
-### Calculator algorithm (`main.js`)
-
-```js
-// Stock Nm estimation (varies by engine type + displacement)
-Diesel:    ≤1.6L → 2.4x HP   |  1.7-2.4L → 2.15x  |  ≥2.5L → 2.0x
-Turbo P:   ≤1.4L → 1.65x HP  |  1.5-2.5L → 1.55x  |  ≥2.6L → 1.4x
-NA:        ≤1.6L → 1.5x HP   |  1.7-3.0L → 1.3x   |  ≥3.0L → 1.05x
-
-// Stage 1 (flat +28% on both HP and Nm)
-Stage 1 HP = Stock HP × 1.28
-Stage 1 Nm = Stock Nm × 1.28
+```
+Diesel turbo:  <=120 CP +28% CP / +25% Nm | 121-200 +24% / +20% | 201-300 +20% / +17% | >300 +15% / +13%
+Petrol turbo:  <=130 CP +22% / +22%        | 131-250 +25% / +22% | 251-400 +18% / +16% | >400 +12% / +12%
+Naturally aspirated petrol: +6% CP / +5% Nm (result shows a note that the gain is small)
+Plug-in hybrid (system output): +10% / +10%
 ```
 
-Displayed values are clearly marked as estimates (amber banner + result card warning).
+Generations are listed by start year, engines by power. The result's WhatsApp button (`#whatsapp-cta`) gets a prefilled message with the chosen car and the estimate. The database loads lazily from `assets/js/vehicle-database.js?v=2026-10-20`.
 
 ## Analytics & Tracking
 
-- **Google Tag Manager**: `GTM-TTF724N7` — the **only** tracking install in the code. Loader externalized to `assets/js/gtm.js`, imported in `<head>`; paired `<noscript>` iframe stays inline in `<body>` on every page. Consent (CookieYes) and GA4/Ads tags live **inside** the GTM container.
-- **No hardcoded GA4 / Google Ads / Facebook Pixel** — by explicit request (2026-07). Any analytics/ads must be configured **inside the GTM container**, not in the HTML. Do not re-add `gtag.js` or `G-*`/`AW-*` snippets.
+- **Google Tag Manager**: `GTM-TTF724N7` — the **only** tracking install in the code. Loader externalized to `assets/js/gtm.js`, imported in `<head>`; paired `<noscript>` iframe stays inline in `<body>`. Consent (CookieYes) and GA4/Ads tags live **inside** the GTM container.
+- **No hardcoded GA4 / Google Ads / Facebook Pixel** — by explicit request (2026-07). Do not re-add `gtag.js` or `G-*`/`AW-*` snippets.
 - **Consent Mode v2**: provided by CookieYes (loads before GTM).
-- **Custom helpers**: `RXR.trackEvent()`, `RXR.trackConversion()` in `utils.js` push to `window.dataLayer` (GTM-native) — no vendor SDK calls. `initContactTracking()` fires `phone_click` on every `tel:` click; wire it as a GTM trigger.
+- **Custom helpers**: `RXR.trackEvent()`, `RXR.trackConversion()` push to `window.dataLayer`. `initContactTracking()` fires `phone_click` on every `tel:` click and `whatsapp_click` on every `wa.me` click; wire both as GTM triggers.
+- **Two number-swap scripts run via GTM**: WhatConverts (`176097.js`) and Google Ads call tracking (`gstatic.com/call-tracking`). Both look for the same visible number; if one swaps it first, the other cannot count. Suspected reason the Ads account showed only ~2 calls in Sep 22 - Oct 19 2026 — check in the GTM/WhatConverts setup, not in the site code.
 
 ## SEO
 
-- Schema.org `AutomotiveBusiness` with address + GPS + opening hours + sameAs on **every page** (was index-only, expanded 2026-06)
-- Schema.org `BreadcrumbList` per page
-- Open Graph + Twitter Card complete on **every page**
-- `hreflang="ro"` + geo-targeting Romania
-- Canonical URLs per page
-- `sitemap.xml` (all 6 pages with priorities)
+- Schema.org `AutomotiveBusiness` (address, hours, sameAs, offer catalog) + `BreadcrumbList` on index
+- Open Graph + Twitter Card (og-image.png is 1800x945 PNG); title targets "Chip tuning Stage 1 Cluj-Napoca"; no keywords meta (search engines ignore it)
+- `hreflang="ro"` + geo-targeting Romania, canonical URLs
+- `sitemap.xml`: index + confidentialitate only (old pages are redirects with canonical to `/`)
 - `robots.txt` with sitemap reference + AI crawler blocks (GPTBot, ChatGPT-User, CCBot, anthropic-ai, Google-Extended)
 - Custom `404.html`
 
-## Security headers (every page, via meta http-equiv)
+## Security (meta tags; GitHub Pages cannot send real headers)
 
-- `Content-Security-Policy` (per-page, with required domains)
-- `X-Frame-Options: SAMEORIGIN`
-- `X-Content-Type-Options: nosniff`
-- `Referrer-Policy: strict-origin-when-cross-origin`
-- `Permissions-Policy: geolocation=(self), microphone=(), camera=(), payment=()`
+- `Content-Security-Policy` meta on index + confidentialitate: `default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'`, scripts only from self + CookieYes + Google tag domains + WhatConverts, `connect-src` adds `https://feeds.behold.so` on index. No Instagram/Facebook embeds, so those domains are not allowed. Add a domain here before adding any new third-party script in GTM.
+- `<meta name="referrer" content="strict-origin-when-cross-origin">` on every page.
+- X-Content-Type-Options, Permissions-Policy and X-Frame-Options cannot be set from a meta tag; they need a proxy such as Cloudflare in front of GitHub Pages.
+- All untrusted data (Behold feed, Google reviews) is escaped before it goes into HTML; feed links must be `https:`.
+- No secrets in the repo. If the Google Places key is added to `reviews.js`, restrict it to the domain in Google Cloud.
 
 ## GDPR / Cookie Consent
 
-- **CookieYes** manages the banner + Google Consent Mode v2. As of 2026-07 it is **loaded via GTM** (installed by the marketing/GTM owner), **not** hardcoded in the page `<head>`. Website key: `57bb99c764307d7ce071a31fe0a303e0`.
-- ⚠️ When loaded via GTM, use CookieYes's GTM template on the **Consent Initialization** trigger so consent defaults are set before other tags fire.
-- Cookie set by CookieYes: `cookieyes-consent` (~1 year). The old custom banner (`cookie-consent.js`, `rxr_cookie_consent`) was removed 2026-07.
-- CSP whitelists `cdn-cookieyes.com` (script-src) + `cdn-cookieyes.com` / `log.cookieyes.com` (connect-src) on every page that has a CSP.
-- Privacy policy: `confidentialitate.html` (live, linked in footer on every page).
+- **CookieYes** manages the banner + Google Consent Mode v2, **loaded via GTM** (not hardcoded). Website key: `57bb99c764307d7ce071a31fe0a303e0`. On localhost it throws "website URL has changed" — expected.
+- ⚠️ Use CookieYes's GTM template on the **Consent Initialization** trigger so consent defaults are set before other tags fire.
+- Cookie set by CookieYes: `cookieyes-consent` (~1 year).
+- CSP whitelists `cdn-cookieyes.com` (script-src) + `cdn-cookieyes.com` / `log.cookieyes.com` (connect-src).
+- Privacy policy: `confidentialitate.html` (linked in footer). Mentions WhatsApp / Meta again since 2026-10-20.
 - **Manual step (dashboard):** enable Google Consent Mode in the CookieYes account so GTM tags respect consent.
 
 ## Third-party integrations
 
-- **Behold.so** — Instagram JSON feed `https://feeds.behold.so/3nVTXEc9DkXMC5BLJr2Z` (CORS `*`, cached 10s), consumed by `assets/js/instagram.js` on `index.html` (hero + slider) and `galerie.html` (grid). The old `<behold-widget>` / `w.behold.so` script is gone. Images come from `behold.pictures` (`sizes.large|medium.mediaUrl`), captions' first line becomes the card title.
-- **Google Maps** — embed on `contact.html` (coords for Cluj-Napoca)
-- **Phone** — the only contact CTA (WhatsApp removed completely on 2026-10-07 at the owner's request: no links, buttons, float, texts, meta, CSP entry, JS helper or privacy-policy mention. Do not re-add). Every call button reads **"Suna acum 0744 787 446"** (number visible as text for tracking). Service sections use a **"Programeaza-te pentru [Serviciu]"** heading above the buttons.
-- **Google Fonts** — Archivo + Inter
+- **Behold.so** — Instagram JSON feed `https://feeds.behold.so/3nVTXEc9DkXMC5BLJr2Z` (CORS `*`), consumed by `instagram.js` for the Proiecte grid (8 posts). Cards show a service chip (Stage 2 / Stage 1 / Codari / TCU / Diagnoza / Retrofit) plus power/torque chips parsed from the first caption line, and the car name. Images come from `behold.pictures` via `srcset`. On failure the section shows `.ig-fallback`.
+- **WhatsApp** — back on 2026-10-20 (marketing data: it converted best). Number `40744787446`, links `https://wa.me/40744787446?text=…` with a prefilled message per service; `RXR.whatsappUrl(message)` builds them in JS. The number is never shown as text. Every WhatsApp link must carry `no-swap`.
+- **Phone** — every call button reads **"Suna 0744 787 446"**; the number stays visible as text so WhatConverts can swap it.
+- **Maps** — no embed any more (it was heavy); the contact section links to Google Maps directions and Waze.
+- **Google Fonts** — Archivo only.
 - **WhatConverts** — call/lead tracking, loaded **via GTM** (2026-09). Script: `https://s.ksrndkehqnwntyxlhgto.com/176097.js`. CSP allowlist on every page that has one:
   - `script-src`: `https://s.ksrndkehqnwntyxlhgto.com`
   - `connect-src`: `https://s.ksrndkehqnwntyxlhgto.com`, `https://p.ksrndkehqnwntyxlhgto.com`, `https://process.iconnode.com`
 
-  WhatConverts serves the script from a per-account randomized domain — if the account is reissued, the CSP needs the new domains.
-
-  **Number swap (2026-10):** WhatConverts swaps the displayed phone number with a tracking number. All `tel:` links and the number shown as text get swapped, which is intended.
+  WhatConverts serves the script from a per-account randomized domain — if the account is reissued, the CSP needs the new domains. WhatConverts can also track web chat (Tawk.to, Crisp, JivoChat, Messenger…) if a chat is ever added; load such a widget only on tap, it is heavy.
 
 ## Removed services
-
-- **WhatsApp** — removed from every page, script, stylesheet and doc on 2026-10-07. Phone is the single CTA.
 
 - **DPF / EGR / AdBlue (antipoluare)** — removed from the whole site on 2026-10-02 at the owner's request: no section, no price row, no meta/keywords, no JSON-LD offers, no footer mention. Do not re-add.
 
@@ -234,6 +187,7 @@ See [`README.md`](./README.md) `## 📌 TODO` section for the full punch list. O
 1. Google Places API key + Place ID for live reviews
 2. Business email migration (`contact@rxr-performance.ro`)
 3. CookieYes dashboard: enable Google Consent Mode
+4. Point Google Ads final URLs at `https://rxr-performance.ro/` and check the WhatConverts vs Google call-tracking overlap in GTM
 
 Done: og-image, Apple touch icon, privacy policy page, GTM migration, CookieYes.
-Explicitly **not wanted** (2026-07): Google Ads, Facebook Pixel, hardcoded GA4.
+Explicitly **not wanted** (2026-07): Facebook Pixel, hardcoded GA4 / Ads tags.

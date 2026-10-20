@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /scripts/
 Disallow: /.github/
+Disallow: /data/
+Disallow: /tools/
 
 # Block AI training crawlers (optional — remove if you want LLM visibility)
 User-agent: GPTBot

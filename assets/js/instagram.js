@@ -3,10 +3,8 @@
 
   const FEED_URL = 'https://feeds.behold.so/3nVTXEc9DkXMC5BLJr2Z';
   const PROFILE_URL = 'https://www.instagram.com/rxrperformance';
-  const HERO_SLIDES = 4;
-  const HERO_INTERVAL = 7000;
-  const OPEN_CHIP = '<span class="slide__open" aria-hidden="true">Vezi<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></span>';
   const PLAY_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+  const SIZES = '(min-width: 1000px) 25vw, (min-width: 700px) 44vw, 76vw';
   const BRANDS = ['bmw', 'audi', 'volkswagen', 'golf', 'passat', 'skoda', 'octavia', 'superb', 'seat', 'cupra', 'mercedes', 'porsche', 'ford', 'opel', 'renault', 'dacia', 'peugeot', 'citroen', 'mazda', 'toyota', 'honda', 'hyundai', 'kia', 'nissan', 'mini', 'jaguar', 'land rover', 'range rover', 'volvo', 'alfa', 'fiat', 'jeep', 'subaru', 'mitsubishi', 'ssangyong', 'suzuki', 'lexus', 'infiniti', 'tesla', 'maserati', 'ferrari', 'lamborghini', 'bentley', 'aston martin', 'mclaren', 'smart', 'iveco', 'scania', 'daf'];
   const SERVICES = [
     { re: /stage\s?2/, label: 'Stage 2' },
@@ -17,14 +15,20 @@
     { re: /retrofit/, label: 'Retrofit' }
   ];
 
-  const hero = document.getElementById('hero-media');
-  const sliders = document.querySelectorAll('[data-ig-slider]');
   const grids = document.querySelectorAll('[data-ig-grid]');
-  if (!hero && !sliders.length && !grids.length) return;
+  if (!grids.length) return;
 
-  function imageFor(post, size) {
+  function srcset(post) {
     const sizes = post.sizes || {};
-    const pick = sizes[size] || sizes.large || sizes.medium || sizes.small;
+    return ['small', 'medium', 'large']
+      .filter(function (key) { return sizes[key] && sizes[key].mediaUrl && sizes[key].width; })
+      .map(function (key) { return sizes[key].mediaUrl + ' ' + sizes[key].width + 'w'; })
+      .join(', ');
+  }
+
+  function imageFor(post) {
+    const sizes = post.sizes || {};
+    const pick = sizes.medium || sizes.large || sizes.small;
     if (pick && pick.mediaUrl) return pick.mediaUrl;
     return post.thumbnailUrl || post.mediaUrl || '';
   }
@@ -37,7 +41,7 @@
   }
 
   function plain(str) {
-    return String(str).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    return String(str).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   }
 
   function captionLines(post) {
@@ -54,10 +58,10 @@
       const low = plain(line);
       return BRANDS.some(function (b) { return low.indexOf(b) > -1; });
     });
-    const parts = (car || lines[0] || '').split(/\s[\u2014\u2013|-]\s|\s\u00b7\s/);
+    const parts = (car || lines[0] || '').split(/\s[—–|-]\s|\s·\s/);
     return {
       model: (parts[0] || 'Proiect RXR').slice(0, 42),
-      detail: parts.slice(1).join(' \u00b7 ').slice(0, 60)
+      detail: parts.slice(1).join(' · ').slice(0, 60)
     };
   }
 
@@ -91,91 +95,55 @@
       .replace(/"/g, '&quot;');
   }
 
-  function postCard(post, size, index) {
-    const t = titleFor(post);
-    const img = imageFor(post, size);
+  function postCard(post) {
+    const img = imageFor(post);
     if (!img) return '';
-    const isVideo = post.mediaType === 'VIDEO';
+    const t = titleFor(post);
     const tags = tagsFor(post);
-    const num = ('0' + (index + 1)).slice(-2);
+    const set = srcset(post);
     return (
-      '<a class="slide" href="' + escapeHtml(post.permalink || PROFILE_URL) + '" target="_blank" rel="noopener noreferrer">' +
-        '<img src="' + escapeHtml(img) + '" alt="' + escapeHtml(t.model + (t.detail ? ' - ' + t.detail : '')) + '" loading="lazy" decoding="async">' +
-        '<span class="slide__num" aria-hidden="true">' + num + '</span>' +
-        (isVideo ? '<span class="slide__badge" aria-hidden="true">' + PLAY_ICON + '</span>' : '') +
-        OPEN_CHIP +
-        '<span class="slide__cap">' +
-          (tags.length ? '<span class="slide__tags">' + tags.map(function (tag) { return '<b>' + escapeHtml(tag) + '</b>'; }).join('') + '</span>' : '') +
-          '<span class="slide__model">' + escapeHtml(t.model) + '</span>' +
-          (t.detail && tags.length < 2 ? '<span class="slide__detail">' + escapeHtml(t.detail) + '</span>' : '') +
+      '<a class="project" href="' + escapeHtml(/^https:\/\//.test(post.permalink || '') ? post.permalink : PROFILE_URL) + '" target="_blank" rel="noopener noreferrer">' +
+        '<img src="' + escapeHtml(img) + '"' +
+          (set ? ' srcset="' + escapeHtml(set) + '" sizes="' + SIZES + '"' : '') +
+          ' alt="' + escapeHtml(t.model + (t.detail ? ' - ' + t.detail : '')) + '" width="700" height="700" loading="lazy" decoding="async">' +
+        (post.mediaType === 'VIDEO' ? '<span class="project__play">' + PLAY_ICON + '</span>' : '') +
+        '<span class="project__cap">' +
+          (tags.length ? '<span class="project__tags">' + tags.map(function (tag) { return '<b>' + escapeHtml(tag) + '</b>'; }).join('') + '</span>' : '') +
+          '<span class="project__model">' + escapeHtml(t.model) + '</span>' +
+          (t.detail && tags.length < 2 ? '<span class="project__detail">' + escapeHtml(t.detail) + '</span>' : '') +
         '</span>' +
       '</a>'
     );
   }
 
-  function heroPosts(posts) {
-    const stills = posts.filter(function (p) { return p.mediaType !== 'VIDEO'; });
-    const clips = posts.filter(function (p) { return p.mediaType === 'VIDEO'; });
-    return stills.concat(clips).slice(0, HERO_SLIDES);
-  }
-
-  function renderHero(posts) {
-    const picks = heroPosts(posts).map(function (p) { return imageFor(p, window.innerWidth < 760 ? 'medium' : 'large'); }).filter(Boolean);
-    if (!picks.length) return;
-
-    const slides = picks.map(function (url) {
-      const el = document.createElement('div');
-      el.className = 'hero__slide';
-      el.style.backgroundImage = 'url("' + url + '")';
-      hero.appendChild(el);
-      return el;
-    });
-
-    const first = new Image();
-    first.onload = function () { slides[0].classList.add('is-active'); };
-    first.src = picks[0];
-
-    if (slides.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    let i = 0;
-    window.setInterval(function () {
-      slides[i].classList.remove('is-active');
-      i = (i + 1) % slides.length;
-      slides[i].classList.remove('is-active');
-      void slides[i].offsetWidth;
-      slides[i].classList.add('is-active');
-    }, HERO_INTERVAL);
-  }
-
-  function renderInto(container, posts, size) {
-    const limit = parseInt(container.dataset.limit || '12', 10);
-    container.innerHTML = posts.slice(0, limit).map(function (p, i) { return postCard(p, size, i); }).join('');
-    const root = container.closest('[data-ig-root]');
-    if (root) root.dataset.igState = 'ready';
-  }
-
-  function fail() {
+  function setState(state) {
     document.querySelectorAll('[data-ig-root]').forEach(function (root) {
-      root.dataset.igState = 'error';
+      root.dataset.igState = state;
     });
   }
 
-  fetch(FEED_URL, { mode: 'cors' })
-    .then(function (r) {
-      if (!r.ok) throw new Error('Behold feed ' + r.status);
-      return r.json();
-    })
-    .then(function (data) {
-      const posts = (data.posts || []).filter(function (p) {
-        return p.visibility !== 'hidden' && imageFor(p, 'medium');
+  function load() {
+    fetch(FEED_URL, { mode: 'cors' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('Behold feed ' + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        const posts = (data.posts || []).filter(function (p) {
+          return p.visibility !== 'hidden' && imageFor(p);
+        });
+        if (!posts.length) throw new Error('No posts');
+        grids.forEach(function (grid) {
+          const limit = parseInt(grid.dataset.limit || '8', 10);
+          grid.innerHTML = posts.slice(0, limit).map(postCard).join('');
+        });
+        setState('ready');
+      })
+      .catch(function (err) {
+        if (window.console) console.warn('[RXR instagram] feed unavailable -', err.message);
+        setState('error');
       });
-      if (!posts.length) throw new Error('No posts');
-      if (hero) renderHero(posts);
-      const size = window.innerWidth < 760 ? 'medium' : 'large';
-      sliders.forEach(function (s) { renderInto(s, posts, size); });
-      grids.forEach(function (g) { renderInto(g, posts, size); });
-    })
-    .catch(function (err) {
-      if (window.console) console.warn('[RXR instagram] feed unavailable -', err.message);
-      fail();
-    });
+  }
+
+  RXR.whenNear(grids, '800px', load);
 })();

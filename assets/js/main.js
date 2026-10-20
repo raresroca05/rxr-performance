@@ -1,361 +1,154 @@
-
-(function() {
+(function () {
   'use strict';
 
-  
-  function initVehicleLookup() {
-    
-    if (typeof vehicleDatabase === 'undefined') {
-      return;
-    }
+  const DATABASE_URL = 'assets/js/vehicle-database.js?v=2026-10-20';
+  const SELECT_IDS = ['brand-select', 'model-select', 'generation-select', 'engine-select'];
+  const PLACEHOLDERS = ['Selecteaza marca', 'Selecteaza modelul', 'Selecteaza generatia', 'Selecteaza motorizarea'];
 
-    
-    const trackEvent = window.RXR?.trackEvent || function() {};
-    const trackConversion = window.RXR?.trackConversion || function() {};
-
-    
-    const brandSelect = document.getElementById('brand-select');
-    const modelSelect = document.getElementById('model-select');
-    const generationSelect = document.getElementById('generation-select');
-    const engineSelect = document.getElementById('engine-select');
-    const vehicleResult = document.getElementById('vehicle-result');
-
-    
-    if (!brandSelect || !modelSelect || !generationSelect || !engineSelect || !vehicleResult) {
-      return;
-    }
-
-    
-    function getUniqueBrands() {
-      const brands = [...new Set(vehicleDatabase.map(v => v.brand))];
-      return brands.sort((a, b) => a.localeCompare(b));
-    }
-
-    
-    function getModelsByBrand(brand) {
-      const models = [...new Set(
-        vehicleDatabase
-          .filter(v => v.brand === brand)
-          .map(v => v.model)
-      )];
-      return models.sort((a, b) => a.localeCompare(b));
-    }
-
-    
-    function getGenerationsByBrandAndModel(brand, model) {
-      const generations = [...new Set(
-        vehicleDatabase
-          .filter(v => v.brand === brand && v.model === model)
-          .map(v => v.generation)
-      )];
-      return generations.sort((a, b) => a.localeCompare(b));
-    }
-
-    
-    function getEnginesByBrandModelGeneration(brand, model, generation) {
-      const engines = vehicleDatabase
-        .filter(v => v.brand === brand && v.model === model && v.generation === generation)
-        .map(v => v.engine);
-      return engines.sort((a, b) => a.localeCompare(b));
-    }
-
-    
-    function getVehicleData(brand, model, generation, engine) {
-      return vehicleDatabase.find(v =>
-        v.brand === brand &&
-        v.model === model &&
-        v.generation === generation &&
-        v.engine === engine
-      );
-    }
-
-    
-    function loadBrands() {
-      const brands = getUniqueBrands();
-      
-      if (brands.length === 0) {
-        return;
-      }
-      
-      brands.forEach(brand => {
-        const option = document.createElement('option');
-        option.value = brand;
-        option.textContent = brand;
-        brandSelect.appendChild(option);
-      });
-    }
-
-    
-    function loadModels(brand) {
-      const models = getModelsByBrand(brand);
-      modelSelect.innerHTML = '';
-      const defaultOption = document.createElement('option');
-      defaultOption.value = '';
-      defaultOption.textContent = 'Selectează modelul';
-      modelSelect.appendChild(defaultOption);
-      models.forEach(model => {
-        const option = document.createElement('option');
-        option.value = model;
-        option.textContent = model;
-        modelSelect.appendChild(option);
-      });
-      modelSelect.disabled = false;
-    }
-
-    
-    function loadGenerations(brand, model) {
-      const generations = getGenerationsByBrandAndModel(brand, model);
-      generationSelect.innerHTML = '';
-      const defaultOption = document.createElement('option');
-      defaultOption.value = '';
-      defaultOption.textContent = 'Selectează generația';
-      generationSelect.appendChild(defaultOption);
-      generations.forEach(generation => {
-        const option = document.createElement('option');
-        option.value = generation;
-        option.textContent = generation;
-        generationSelect.appendChild(option);
-      });
-      generationSelect.disabled = false;
-    }
-
-    
-    function loadEngines(brand, model, generation) {
-      const engines = getEnginesByBrandModelGeneration(brand, model, generation);
-      engineSelect.innerHTML = '';
-      const defaultEngineOption = document.createElement('option');
-      defaultEngineOption.value = '';
-      defaultEngineOption.textContent = 'Selectează motorul';
-      engineSelect.appendChild(defaultEngineOption);
-      engines.forEach(engine => {
-        const option = document.createElement('option');
-        option.value = engine;
-        option.textContent = engine;
-        engineSelect.appendChild(option);
-      });
-      engineSelect.disabled = false;
-    }
-
-    const STAGE1_GAIN = 0.28;
-
-    function estimateTorqueProfile(engineStr) {
-      const e = (engineStr || '').toLowerCase();
-      const dispMatch = e.match(/(\d\.\d)\b/);
-      const disp = dispMatch ? parseFloat(dispMatch[1]) : 2.0;
-      const isDiesel = /(tdi|tdci|jtd|jtdm|hdi|dci|cdi|cdti|crd|d-4d|bluehdi|multijet|d[\s-]?cat|\bd5\b|\b\d\.\d\s*d\b)/i.test(e);
-      const isTurboPetrol = !isDiesel && /(turbo|tfsi|tsi|t-jet|ecoboost|mhev[\s-]?t|gdi[\s-]?t|multiair[\s-]?t|cgi|sidi|ecotec\s*t|hybrid\s*t)/i.test(e);
-
-      let stockFactor;
-      let type;
-
-      if (isDiesel) {
-        type = 'diesel';
-        if (disp <= 1.6) stockFactor = 2.4;
-        else if (disp <= 2.4) stockFactor = 2.15;
-        else stockFactor = 2.0;
-      } else if (isTurboPetrol) {
-        type = 'turbo';
-        if (disp <= 1.4) stockFactor = 1.65;
-        else if (disp <= 2.5) stockFactor = 1.55;
-        else stockFactor = 1.4;
-      } else {
-        type = 'aspirat';
-        if (disp <= 1.6) stockFactor = 1.5;
-        else if (disp <= 3.0) stockFactor = 1.3;
-        else stockFactor = 1.05;
-      }
-      return { stockFactor, type, disp };
-    }
-
-    function roundNm(n) {
-      return Math.round(n / 5) * 5;
-    }
-
-    function roundHP(n) {
-      return Math.round(n);
-    }
-
-    function displayResults(brand, model, generation, engine, vehicle) {
-      const stage1HP = roundHP(vehicle.stockHP * (1 + STAGE1_GAIN));
-      const hpGain = stage1HP - vehicle.stockHP;
-      const hpGainPercent = Math.round((hpGain / vehicle.stockHP) * 100);
-
-      const profile = estimateTorqueProfile(engine);
-      const stockNm = roundNm(vehicle.stockHP * profile.stockFactor);
-      const stage1Nm = roundNm(stockNm * (1 + STAGE1_GAIN));
-      const nmGain = stage1Nm - stockNm;
-      const nmGainPercent = Math.round((nmGain / stockNm) * 100);
-
-      document.getElementById('result-vehicle-name').textContent = `${brand} ${model}`;
-      document.getElementById('result-vehicle-year').textContent = `${engine} • ${generation}`;
-      document.getElementById('result-stock-hp').textContent = vehicle.stockHP;
-      document.getElementById('result-stage1-hp').textContent = stage1HP;
-      document.getElementById('result-hp-gain').textContent = `+${hpGain} HP (+${hpGainPercent}%)`;
-
-      document.getElementById('result-stock-nm').textContent = stockNm;
-      document.getElementById('result-stage1-nm').textContent = stage1Nm;
-      document.getElementById('result-nm-gain').textContent = `+${nmGain} Nm (+${nmGainPercent}%)`;
-
-      if (typeof trackEvent === 'function') {
-        trackEvent('vehicle_lookup', {
-          'event_category': 'lead_generation',
-          'event_label': `${brand} ${model} ${engine}`,
-          'vehicle_brand': brand,
-          'vehicle_model': model,
-          'hp_gain': hpGain,
-          'hp_gain_percent': hpGainPercent,
-          'value': 5
-        });
-        trackConversion('vehicle_lookup');
-      }
-
-
-      vehicleResult.classList.remove('hidden');
-      setTimeout(() => {
-        vehicleResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 100);
-    }
-
-    
-    try {
-      loadBrands();
-      
-      if (brandSelect.options.length > 1) {
-        brandSelect.disabled = false;
-        brandSelect.style.pointerEvents = 'auto';
-        brandSelect.style.zIndex = '10';
-      }
-    } catch (error) {
-    }
-    
-    brandSelect.addEventListener('mousedown', function(e) {
-      this.style.zIndex = '9999';
-      e.stopPropagation();
-    });
-    
-    brandSelect.addEventListener('focus', function() {
-      this.style.zIndex = '9999';
-    });
-    
-    brandSelect.addEventListener('blur', function() {
-      this.style.zIndex = '10';
-    });
-
-    
-    brandSelect.addEventListener('change', function() {
-      const selectedBrand = this.value;
-
-      
-      modelSelect.innerHTML = '';
-      generationSelect.innerHTML = '';
-      engineSelect.innerHTML = '';
-      const defaultModelOption = document.createElement('option');
-      defaultModelOption.value = '';
-      defaultModelOption.textContent = 'Selectează modelul';
-      modelSelect.appendChild(defaultModelOption);
-      const defaultGenOption = document.createElement('option');
-      defaultGenOption.value = '';
-      defaultGenOption.textContent = 'Selectează generația';
-      generationSelect.appendChild(defaultGenOption);
-      const defaultEngineOption = document.createElement('option');
-      defaultEngineOption.value = '';
-      defaultEngineOption.textContent = 'Selectează motorul';
-      engineSelect.appendChild(defaultEngineOption);
-      modelSelect.disabled = true;
-      generationSelect.disabled = true;
-      engineSelect.disabled = true;
-      vehicleResult.classList.add('hidden');
-
-      if (selectedBrand) {
-        loadModels(selectedBrand);
-      }
-    });
-
-    modelSelect.addEventListener('change', function() {
-      const selectedBrand = brandSelect.value;
-      const selectedModel = this.value;
-
-      
-      generationSelect.innerHTML = '';
-      engineSelect.innerHTML = '';
-      const defaultGenOption = document.createElement('option');
-      defaultGenOption.value = '';
-      defaultGenOption.textContent = 'Selectează generația';
-      generationSelect.appendChild(defaultGenOption);
-      const defaultEngineOption = document.createElement('option');
-      defaultEngineOption.value = '';
-      defaultEngineOption.textContent = 'Selectează motorul';
-      engineSelect.appendChild(defaultEngineOption);
-      generationSelect.disabled = true;
-      engineSelect.disabled = true;
-      vehicleResult.classList.add('hidden');
-
-      if (selectedModel) {
-        loadGenerations(selectedBrand, selectedModel);
-      }
-    });
-
-    generationSelect.addEventListener('change', function() {
-      const selectedBrand = brandSelect.value;
-      const selectedModel = modelSelect.value;
-      const selectedGeneration = this.value;
-
-      
-      engineSelect.innerHTML = '';
-      const defaultEngineOption = document.createElement('option');
-      defaultEngineOption.value = '';
-      defaultEngineOption.textContent = 'Selectează motorul';
-      engineSelect.appendChild(defaultEngineOption);
-      engineSelect.disabled = true;
-      vehicleResult.classList.add('hidden');
-
-      if (selectedGeneration) {
-        loadEngines(selectedBrand, selectedModel, selectedGeneration);
-      }
-    });
-
-    engineSelect.addEventListener('change', function() {
-      const selectedBrand = brandSelect.value;
-      const selectedModel = modelSelect.value;
-      const selectedGeneration = generationSelect.value;
-      const selectedEngine = this.value;
-
-      if (selectedEngine) {
-        const vehicleData = getVehicleData(selectedBrand, selectedModel, selectedGeneration, selectedEngine);
-        if (vehicleData) {
-          displayResults(selectedBrand, selectedModel, selectedGeneration, selectedEngine, vehicleData);
-        }
-      } else {
-        vehicleResult.classList.add('hidden');
-      }
-    });
+  function unique(values) {
+    return Array.from(new Set(values));
   }
 
-  
-  function tryInit() {
-    if (typeof vehicleDatabase !== 'undefined' && vehicleDatabase.length > 0) {
-      initVehicleLookup();
-    } else {
-      let retries = 0;
-      const maxRetries = 10;
-      const retryInterval = setInterval(function() {
-        retries++;
-        if (typeof vehicleDatabase !== 'undefined' && vehicleDatabase.length > 0) {
-          clearInterval(retryInterval);
-          initVehicleLookup();
-        } else if (retries >= maxRetries) {
-          clearInterval(retryInterval);
-        }
-      }, 50);
+  function byText(a, b) {
+    return a.localeCompare(b);
+  }
+
+  function startYear(generation) {
+    const match = generation.match(/\((\d{4})/);
+    return match ? parseInt(match[1], 10) : 0;
+  }
+
+  function fillSelect(select, placeholder, values) {
+    select.innerHTML = '';
+    select.appendChild(new Option(placeholder, ''));
+    values.forEach(function (value) {
+      select.appendChild(new Option(value, value));
+    });
+    select.disabled = values.length === 0;
+  }
+
+  function setText(id, text) {
+    document.getElementById(id).textContent = text;
+  }
+
+  function showResult(vehicle, result) {
+    const hpGain = vehicle.stage1HP - vehicle.stockHP;
+    const hpPercent = Math.round((hpGain / vehicle.stockHP) * 100);
+    const nmGain = vehicle.stage1Nm - vehicle.stockNm;
+    const nmPercent = Math.round((nmGain / vehicle.stockNm) * 100);
+
+    setText('result-vehicle-name', vehicle.brand + ' ' + vehicle.model);
+    setText('result-vehicle-year', vehicle.engine + ' • ' + vehicle.generation);
+    setText('result-stock-hp', vehicle.stockHP);
+    setText('result-stage1-hp', vehicle.stage1HP);
+    setText('result-hp-gain', '+' + hpGain + ' CP (+' + hpPercent + '%)');
+    setText('result-stock-nm', vehicle.stockNm);
+    setText('result-stage1-nm', vehicle.stage1Nm);
+    setText('result-nm-gain', '+' + nmGain + ' Nm (+' + nmPercent + '%)');
+    document.getElementById('result-na-note').hidden = !vehicle.na;
+    document.getElementById('whatsapp-cta').href = RXR.whatsappUrl(
+      'Buna! Sunt interesat de Stage 1 pentru ' + vehicle.brand + ' ' + vehicle.model + ', ' + vehicle.engine +
+      '. Calculatorul arata ' + vehicle.stage1HP + ' CP si ' + vehicle.stage1Nm + ' Nm.'
+    );
+
+    RXR.trackEvent('vehicle_lookup', {
+      'event_category': 'lead_generation',
+      'event_label': vehicle.brand + ' ' + vehicle.model + ' ' + vehicle.engine,
+      'vehicle_brand': vehicle.brand,
+      'vehicle_model': vehicle.model,
+      'hp_gain': hpGain,
+      'hp_gain_percent': hpPercent,
+      'value': 5
+    });
+    RXR.trackConversion('vehicle_lookup');
+
+    result.classList.remove('hidden');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(function () {
+      result.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+    }, 100);
+  }
+
+  function initVehicleLookup() {
+    const selects = SELECT_IDS.map(function (id) { return document.getElementById(id); });
+    const result = document.getElementById('vehicle-result');
+    if (typeof vehicleDatabase === 'undefined' || !result || selects.some(function (s) { return !s; })) return;
+
+    function matching(depth) {
+      return vehicleDatabase.filter(function (v) {
+        return (depth < 1 || v.brand === selects[0].value) &&
+          (depth < 2 || v.model === selects[1].value) &&
+          (depth < 3 || v.generation === selects[2].value);
+      });
     }
+
+    function optionsFor(depth) {
+      const rows = matching(depth);
+      if (depth === 0) return unique(rows.map(function (v) { return v.brand; })).sort(byText);
+      if (depth === 1) return unique(rows.map(function (v) { return v.model; })).sort(byText);
+      if (depth === 2) {
+        return unique(rows.map(function (v) { return v.generation; })).sort(function (a, b) {
+          return startYear(a) - startYear(b) || byText(a, b);
+        });
+      }
+      return rows
+        .slice()
+        .sort(function (a, b) { return a.stockHP - b.stockHP || byText(a.engine, b.engine); })
+        .map(function (v) { return v.engine; });
+    }
+
+    selects.forEach(function (select, depth) {
+      select.addEventListener('change', function () {
+        for (let i = depth + 1; i < selects.length; i++) fillSelect(selects[i], PLACEHOLDERS[i], []);
+        result.classList.add('hidden');
+        if (!select.value) return;
+
+        if (depth < selects.length - 1) {
+          fillSelect(selects[depth + 1], PLACEHOLDERS[depth + 1], optionsFor(depth + 1));
+          return;
+        }
+        const vehicle = matching(3).find(function (v) { return v.engine === select.value; });
+        if (vehicle) showResult(vehicle, result);
+      });
+    });
+
+    fillSelect(selects[0], PLACEHOLDERS[0], optionsFor(0));
+  }
+
+  function loadDatabase(onReady, onError) {
+    if (typeof vehicleDatabase !== 'undefined') {
+      onReady();
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = DATABASE_URL;
+    script.onload = onReady;
+    script.onerror = onError;
+    document.body.appendChild(script);
+  }
+
+  function start() {
+    const section = document.getElementById('calculator');
+    const brandSelect = document.getElementById('brand-select');
+    if (!section || !brandSelect) return;
+
+    let started = false;
+    function go() {
+      if (started) return;
+      started = true;
+      loadDatabase(initVehicleLookup, function () {
+        brandSelect.options[0].textContent = 'Calculatorul nu s-a incarcat';
+      });
+    }
+
+    section.addEventListener('pointerdown', go, { once: true });
+    section.addEventListener('focusin', go, { once: true });
+    RXR.whenNear(section, '600px', go);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      tryInit();
-    });
+    document.addEventListener('DOMContentLoaded', start);
   } else {
-    
-    tryInit();
+    start();
   }
 })();

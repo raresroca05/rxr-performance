@@ -1,10 +1,8 @@
-
 (function() {
   'use strict';
 
-  
   window.RXR = window.RXR || {};
-  
+
   // Push events to the GTM dataLayer. All analytics/ads tags (if any) are
   // configured inside the GTM container — nothing vendor-specific lives here.
   RXR.trackEvent = function(eventName, eventParams = {}) {
@@ -22,27 +20,24 @@
     });
   };
 
-  
-  RXR.createSectionDivider = function(icon, text, colorClass = 'rxrElectric') {
-    return `
-      <div class="section-divider">
-        <div class="section-divider-line" aria-hidden="true">
-          <div class="w-full h-px bg-gradient-to-r from-transparent via-${colorClass}/30 to-transparent"></div>
-        </div>
-        <div class="relative flex justify-center">
-          <div class="section-divider-badge border-${colorClass}/40 hover:border-${colorClass}/60">
-            <p class="section-divider-text text-${colorClass}">
-              <span>${icon}</span>
-              ${text}
-            </p>
-          </div>
-        </div>
-      </div>
-    `;
+  RXR.whenNear = function(elements, margin, callback) {
+    const targets = Array.prototype.slice.call(elements.length === undefined ? [elements] : elements);
+    if (!('IntersectionObserver' in window)) {
+      callback();
+      return;
+    }
+    const observer = new IntersectionObserver(function(entries) {
+      if (!entries.some(function(e) { return e.isIntersecting; })) return;
+      observer.disconnect();
+      callback();
+    }, { rootMargin: margin + ' 0px' });
+    targets.forEach(function(el) { observer.observe(el); });
   };
 
+  RXR.whatsappUrl = function(message) {
+    return 'https://wa.me/40744787446?text=' + encodeURIComponent(message || '');
+  };
 
-  
   RXR.updateYear = function() {
     const yearElements = document.querySelectorAll('#year');
     const currentYear = new Date().getFullYear();
@@ -51,7 +46,6 @@
     });
   };
 
-  
   RXR.initContactTracking = function() {
     document.addEventListener('click', function(e) {
       const phoneLink = e.target.closest('a[href^="tel:"]');
@@ -65,10 +59,21 @@
         });
         RXR.trackConversion('phone_contact');
       }
+
+      const whatsappLink = e.target.closest('a[href*="wa.me"]');
+      if (whatsappLink) {
+        RXR.trackEvent('whatsapp_click', {
+          'event_category': 'engagement',
+          'event_label': 'WhatsApp Contact',
+          'link_url': whatsappLink.href,
+          'page_path': location.pathname,
+          'value': 1
+        });
+        RXR.trackConversion('whatsapp_contact');
+      }
     });
   };
 
-  
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       RXR.updateYear();

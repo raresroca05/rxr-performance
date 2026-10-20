@@ -31,9 +31,9 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 | Strat | Tehnologie |
 |---|---|
 | HTML | HTML5 semantic, Schema.org structured data |
-| CSS | CSS custom, fara framework (`base.css` = tokens/tipografie/butoane, `main.css` = layout/componente) |
+| CSS | CSS custom, fara framework — un singur fisier `main.css` |
 | JavaScript | Vanilla ES6+ (pattern IIFE) |
-| Fonts | Google Fonts (Archivo pentru titluri/brand, Inter pentru body) |
+| Fonts | Google Fonts (Archivo pentru titluri si butoane, incarcat fara sa blocheze pagina); textul foloseste fontul sistemului |
 | Tag management | Google Tag Manager (`GTM-TTF724N7`) — singura instalare de tracking; GA/Ads se gestioneaza in container, nimic hardcodat |
 | Instagram feed | [Behold.so](https://behold.so) JSON feed (`feeds.behold.so`), randat de `instagram.js` |
 | Cookie consent | [CookieYes](https://www.cookieyes.com) — Consent Mode v2, incarcat prin GTM |
@@ -46,83 +46,54 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 
 ```
 .
-├── index.html                    Homepage: hero Instagram + 6 capitole (Servicii, Calculator,
-│                                 Proiecte, De ce RXR, Recenzii, Contact)
-├── servicii.html                 Detalii servicii (ECU/TCU, codari BMW, diagnoza)
-├── preturi.html                  Lista preturi orientative
-├── galerie.html                  „Proiecte" — grid Instagram (Behold JSON feed) + butoane sociale
-├── despre-noi.html               Despre echipa + valori + cum lucram
-├── contact.html                  Form contact, harta Google Maps, FAQ
+├── index.html                    Site-ul intreg, pe o singura pagina: hero, Proiecte, Servicii si
+│                                 preturi, Calculator, De ce RXR, Recenzii, Intrebari, Contact
+├── servicii.html                 Redirectioneaza la index.html#servicii (pastreaza ?gclid etc.)
+├── preturi.html                  Redirectioneaza la index.html#preturi
+├── galerie.html                  Redirectioneaza la index.html#proiecte
+├── despre-noi.html               Redirectioneaza la index.html#despre
+├── contact.html                  Redirectioneaza la index.html#contact
+├── confidentialitate.html        Politica de confidentialitate
 ├── 404.html                      Pagina custom 404
 ├── manifest.json                 PWA manifest
-├── sitemap.xml                   Sitemap pentru Google Search Console
+├── sitemap.xml                   Sitemap (index + confidentialitate)
 ├── robots.txt                    Reguli crawlere + sitemap + bloc crawlere AI
 ├── CNAME                         Configurare domeniu (rxr-performance.ro)
 ├── README.md                     Acest fisier
 ├── CLAUDE.md                     Context pentru Claude Code
 │
+├── data/vehicles/                Fise tehnice verificate, cu sursa pe fiecare rand
+├── tools/build-vehicle-db.py     Genereaza baza de date a calculatorului
+│
 └── assets/
     ├── css/
-    │   ├── base.css              Tokens (culori, fonturi, gutter), reset, tipografie, butoane, reveal
-    │   └── main.css              Header, meniu mobil, chapters nav, hero, sectiuni, carduri,
-    │                             calculator, slider Instagram, preturi, contact/FAQ, footer
-    ├── js/
-    │   ├── main.js               Calculator vehicule (cascade Marca→Model→Gen→Motor)
-    │   ├── vehicle-database.js   Baza date: 5.827 vehicule, 67 marci, 699 modele
-    │   ├── site.js               Header, meniu mobil, reveal on scroll, chapters nav, countere, slider
-    │   ├── instagram.js          Behold JSON feed -> hero (index), slider (index), grid (galerie)
-    │   ├── reviews.js            Loader recenzii Google Places (cu fallback static)
-    │   ├── gtm.js                Loader Google Tag Manager (snippet extern din `<head>`)
-    │   └── utils.js              Namespace `window.RXR`, tracking, helpers
+    │   └── main.css              Tot stilul: culori, butoane, header, sectiuni, carduri, footer
+    └── js/
+        ├── main.js               Calculator (lista de masini se descarca doar cand ajungi la el)
+        ├── vehicle-database.js   Generat din data/vehicles (6.974 motoare, 30 marci)
+        ├── site.js               Meniul activ (desktop + breadcrumb pe mobil), bara de jos pe mobil
+        ├── instagram.js          Proiectele de pe Instagram (Behold), incarcate cand te apropii de ele
+        ├── reviews.js            Loader recenzii Google Places (cu fallback static)
+        ├── gtm.js                Loader Google Tag Manager (snippet extern din `<head>`)
+        └── utils.js              Namespace `window.RXR`, tracking telefon + WhatsApp, link WhatsApp
 ```
 
 ---
 
-## Pagini si functionalitati
+## Pagina principala (one page)
 
-### 🏠 `index.html` — Homepage
+- **Header**: logo, meniu (desktop), buton WhatsApp si buton telefon (doar iconite). Pe mobil, sub header e un meniu tip breadcrumb (Acasa / Proiecte / Preturi / Calculator / Recenzii / Contact).
+- **Hero** centrat: Stage 1 de la 1.500 RON, butoane „Suna 0744 787 446" si „WhatsApp", 4 statistici.
+- **Proiecte**: ultimele 8 postari de pe Instagram (Behold JSON feed). Pe mobil se gliseaza.
+- **Servicii si preturi**: 6 carduri egale, fiecare cu pret si doua butoane mici (WhatsApp cu mesaj pregatit pentru serviciul respectiv, telefon).
+- **Calculator Stage 1**, **De ce RXR** (+ certificari, 4 pasi), **Recenzii**, **Intrebari frecvente**, **Contact** (adresa, program, telefon, email, Maps/Waze, social).
+- Pe mobil, bara de jos cu „Suna" si „WhatsApp" apare doar dupa ce treci de butoanele din hero.
 
-- **Hero** cu CTA (Suna acum + Vezi servicii), ticker cu servicii/marci + statistici (200+ vehicule, +15-30% putere etc.)
-- **Servicii overview** — 3 carduri (Stage 1, Codari BMW, Diagnoza)
-- **Calculator Stage 1**: cascada Marca → Model → Generatie → Motor → afiseaza Stock HP/Nm si Stage 1 HP/Nm (+28%), cu banner de avertizare ca valorile sunt orientative
-- **De ce noi** — 3 piloni (experienta, siguranta, suport)
-- **Recenzii Google** — 3 carduri fallback + integrare API (vezi [TODO](#-todo--ce-mai-trebuie-facut))
-- **CTA Banner** + Footer
+### Calculator vehicule
 
-### 🔧 `servicii.html` — Servicii
+Baza de date are 6.974 de motoare (30 de marci, 265 de modele, 2000-2026), cu puterea si cuplul de serie din fise tehnice reale. Sursa fiecarui rand e in `data/vehicles/*.json`; fisierul `assets/js/vehicle-database.js` se genereaza cu `python3 tools/build-vehicle-db.py --write`.
 
-Detalii pe sectiuni: Stage 1 ECU & TCU, Codari BMW (40+ functii), Diagnoza Auto. (DPF/EGR/AdBlue a fost scos complet de pe site in 2026-10.)
-
-### 💰 `preturi.html` — Preturi
-
-Lista orientativa: Stage 1 ECU+TCU pack (incepand de la 1.750 RON), ECU (1.000), TCU (750), Codari BMW (250), Diagnoza (250). Toate „incepand de la".
-
-### 📸 `galerie.html` — Proiecte
-
-Postarile Instagram vin din feed-ul JSON **Behold.so** (`feeds.behold.so/3nVTXEc9DkXMC5BLJr2Z`, CORS deschis), randate de `assets/js/instagram.js` in stilul site-ului. Pe homepage aceleasi postari alimenteaza fundalul hero si slider-ul „Proiecte". Daca feed-ul pica, sectiunea arata un link catre Instagram. Plus 3 butoane sociale (FB / IG / TikTok).
-
-### 👥 `despre-noi.html` — Despre Noi
-
-Cine suntem, valori, ce oferim, cum lucram (proces 4 pasi).
-
-### 📞 `contact.html` — Contact
-
-Card „Suna-ne acum" + card email, info card (telefon/email/program), **harta Google Maps embed** (coordonate Cluj-Napoca), FAQ, butoane sociale.
-
-### Calculator vehicule — algoritm Nm
-
-Formula estimativa pe baza tipului si cilindreei motorului:
-
-```
-Diesel    ≤1.6L → 2.4x HP   |  1.7-2.4L → 2.15x  |  ≥2.5L → 2.0x
-Turbo P.  ≤1.4L → 1.65x HP  |  1.5-2.5L → 1.55x  |  ≥2.6L → 1.4x
-Aspirat   ≤1.6L → 1.5x HP   |  1.7-3.0L → 1.3x   |  ≥3.0L → 1.05x
-
-Stage 1 HP = Stock HP × 1.28
-Stage 1 Nm = Stock Nm × 1.28
-```
-
-Toate valorile marcate **clar** ca orientative (banner amber + nota in card de rezultat).
+Stage 1 e o estimare dupa tipul motorului: diesel turbo +15-28%, benzina turbo +12-25%, atmosferic +6% (cu nota ca acolo castigul e mic), plug-in hybrid +10%. Valorile sunt marcate clar ca orientative.
 
 ---
 
@@ -130,27 +101,26 @@ Toate valorile marcate **clar** ca orientative (banner amber + nota in card de r
 
 | Serviciu | Pret (RON) |
 |---|---|
-| Stage 1 ECU + TCU (pachet) | de la **1.750** |
-| Stage 1 Motor (ECU) | de la **1.000** |
-| Stage 1 Cutie (TCU) | de la **750** |
-| Codari BMW | de la **250** |
-| Diagnoza Auto | de la **250** |
+| Stage 1 ECU + TCU (pachet) | de la **2.000** (economisesti 500 lei) |
+| Stage 1 Motor (ECU) | de la **1.500** |
+| Stage 1 Cutie (TCU) | de la **1.000** |
+| Codari BMW | de la **150** |
+| Diagnoza Auto | de la **150** (gratuita la tuning) |
 
-Toate preturile sunt orientative — final dupa consultatie gratuita telefonica.
+Toate preturile sunt orientative — final dupa consultatie gratuita (telefon sau WhatsApp).
 
 ---
 
 ## Securitate, SEO si conformitate
 
 ✅ **Securitate** — pe fiecare pagina:
-- `Content-Security-Policy` (per pagina, cu domeniile necesare)
-- `X-Content-Type-Options: nosniff`
-- `Referrer-Policy: strict-origin-when-cross-origin`
-- `Permissions-Policy: geolocation=(self), microphone=(), camera=(), payment=()`
+- `Content-Security-Policy` (doar domeniile folosite; fara `object`, `base` sau formulare externe)
+- `referrer`: `strict-origin-when-cross-origin`
+- Datele din afara (Instagram, recenzii Google) sunt curatate inainte de afisare
 - HTTPS fortat (GitHub Pages)
 
 ✅ **SEO** — pe fiecare pagina:
-- Meta `title`, `description`, `keywords`
+- Meta `title`, `description`
 - `<link rel="canonical">`
 - Open Graph complet + Twitter Card
 - Schema.org `AutomotiveBusiness` cu adresa Cluj-Napoca + GPS + orar + sameAs FB/IG/TikTok
@@ -198,7 +168,7 @@ Site static pe **GitHub Pages**, branch `main`:
 - [x] **Imagine OG** — `og-image.png` (1800x945) referita corect in toate meta tags
 - [x] **Apple Touch Icon** — `apple-touch-icon.png` (180x180) logo RXR pe slate, linkata pe toate paginile
 - [x] **Google Tag Manager** — `GTM-TTF724N7`, singura instalare de tracking (fara GA4/Ads hardcodat)
-- [x] **CTA-uri unificate** — un singur CTA, „Suna acum 0744 787 446" (WhatsApp eliminat complet, 2026-10-07)
+- [x] **CTA-uri** — „Suna 0744 787 446" + WhatsApp (WhatsApp readus pe 2026-10-20, cu clasa `no-swap` ca WhatConverts sa nu-i schimbe numarul)
 - [x] **Google Search Console + sitemap** — verificat si sitemap-ul cu 7 URL-uri acceptat
 
 ### ❌ Ramase (necesita actiune din partea ta)
