@@ -83,7 +83,7 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 ## Pagina principala (one page)
 
 - **Header**: logo, meniu (desktop), buton WhatsApp si buton telefon (doar iconite). Pe mobil, sub header e un meniu tip breadcrumb (Acasa / Proiecte / Calculator / Recenzii / Preturi / Contact).
-- **Hero** centrat: Stage 1 de la 1.500 RON, butoane „Suna 0744 787 446" si „WhatsApp", 4 statistici.
+- **Hero** centrat: Stage 1 de la 1.500 RON, butoane „Suna" si „WhatsApp" (numarul nu mai apare pe pagina, ca sa nu se vada numarul de tracking WhatConverts), 4 statistici.
 - **Proiecte**: ultimele 8 postari de pe Instagram (Behold JSON feed). Pe mobil se gliseaza.
 - **Calculator Stage 1**, **De ce RXR** (+ certificari, 4 pasi), **Recenzii**.
 - **Servicii si preturi** (dupa recenzii, la cererea marketingului): 6 carduri egale, fiecare cu pret si doua butoane mici (WhatsApp cu mesaj pregatit pentru serviciul respectiv, telefon).
@@ -169,7 +169,7 @@ Site static pe **GitHub Pages**, branch `main`:
 - [x] **Imagine OG** — `og-image.png` (1800x945) referita corect in toate meta tags
 - [x] **Apple Touch Icon** — `apple-touch-icon.png` (180x180) logo RXR pe slate, linkata pe toate paginile
 - [x] **Google Tag Manager** — `GTM-TTF724N7`, singura instalare de tracking (fara GA4/Ads hardcodat)
-- [x] **CTA-uri** — „Suna 0744 787 446" + WhatsApp (WhatsApp readus pe 2026-10-20, cu clasa `no-swap` ca WhatConverts sa nu-i schimbe numarul)
+- [x] **CTA-uri** — „Suna" + WhatsApp (WhatsApp readus pe 2026-10-20, cu clasa `no-swap` ca WhatConverts sa nu-i schimbe numarul)
 - [x] **Google Search Console + sitemap** — verificat si sitemap-ul cu 7 URL-uri acceptat
 
 ### ❌ Ramase (necesita actiune din partea ta)
