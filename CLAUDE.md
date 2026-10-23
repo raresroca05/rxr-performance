@@ -25,8 +25,8 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 
 ```
 /
-├── index.html                # The whole site: hero, Proiecte, Servicii si preturi, Calculator,
-│                             # De ce RXR, Recenzii, Intrebari, Contact
+├── index.html                # The whole site: hero, Proiecte, Calculator, De ce RXR,
+│                             # Recenzii, Servicii si preturi, Intrebari, Contact
 ├── servicii.html             # Redirect -> ./#servicii (maps #tuning/#codari-bmw/#diagnoza/#alte-servicii)
 ├── preturi.html              # Redirect -> ./#preturi
 ├── galerie.html              # Redirect -> ./#proiecte
@@ -57,8 +57,9 @@ The redirect pages keep `location.search` (so `?gclid=` from ads survives) and f
 
 - **Why**: marketing said the first month with WhatsApp + the original blue design converted best; the owner asked for a single landing page where projects and contact are one tap away. The look goes back to the original dark slate + blue, cleaner and lighter.
 - **Everything centered**: hero, section heads (`.section__head`), FAQ column, contact card, footer. Card contents stay readable (service cards are left-aligned inside).
+- **Section order** (marketing, 2026-10-23): hero, Proiecte, Calculator, De ce RXR, Recenzii, Servicii si preturi, Intrebari, Contact. Prices come after the reviews. `.section--alt` alternates from Proiecte down; keep it alternating if sections move.
 - **Equal frames**: `.cards`, `.tiles`, `.reviews`, `.info` use `grid-auto-rows: 1fr`, so every card in a group has the same height. Keep card content short; no expanding blocks inside cards.
-- **Header**: logo + (desktop) `.nav` links + two icon-only buttons (WhatsApp, phone). On mobile a breadcrumb strip `.crumbs` sits under the header row (Acasa / Proiecte / Preturi / Calculator / Recenzii / Contact), highlights the section in view and scrolls itself to keep it centered.
+- **Header**: logo + (desktop) `.nav` links + two icon-only buttons (WhatsApp, phone). On mobile a breadcrumb strip `.crumbs` sits under the header row (Acasa / Proiecte / Calculator / Recenzii / Preturi / Contact), highlights the section in view and scrolls itself to keep it centered.
 - **Buttons are small** (46px main, 44px icon). Main call button text is `<span>Suna</span><span>0744 787 446</span>` (same font for both). Service cards use icon-only WhatsApp + phone buttons with `sr-only` labels.
 - **Mobile action bar** (`.action-bar`, < 900px): "Suna 0744 787 446" + "WhatsApp". It slides away while the hero or contact buttons (`[data-main-cta]`) are visible, so there are never two pairs of the same buttons on screen.
 - **No reveal animations, no grain, no ticker, no side chapter nav** — content is visible without JS. Only motion: skeleton shimmer, small hovers, smooth scroll (all off under reduced motion).
@@ -74,7 +75,7 @@ The redirect pages keep `location.search` (so `?gclid=` from ads survives) and f
 - **No build step** — edit HTML/CSS/JS directly, deploy static files
 - **Commit author**: `Rares Roca <contact@rxr-performance.ro>`
 - **Shared shell** (header, crumbs, footer, action bar, icon sprite) is duplicated in `index.html`, `confidentialitate.html` and `404.html` — keep them in sync. On other pages the links point to `index.html#…` (`/#…` on 404).
-- **Tracking aliases (keep!)**: every `tel:` link carries `btn-cta`; every `wa.me` link carries `btn-cta-wa no-swap`. GTM triggers use these classes; `no-swap` is the official WhatConverts class that stops it from swapping the WhatsApp number.
+- **Tracking aliases (keep!)**: every `tel:` link carries `btn-cta`; every `wa.me` link carries `btn-cta-wa no-swap` AND sits inside `<span class="wa-wrap no-swap">…</span>` (`.wa-wrap` is `display: contents`, so it adds no box). GTM triggers use these classes. WhatConverts skips the children of a `no-swap` element but still rewrites that element's own `href`, so `no-swap` on the `<a>` alone let it change `wa.me/40744787446` into the tracking number 0364 632 979 (seen live 2026-10-23). The wrapper is what protects the link.
 - `.hidden` and `[hidden]` are `display:none !important` (calculator result relies on this)
 
 ## Color Theme (dark slate + blue, 2026-10-20)
@@ -158,7 +159,7 @@ Generations are listed by start year, engines by power. The result's WhatsApp bu
 ## Third-party integrations
 
 - **Behold.so** — Instagram JSON feed `https://feeds.behold.so/3nVTXEc9DkXMC5BLJr2Z` (CORS `*`), consumed by `instagram.js` for the Proiecte grid (8 posts). Cards show a service chip (Stage 2 / Stage 1 / Codari / TCU / Diagnoza / Retrofit) plus power/torque chips parsed from the first caption line, and the car name. Images come from `behold.pictures` via `srcset`. On failure the section shows `.ig-fallback`.
-- **WhatsApp** — back on 2026-10-20 (marketing data: it converted best). Number `40744787446`, links `https://wa.me/40744787446?text=…` with a prefilled message per service; `RXR.whatsappUrl(message)` builds them in JS. The number is never shown as text. Every WhatsApp link must carry `no-swap`.
+- **WhatsApp** — back on 2026-10-20 (marketing data: it converted best). Number `40744787446`, links `https://wa.me/40744787446?text=…` with a prefilled message per service; `RXR.whatsappUrl(message)` builds them in JS. The number is never shown as text. Every WhatsApp link must carry `no-swap` and sit inside a `.wa-wrap.no-swap` span (see Tracking aliases).
 - **Phone** — every call button reads **"Suna 0744 787 446"**; the number stays visible as text so WhatConverts can swap it.
 - **Maps** — no embed any more (it was heavy); the contact section links to Google Maps directions and Waze.
 - **Google Fonts** — Archivo only.

@@ -208,6 +208,8 @@ strong, b { font-weight: 700; }
 
 .btn--wa:hover { background: var(--wa-hover); }
 
+.wa-wrap { display: contents; }
+
 .btn--ghost {
   border-color: var(--line-strong);
   color: var(--text);

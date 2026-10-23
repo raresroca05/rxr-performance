@@ -46,8 +46,8 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 
 ```
 .
-├── index.html                    Site-ul intreg, pe o singura pagina: hero, Proiecte, Servicii si
-│                                 preturi, Calculator, De ce RXR, Recenzii, Intrebari, Contact
+├── index.html                    Site-ul intreg, pe o singura pagina: hero, Proiecte, Calculator,
+│                                 De ce RXR, Recenzii, Servicii si preturi, Intrebari, Contact
 ├── servicii.html                 Redirectioneaza la index.html#servicii (pastreaza ?gclid etc.)
 ├── preturi.html                  Redirectioneaza la index.html#preturi
 ├── galerie.html                  Redirectioneaza la index.html#proiecte
@@ -82,11 +82,12 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 
 ## Pagina principala (one page)
 
-- **Header**: logo, meniu (desktop), buton WhatsApp si buton telefon (doar iconite). Pe mobil, sub header e un meniu tip breadcrumb (Acasa / Proiecte / Preturi / Calculator / Recenzii / Contact).
+- **Header**: logo, meniu (desktop), buton WhatsApp si buton telefon (doar iconite). Pe mobil, sub header e un meniu tip breadcrumb (Acasa / Proiecte / Calculator / Recenzii / Preturi / Contact).
 - **Hero** centrat: Stage 1 de la 1.500 RON, butoane „Suna 0744 787 446" si „WhatsApp", 4 statistici.
 - **Proiecte**: ultimele 8 postari de pe Instagram (Behold JSON feed). Pe mobil se gliseaza.
-- **Servicii si preturi**: 6 carduri egale, fiecare cu pret si doua butoane mici (WhatsApp cu mesaj pregatit pentru serviciul respectiv, telefon).
-- **Calculator Stage 1**, **De ce RXR** (+ certificari, 4 pasi), **Recenzii**, **Intrebari frecvente**, **Contact** (adresa, program, telefon, email, Maps/Waze, social).
+- **Calculator Stage 1**, **De ce RXR** (+ certificari, 4 pasi), **Recenzii**.
+- **Servicii si preturi** (dupa recenzii, la cererea marketingului): 6 carduri egale, fiecare cu pret si doua butoane mici (WhatsApp cu mesaj pregatit pentru serviciul respectiv, telefon).
+- **Intrebari frecvente**, **Contact** (adresa, program, telefon, email, Maps/Waze, social).
 - Pe mobil, bara de jos cu „Suna" si „WhatsApp" apare doar dupa ce treci de butoanele din hero.
 
 ### Calculator vehicule
