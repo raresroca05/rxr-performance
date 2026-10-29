@@ -83,12 +83,12 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 ## Pagina principala (one page)
 
 - **Header**: logo, meniu (desktop), buton WhatsApp si buton telefon (doar iconite). Pe mobil, sub header e un meniu tip breadcrumb (Acasa / Proiecte / Calculator / Recenzii / Preturi / Contact).
-- **Hero** centrat: Stage 1 de la 1.500 RON, butoane „Suna" si „WhatsApp" (numarul nu mai apare pe pagina, ca sa nu se vada numarul de tracking WhatConverts), 4 statistici.
+- **Hero** centrat: „Chip tuning pentru toata Transilvania", atelier in Cluj-Napoca, clienti din Sibiu, Bistrita, Alba, Mures, Salaj, Satu Mare; fara pret in hero (preturile sunt doar la Servicii si preturi), butoane „Suna acum" si „WhatsApp" (numarul nu mai apare pe pagina, ca sa nu se vada numarul de tracking WhatConverts), 4 statistici.
 - **Proiecte**: ultimele 8 postari de pe Instagram (Behold JSON feed). Pe mobil se gliseaza.
 - **Calculator Stage 1**, **De ce RXR** (+ certificari, 4 pasi), **Recenzii**.
 - **Servicii si preturi** (dupa recenzii, la cererea marketingului): 6 carduri egale, fiecare cu pret si doua butoane mici (WhatsApp cu mesaj pregatit pentru serviciul respectiv, telefon).
 - **Intrebari frecvente**, **Contact** (adresa, program, telefon, email, Maps/Waze, social).
-- Pe mobil, bara de jos cu „Suna" si „WhatsApp" apare doar dupa ce treci de butoanele din hero.
+- Pe mobil, bara de jos cu „Suna acum" si „WhatsApp" apare doar dupa ce treci de butoanele din hero.
 
 ### Calculator vehicule
 
@@ -102,11 +102,11 @@ Stage 1 e o estimare dupa tipul motorului: diesel turbo +15-28%, benzina turbo +
 
 | Serviciu | Pret (RON) |
 |---|---|
-| Stage 1 ECU + TCU (pachet) | de la **2.000** (economisesti 500 lei) |
-| Stage 1 Motor (ECU) | de la **1.500** |
-| Stage 1 Cutie (TCU) | de la **1.000** |
-| Codari BMW | de la **150** |
-| Diagnoza Auto | de la **150** (gratuita la tuning) |
+| Stage 1 ECU + TCU (pachet) | incepand de la **1.750** (economisesti 250 lei) |
+| Stage 1 Motor (ECU) | incepand de la **1.250** |
+| Stage 1 Cutie (TCU) | incepand de la **750** |
+| Codari BMW | incepand de la **150** |
+| Diagnoza Auto | incepand de la **150** (gratuita la tuning) |
 
 Toate preturile sunt orientative — final dupa consultatie gratuita (telefon sau WhatsApp).
 
@@ -169,7 +169,7 @@ Site static pe **GitHub Pages**, branch `main`:
 - [x] **Imagine OG** — `og-image.png` (1800x945) referita corect in toate meta tags
 - [x] **Apple Touch Icon** — `apple-touch-icon.png` (180x180) logo RXR pe slate, linkata pe toate paginile
 - [x] **Google Tag Manager** — `GTM-TTF724N7`, singura instalare de tracking (fara GA4/Ads hardcodat)
-- [x] **CTA-uri** — „Suna" + WhatsApp (WhatsApp readus pe 2026-10-20, cu clasa `no-swap` ca WhatConverts sa nu-i schimbe numarul)
+- [x] **CTA-uri** — „Suna acum" + WhatsApp (WhatsApp readus pe 2026-10-20, cu clasa `no-swap` ca WhatConverts sa nu-i schimbe numarul)
 - [x] **Google Search Console + sitemap** — verificat si sitemap-ul cu 7 URL-uri acceptat
 
 ### ❌ Ramase (necesita actiune din partea ta)

@@ -60,11 +60,13 @@ The redirect pages keep `location.search` (so `?gclid=` from ads survives) and f
 - **Section order** (marketing, 2026-10-23): hero, Proiecte, Calculator, De ce RXR, Recenzii, Servicii si preturi, Intrebari, Contact. Prices come after the reviews. `.section--alt` alternates from Proiecte down; keep it alternating if sections move.
 - **Equal frames**: `.cards`, `.tiles`, `.reviews`, `.info` use `grid-auto-rows: 1fr`, so every card in a group has the same height. Keep card content short; no expanding blocks inside cards.
 - **Header**: logo + (desktop) `.nav` links + two icon-only buttons (WhatsApp, phone). On mobile a breadcrumb strip `.crumbs` sits under the header row (Acasa / Proiecte / Calculator / Recenzii / Preturi / Contact), highlights the section in view and scrolls itself to keep it centered.
-- **Buttons are small** (46px main, 44px icon). Call buttons say only `<span>Suna</span>`; the phone number is not shown as text (2026-10-23, owner: WhatConverts showed its 0364 tracking number on the page). Service cards use icon-only WhatsApp + phone buttons with `sr-only` labels.
-- **Mobile action bar** (`.action-bar`, < 900px): "Suna" + "WhatsApp", two equal columns. It slides away while the hero or contact buttons (`[data-main-cta]`) are visible, so there are never two pairs of the same buttons on screen.
+- **Buttons are small** (46px main, 44px icon). Call buttons say `<span>Suna acum</span>` (marketing, 2026-10-29); the phone number is not shown as text (2026-10-23, owner: WhatConverts showed its 0364 tracking number on the page). Service cards use icon-only WhatsApp + phone buttons with `sr-only` labels.
+- **Mobile action bar** (`.action-bar`, < 900px): "Suna acum" + "WhatsApp", two equal columns. It slides away while the hero or contact buttons (`[data-main-cta]`) are visible, so there are never two pairs of the same buttons on screen.
 - **No reveal animations, no grain, no ticker, no side chapter nav** — content is visible without JS. Only motion: skeleton shimmer, small hovers, smooth scroll (all off under reduced motion).
 - **Mobile first (90% of traffic)**: `viewport-fit=cover`, safe-area padding on the bar, 16px selects, tap targets >= 44px, buttons `white-space: nowrap`, no horizontal scroll at 360px.
 - **Speed**: hero has no images (CSS gradients + M-stripes only). Instagram JSON is fetched when the projects grid is within 800px; images use Behold `srcset` (400/700/1000w) with `loading="lazy"`. The 786 KB vehicle database loads only when the calculator is within 600px, or on first tap/focus inside it.
+- **Hero copy (marketing, 2026-10-29)**: ads also run in nearby cities, so the H1 is "Chip tuning pentru toata Transilvania.", the first pill reads "Atelier in Cluj-Napoca" and a line under the H1 lists Sibiu, Bistrita, Alba, Mures, Salaj, Satu Mare. No price in the hero. Cluj-Napoca stays in the title, meta description, JSON-LD and contact for local SEO.
+- **Hero stat "160+ clienti multumiti"** is real (owner confirmed 2026-10-29).
 - **Hero stat "2.500+ vehicule in calculator"** is the number the owner wants shown (2026-10-07); the DB itself now has 6,974 entries, so the claim is true. Do not change it unless the owner asks.
 
 ## Key Patterns
@@ -96,7 +98,7 @@ All defined once in `assets/css/main.css` `:root`.
 
 ## Pricing (updated 2026-10-20)
 
-All "incepand de la", set from a market check of Romanian tuning shops (2026-10-20): Pack Stage 1 ECU + TCU 2.000 RON (card says "Economisesti 500 lei" vs 1.500 + 1.000) · Stage 1 ECU 1.500 RON · Stage 1 TCU 1.000 RON · Codari BMW 150 RON · Diagnoza 150 RON, free with a tuning job · Alte servicii la cerere. Market then: Stage 1 mostly 1.300-1.800 RON, TCU 1.000-1.500 RON, diagnosis 100-150 RON, one BMW coding 50-150 RON. Hero shows "Stage 1 de la 1.500 RON" and the meta description says "De la 1.500 RON" — keep them in sync with the cards.
+All "incepand de la", set from a market check of Romanian tuning shops (2026-10-20): Pack Stage 1 ECU + TCU 1.750 RON (card says "Economisesti 250 lei" vs 1.250 + 750) · Stage 1 ECU 1.250 RON · Stage 1 TCU 750 RON · Codari BMW 150 RON · Diagnoza 150 RON, free with a tuning job · Alte servicii la cerere. Market then: Stage 1 mostly 1.300-1.800 RON, TCU 1.000-1.500 RON, diagnosis 100-150 RON, one BMW coding 50-150 RON. Lowered on 2026-10-29 (owner): pack 2.000 → 1.750, ECU 1.500 → 1.250, TCU 1.000 → 750 (pack kept at 1.750, so the saving dropped from 500 to 250 lei). Card labels read "incepand de la". The hero shows no price on purpose (owner, 2026-10-29: no price "in your face" on the first screen); prices live only in the Servicii si preturi cards. The meta, og and twitter descriptions say "de la 1.250 RON" — keep them in sync with the cards.
 
 ## Vehicle Database (rebuilt 2026-10-20)
 
@@ -160,7 +162,7 @@ Generations are listed by start year, engines by power. The result's WhatsApp bu
 
 - **Behold.so** — Instagram JSON feed `https://feeds.behold.so/3nVTXEc9DkXMC5BLJr2Z` (CORS `*`), consumed by `instagram.js` for the Proiecte grid (8 posts). Cards show a service chip (Stage 2 / Stage 1 / Codari / TCU / Diagnoza / Retrofit) plus power/torque chips parsed from the first caption line, and the car name. Images come from `behold.pictures` via `srcset`. On failure the section shows `.ig-fallback`.
 - **WhatsApp** — back on 2026-10-20 (marketing data: it converted best). Number `40744787446`, links `https://wa.me/40744787446?text=…` with a prefilled message per service; `RXR.whatsappUrl(message)` builds them in JS. The number is never shown as text. Every WhatsApp link must carry `no-swap` and sit inside a `.wa-wrap.no-swap` span (see Tracking aliases).
-- **Phone** — every call button reads just **"Suna"**; the contact card and footer link read "Suna acum". WhatConverts still swaps the `tel:` link, so calls are tracked, but no tracking number shows on the page. The real number appears only in the meta description, the JSON-LD and the privacy page (there inside a `<span class="no-swap">`, so it stays 0744 787 446).
+- **Phone** — every call button and link reads **"Suna acum"**. WhatConverts still swaps the `tel:` link, so calls are tracked, but no tracking number shows on the page. The real number appears only in the meta description, the JSON-LD and the privacy page (there inside a `<span class="no-swap">`, so it stays 0744 787 446).
 - **Maps** — no embed any more (it was heavy); the contact section links to Google Maps directions and Waze.
 - **Google Fonts** — Archivo only.
 - **WhatConverts** — call/lead tracking, loaded **via GTM** (2026-09). Script: `https://s.ksrndkehqnwntyxlhgto.com/176097.js`. CSP allowlist on every page that has one:
