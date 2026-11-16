@@ -13,7 +13,7 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 | HTML           | HTML5 (semantic, Schema.org structured data), inline SVG icon sprite (`<symbol id="i-…">` + `<use>`)       |
 | CSS            | Custom CSS only, one file `assets/css/main.css` (tokens in `:root`). No framework.                         |
 | JavaScript     | Vanilla ES6+ (IIFE modules), all `defer`                                                                   |
-| Fonts          | Google Fonts Archivo (wdth 100-125, wght 700-800) for headings/buttons, loaded non-blocking (`media=print` swap). Body text uses the system font. |
+| Fonts          | Google Fonts in one non-blocking request (`media=print` swap): Geist (wght 400-700, all text), Geist Mono (400-500, small labels), Instrument Serif italic (accent word in headings). |
 | Tag management | Google Tag Manager (GTM-TTF724N7) — sole tracking install; GA/Ads managed in-container, nothing hardcoded |
 | Instagram feed | Behold.so JSON feed                                                                                       |
 | Cookie consent | CookieYes (Consent Mode v2) — loaded via GTM, key `57bb99c7…a303e0`                                       |
@@ -53,18 +53,22 @@ Promotional website for automotive ECU tuning, car coding, and diagnostic servic
 
 The redirect pages keep `location.search` (so `?gclid=` from ads survives) and fall back to a `meta refresh`. Ads should still point straight at `https://rxr-performance.ro/`.
 
-## Design (one-page redesign 2026-10-20)
+## Design (one page since 2026-10-20, raresroca.com look since 2026-11-16)
 
-- **Why**: marketing said the first month with WhatsApp + the original blue design converted best; the owner asked for a single landing page where projects and contact are one tap away. The look goes back to the original dark slate + blue, cleaner and lighter.
-- **Everything centered**: hero, section heads (`.section__head`), FAQ column, contact card, footer. Card contents stay readable (service cards are left-aligned inside).
-- **Section order** (marketing, 2026-10-23): hero, Proiecte, Calculator, De ce RXR, Recenzii, Servicii si preturi, Intrebari, Contact. Prices come after the reviews. `.section--alt` alternates from Proiecte down; keep it alternating if sections move.
+- **Why**: marketing said the first month with WhatsApp + the original blue design converted best; the owner asked for a single landing page where projects and contact are one tap away. On 2026-11-16 the owner asked for the look and layout of raresroca.com (the owner's own portfolio). Blue call buttons and green WhatsApp buttons stayed (marketing); the background moved from slate navy to neutral graphite, like raresroca.com.
+- **Left-aligned**: hero, section heads (`.section__head`), FAQ, contact and footer read from the left, like raresroca.com. Only the 404 page stays centered.
+- **Type**: Geist for all text, headings weight 600 with tight letter-spacing. Geist Mono for the small grey uppercase labels (stats, prices, form labels, chips). The `<em>` inside `.display-xl` / `.display-lg` is Instrument Serif italic in `--accent-text`. Never put a number inside that `<em>`: its "1" reads as "l". That is why the calculator H2 accents "poate" and not "Stage 1", and why review text stays in Geist.
+- **Section labels**: `.eyebrow` gets its number ("01", "02"…) from a CSS counter on `main`, so moving a section renumbers the labels by itself. Keep exactly one `.eyebrow` per section (the privacy page has one, "01 Legal").
+- **Section order** (marketing, 2026-10-23): hero, Proiecte, Calculator, De ce RXR, Recenzii, Servicii si preturi, Intrebari, Contact. Prices come after the reviews. `.section--alt` alternates from Proiecte down; Recenzii is `.section--navy` (dark navy band with a faint ring, like the "Off the clock" band on raresroca.com). Keep the rhythm if sections move.
+- **Hero**: two columns from 1000px: text + buttons on the left, the `.dyno` card on the right (one column on mobile, the card under the buttons). The card is an inline SVG power curve for a BMW 320d F30 LCI, 190 → 236 CP, +24%: the calculator's own numbers for that car (diesel 121-200 CP rule). They are typed into the HTML, so if that rule changes in `tools/build-vehicle-db.py`, update the card. The `.stats` strip with the four numbers sits under both columns.
+- **Rows with a label on the left** (`.aside`: Certificari, Fara surprize), the 4 steps as a `.steps` timeline (down the page on mobile, across from 900px), and the FAQ as `.split` (heading left and sticky, questions right, from 1000px).
 - **Equal frames**: `.cards`, `.tiles`, `.reviews`, `.info` use `grid-auto-rows: 1fr`, so every card in a group has the same height. Keep card content short; no expanding blocks inside cards.
-- **Header**: logo + (desktop) `.nav` links + two icon-only buttons (WhatsApp, phone). On mobile a breadcrumb strip `.crumbs` sits under the header row (Acasa / Proiecte / Calculator / Recenzii / Preturi / Contact), highlights the section in view and scrolls itself to keep it centered.
-- **Buttons are small** (46px main, 44px icon). Call buttons say `<span>Suna acum</span>` (marketing, 2026-10-29); the phone number is not shown as text (2026-10-23, owner: WhatConverts showed its 0364 tracking number on the page). Service cards use icon-only WhatsApp + phone buttons with `sr-only` labels.
+- **Header**: see-through with a blur (solid where the browser has no blur). Logo + (desktop) `.nav` links with a pill on the active one + two round icon-only buttons (WhatsApp, phone). On mobile a breadcrumb strip `.crumbs` sits under the header row (Acasa / Proiecte / Calculator / Recenzii / Preturi / Contact), highlights the section in view and scrolls itself to keep it centered.
+- **Buttons are small and pill-shaped** (46px main, 44px round icon). Call buttons say `<span>Suna acum</span>` (marketing, 2026-10-29); the phone number is not shown as text (2026-10-23, owner: WhatConverts showed its 0364 tracking number on the page). Service cards use icon-only WhatsApp + phone buttons with `sr-only` labels. On phones the two main buttons share the row and wrap when one is too wide.
 - **Mobile action bar** (`.action-bar`, < 900px): "Suna acum" + "WhatsApp", two equal columns. It slides away while the hero or contact buttons (`[data-main-cta]`) are visible, so there are never two pairs of the same buttons on screen.
 - **No reveal animations, no grain, no ticker, no side chapter nav** — content is visible without JS. Only motion: skeleton shimmer, small hovers, smooth scroll (all off under reduced motion).
 - **Mobile first (90% of traffic)**: `viewport-fit=cover`, safe-area padding on the bar, 16px selects, tap targets >= 44px, buttons `white-space: nowrap`, no horizontal scroll at 360px.
-- **Speed**: hero has no images (CSS gradients + M-stripes only). Instagram JSON is fetched when the projects grid is within 800px; images use Behold `srcset` (400/700/1000w) with `loading="lazy"`. The 786 KB vehicle database loads only when the calculator is within 600px, or on first tap/focus inside it.
+- **Speed**: hero has no images (a CSS gradient glow and the inline SVG chart). M-stripes appear only as the logo underline and on the top edge of the hero card. Instagram JSON is fetched when the projects grid is within 800px; images use Behold `srcset` (400/700/1000w) with `loading="lazy"`. The 786 KB vehicle database loads only when the calculator is within 600px, or on first tap/focus inside it.
 - **Hero copy (marketing, 2026-10-29)**: ads also run in nearby cities, so the H1 is "Chip tuning pentru toata Transilvania.", the first pill reads "Atelier in Cluj-Napoca" and a line under the H1 lists Sibiu, Bistrita, Alba, Mures, Salaj, Satu Mare. No price in the hero. Cluj-Napoca stays in the title, meta description, JSON-LD and contact for local SEO.
 - **Hero stat "160+ clienti multumiti"** is real (owner confirmed 2026-10-29).
 - **Hero stat "2.500+ vehicule in calculator"** is the number the owner wants shown (2026-10-07); the DB itself now has 6,974 entries, so the claim is true. Do not change it unless the owner asks.
@@ -80,21 +84,23 @@ The redirect pages keep `location.search` (so `?gclid=` from ads survives) and f
 - **Tracking aliases (keep!)**: every `tel:` link carries `btn-cta`; every `wa.me` link carries `btn-cta-wa no-swap` AND sits inside `<span class="wa-wrap no-swap">…</span>` (`.wa-wrap` is `display: contents`, so it adds no box). GTM triggers use these classes. WhatConverts skips the children of a `no-swap` element but still rewrites that element's own `href`, so `no-swap` on the `<a>` alone let it change `wa.me/40744787446` into the tracking number 0364 632 979 (seen live 2026-10-23). The wrapper is what protects the link.
 - `.hidden` and `[hidden]` are `display:none !important` (calculator result relies on this)
 
-## Color Theme (dark slate + blue, 2026-10-20)
+## Color Theme (graphite + blue, 2026-11-16)
 
 ```
---bg:        #0a1120   --bg-2:      #0d1627   (alternate sections)
---surface:   #111b2e   --surface-2: #17233a
---line:      rgba(148,163,184,.14)   --line-strong: rgba(148,163,184,.3)
---text:      #eef3f9   --text-2:    #b4c0d3   --text-3: #8a99b0
---accent:    #2563eb   (call buttons, white text 5.2:1)   --accent-text: #6cb2ff (accent on dark)
+--bg:        #0d1117   --bg-2:      #11161d   (alternate sections)
+--surface:   #161b22   --surface-2: #1c232d
+--navy:      #0a1426   (Recenzii band)
+--line:      #232a34   --line-strong: #323b47
+--text:      #eef0f3   --text-2:    #c4cad4   --text-3: #98a1b0
+--accent:    #2563eb   (call buttons, white text 5.2:1)   --accent-text: #6cb2ff (accent on dark, heading accent words)
 --wa:        #14843f   --wa-ink: #ffffff (WhatsApp buttons, white text 4.8:1; brighter greens are unreadable with white)
 --wa-text:   #25d366   (green text and check icons on the dark background)
---m-light:   #5ab0ff   --m-dark: #2340a8   --m-red: #e5262e   (M-stripes: logo underline, eyebrows, hero)
+--good:      #3ccf7f   (green dots, "Cel mai popular" badge, gains)
+--m-light:   #5ab0ff   --m-dark: #2340a8   --m-red: #e5262e   (M-stripes: logo underline, hero card edge)
 --star:      #facc15
 ```
 
-All defined once in `assets/css/main.css` `:root`.
+All defined once in `assets/css/main.css` `:root`. `theme-color` (all three pages) and the manifest `background_color` are `#0d1117`.
 
 ## Pricing (updated 2026-10-20)
 
@@ -164,7 +170,7 @@ Generations are listed by start year, engines by power. The result's WhatsApp bu
 - **WhatsApp** — back on 2026-10-20 (marketing data: it converted best). Number `40744787446`, links `https://wa.me/40744787446?text=…` with a prefilled message per service; `RXR.whatsappUrl(message)` builds them in JS. The number is never shown as text. Every WhatsApp link must carry `no-swap` and sit inside a `.wa-wrap.no-swap` span (see Tracking aliases).
 - **Phone** — every call button and link reads **"Suna acum"**. WhatConverts still swaps the `tel:` link, so calls are tracked, but no tracking number shows on the page. The real number appears only in the meta description, the JSON-LD and the privacy page (there inside a `<span class="no-swap">`, so it stays 0744 787 446).
 - **Maps** — no embed any more (it was heavy); the contact section links to Google Maps directions and Waze.
-- **Google Fonts** — Archivo only.
+- **Google Fonts** — Geist, Geist Mono and Instrument Serif (italic only), one request.
 - **WhatConverts** — call/lead tracking, loaded **via GTM** (2026-09). Script: `https://s.ksrndkehqnwntyxlhgto.com/176097.js`. CSP allowlist on every page that has one:
   - `script-src`: `https://s.ksrndkehqnwntyxlhgto.com`
   - `connect-src`: `https://s.ksrndkehqnwntyxlhgto.com`, `https://p.ksrndkehqnwntyxlhgto.com`, `https://process.iconnode.com`

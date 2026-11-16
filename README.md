@@ -33,7 +33,7 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 | HTML | HTML5 semantic, Schema.org structured data |
 | CSS | CSS custom, fara framework — un singur fisier `main.css` |
 | JavaScript | Vanilla ES6+ (pattern IIFE) |
-| Fonts | Google Fonts (Archivo pentru titluri si butoane, incarcat fara sa blocheze pagina); textul foloseste fontul sistemului |
+| Fonts | Google Fonts, incarcate fara sa blocheze pagina: Geist (tot textul), Geist Mono (etichetele mici), Instrument Serif italic (cuvantul colorat din titluri) |
 | Tag management | Google Tag Manager (`GTM-TTF724N7`) — singura instalare de tracking; GA/Ads se gestioneaza in container, nimic hardcodat |
 | Instagram feed | [Behold.so](https://behold.so) JSON feed (`feeds.behold.so`), randat de `instagram.js` |
 | Cookie consent | [CookieYes](https://www.cookieyes.com) — Consent Mode v2, incarcat prin GTM |
@@ -83,7 +83,8 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 ## Pagina principala (one page)
 
 - **Header**: logo, meniu (desktop), buton WhatsApp si buton telefon (doar iconite). Pe mobil, sub header e un meniu tip breadcrumb (Acasa / Proiecte / Calculator / Recenzii / Preturi / Contact).
-- **Hero** centrat: „Chip tuning pentru toata Transilvania", atelier in Cluj-Napoca, clienti din Sibiu, Bistrita, Alba, Mures, Salaj, Satu Mare; fara pret in hero (preturile sunt doar la Servicii si preturi), butoane „Suna acum" si „WhatsApp" (numarul nu mai apare pe pagina, ca sa nu se vada numarul de tracking WhatConverts), 4 statistici.
+- **Aspect** (din 2026-11-16, dupa raresroca.com): fundal gri-inchis, texte aliniate la stanga, sectiuni numerotate („01 Proiecte", „02 Calculator"...), butoane rotunjite; albastru pentru apel si verde pentru WhatsApp au ramas.
+- **Hero**: „Chip tuning pentru toata Transilvania", atelier in Cluj-Napoca, clienti din Sibiu, Bistrita, Alba, Mures, Salaj, Satu Mare; fara pret in hero (preturile sunt doar la Servicii si preturi), butoane „Suna acum" si „WhatsApp" (numarul nu mai apare pe pagina, ca sa nu se vada numarul de tracking WhatConverts). In dreapta (sub butoane pe mobil), un card cu un grafic de putere: BMW 320d F30, 190 CP de serie si 236 CP estimat dupa Stage 1, cifrele din calculator. Dedesubt, 4 statistici.
 - **Proiecte**: ultimele 8 postari de pe Instagram (Behold JSON feed). Pe mobil se gliseaza.
 - **Calculator Stage 1**, **De ce RXR** (+ certificari, 4 pasi), **Recenzii**.
 - **Servicii si preturi** (dupa recenzii, la cererea marketingului): 6 carduri egale, fiecare cu pret si doua butoane mici (WhatsApp cu mesaj pregatit pentru serviciul respectiv, telefon).

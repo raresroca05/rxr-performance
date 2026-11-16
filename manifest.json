@@ -4,7 +4,7 @@
   "description": "Tuning ECU, Remapare Motor & Cutie, Codari BMW, Diagnoza Auto",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a1120",
+  "background_color": "#0d1117",
   "theme_color": "#2563eb",
   "icons": [
     {
