@@ -29,8 +29,9 @@
   --radius-sm: 10px;
   --gutter: 16px;
   --max: 1160px;
+  --tap: 44px;
   --row-h: 58px;
-  --crumbs-h: 40px;
+  --crumbs-h: var(--tap);
   --header-h: calc(var(--row-h) + var(--crumbs-h));
   --bar-h: 64px;
   --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -251,14 +252,14 @@ main { counter-reset: section; }
 }
 
 .btn--sm {
-  min-height: 44px;
+  min-height: var(--tap);
   padding: 0 16px;
   font-size: .88rem;
 }
 
 .btn--icon {
-  width: 44px;
-  min-height: 44px;
+  width: var(--tap);
+  min-height: var(--tap);
   padding: 0;
 }
 
@@ -298,9 +299,13 @@ main { counter-reset: section; }
 
 .brand {
   display: inline-flex;
+  flex-wrap: wrap;
+  align-content: center;
   align-items: baseline;
   gap: .5rem;
   flex: none;
+  min-width: var(--tap);
+  min-height: var(--tap);
 }
 
 .brand__mark {
@@ -370,6 +375,7 @@ main { counter-reset: section; }
 .crumbs a {
   display: flex;
   align-items: center;
+  min-width: var(--tap);
   height: var(--crumbs-h);
   color: var(--text-3);
   font-size: .86rem;
@@ -1584,8 +1590,8 @@ main { counter-reset: section; }
   overflow-wrap: anywhere;
 }
 
-.info__value a { color: var(--accent-text); }
-.info__value a:hover { text-decoration: underline; }
+a.info__card .info__value { color: var(--accent-text); }
+a.info__card:hover .info__value { text-decoration: underline; }
 
 .social-row {
   display: flex;
@@ -1620,15 +1626,17 @@ main { counter-reset: section; }
   gap: 2px 20px;
 }
 
-.site-footer__links a {
+.site-footer__links a,
+.site-footer__contact a {
   display: inline-flex;
   align-items: center;
-  min-height: 36px;
+  min-height: var(--tap);
 }
 
 .site-footer__contact {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 4px 16px;
   font: 400 .8rem/1.6 var(--font-mono);
 }
@@ -1660,6 +1668,8 @@ main { counter-reset: section; }
     gap: 0 40px;
   }
 
+  .site-footer .brand { min-height: auto; }
+  .site-footer__links a { min-height: 36px; }
   .site-footer__copy { grid-column: 1 / -1; }
 }
 

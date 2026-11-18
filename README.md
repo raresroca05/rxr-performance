@@ -89,6 +89,7 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 - **Calculator Stage 1**, **De ce RXR** (+ certificari, 4 pasi), **Recenzii**.
 - **Servicii si preturi** (dupa recenzii, la cererea marketingului): 6 carduri egale, fiecare cu pret si doua butoane mici (WhatsApp cu mesaj pregatit pentru serviciul respectiv, telefon).
 - **Intrebari frecvente**, **Contact** (adresa, program, telefon, email, Maps/Waze, social).
+- **Zone de atingere** (2026-11-18): pe mobil niciun link nu e sub 44 px: logo, meniul breadcrumb, meniul din footer, „Suna acum" si emailul din footer. La Contact, cardurile Telefon si Email se apasa pe toata suprafata.
 - Pe mobil, bara de jos cu „Suna acum" si „WhatsApp" apare doar dupa ce treci de butoanele din hero.
 
 ### Calculator vehicule
