@@ -85,7 +85,7 @@ The redirect pages keep `location.search` (so `?gclid=` from ads survives) and f
 - **No build step** — edit HTML/CSS/JS directly, deploy static files
 - **Commit author**: `Rares Roca <contact@rxr-performance.ro>`
 - **Shared shell** (header, crumbs, footer, action bar, icon sprite) is duplicated in `index.html`, `confidentialitate.html` and `404.html` — keep them in sync. On other pages the links point to `index.html#…` (`/#…` on 404).
-- **Tracking aliases (keep!)**: every `tel:` link carries `btn-cta`; every `wa.me` link carries `btn-cta-wa no-swap` AND sits inside `<span class="wa-wrap no-swap">…</span>` (`.wa-wrap` is `display: contents`, so it adds no box). GTM triggers use these classes. WhatConverts skips the children of a `no-swap` element but still rewrites that element's own `href`, so `no-swap` on the `<a>` alone let it change `wa.me/40744787446` into the tracking number 0364 632 979 (seen live 2026-10-23). The wrapper is what protects the link.
+- **Tracking aliases (keep!)**: every `tel:` link carries `btn-cta`; every `wa.me` link carries `btn-cta-wa no-swap` AND sits inside `<span class="wa-wrap no-swap">…</span>` (`.wa-wrap` is `display: contents`, so it adds no box). The GTM triggers match the link URL (contains `wa.me` or `tel:`), not these classes (container read 2026-11-23). The wrapper was added because WhatConverts skipped the children of a `no-swap` element but still rewrote that element's own `href`, and changed `wa.me/40744787446` into its tracking number (seen live 2026-10-23). WhatConverts no longer runs (2026-11-26), so the wrapper guards nothing now; it stays because it adds no box and costs nothing.
 - `.hidden` and `[hidden]` are `display:none !important` (calculator result relies on this)
 
 ## Color Theme (graphite + blue, 2026-11-16)
@@ -140,7 +140,7 @@ Generations are listed by start year, engines by power. The result's WhatsApp bu
 - **No hardcoded GA4 / Google Ads / Facebook Pixel** — by explicit request (2026-07). Do not re-add `gtag.js` or `G-*`/`AW-*` snippets.
 - **Consent Mode v2**: provided by CookieYes (loads before GTM).
 - **Custom helpers**: `RXR.trackEvent()`, `RXR.trackConversion()` push to `window.dataLayer`. `initContactTracking()` fires `phone_click` on every `tel:` click and `whatsapp_click` on every `wa.me` click; wire both as GTM triggers.
-- **Two number-swap scripts run via GTM**: WhatConverts (`176097.js`) and Google Ads call tracking (`gstatic.com/call-tracking`). Both look for the same visible number; if one swaps it first, the other cannot count. Suspected reason the Ads account showed only ~2 calls in Sep 22 - Oct 19 2026 — check in the GTM/WhatConverts setup, not in the site code.
+- **One number-swap script runs via GTM** (since 2026-11-26): Google Ads call tracking (`gstatic.com/call-tracking`, tag "Google Ads - Website Calls"). WhatConverts (`176097.js`) ran next to it until the owner took the ads firm out of every product; its tag is paused since container version 12. While both ran they looked for the same number, and the first to swap it stopped the other from counting.
 
 ## SEO
 
@@ -153,7 +153,7 @@ Generations are listed by start year, engines by power. The result's WhatsApp bu
 
 ## Security (meta tags; GitHub Pages cannot send real headers)
 
-- `Content-Security-Policy` meta on index + confidentialitate: `default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'`, scripts only from self + CookieYes + Google tag domains + WhatConverts, `connect-src` adds `https://feeds.behold.so` on index. No Instagram/Facebook embeds, so those domains are not allowed. Add a domain here before adding any new third-party script in GTM.
+- `Content-Security-Policy` meta on index + confidentialitate: `default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'`, scripts only from self + CookieYes + Google tag domains (the WhatConverts hosts were taken out on 2026-11-26), `connect-src` adds `https://feeds.behold.so` on index. No Instagram/Facebook embeds, so those domains are not allowed. Add a domain here before adding any new third-party script in GTM.
 - `<meta name="referrer" content="strict-origin-when-cross-origin">` on every page.
 - X-Content-Type-Options, Permissions-Policy and X-Frame-Options cannot be set from a meta tag; they need a proxy such as Cloudflare in front of GitHub Pages.
 - All untrusted data (Behold feed, Google reviews) is escaped before it goes into HTML; feed links must be `https:`.
@@ -172,14 +172,10 @@ Generations are listed by start year, engines by power. The result's WhatsApp bu
 
 - **Behold.so** — Instagram JSON feed `https://feeds.behold.so/3nVTXEc9DkXMC5BLJr2Z` (CORS `*`), consumed by `instagram.js` for the Proiecte grid (8 posts). Cards show a service chip (Stage 2 / Stage 1 / Codari / TCU / Diagnoza / Retrofit) plus power/torque chips parsed from the first caption line, and the car name. Images come from `behold.pictures` via `srcset`. On failure the section shows `.ig-fallback`.
 - **WhatsApp** — back on 2026-10-20 (marketing data: it converted best). Number `40744787446`, links `https://wa.me/40744787446?text=…` with a prefilled message per service; `RXR.whatsappUrl(message)` builds them in JS. The number is never shown as text. Every WhatsApp link must carry `no-swap` and sit inside a `.wa-wrap.no-swap` span (see Tracking aliases).
-- **Phone** — every call button and link reads **"Suna acum"**. WhatConverts still swaps the `tel:` link, so calls are tracked, but no tracking number shows on the page. The real number appears only in the meta description, the JSON-LD and the privacy page (there inside a `<span class="no-swap">`, so it stays 0744 787 446).
+- **Phone** — every call button and link reads **"Suna acum"**. Since 2026-11-26 the `tel:` links dial the real number, 0744 787 446 (nothing swaps them to a WhatConverts number any more; Google's own call tracking may still show a visitor who came from an ad a Google forwarding number). The number is still not shown as text: it appears only in the meta description, the JSON-LD and the privacy page.
 - **Maps** — no embed any more (it was heavy); the contact section links to Google Maps directions and Waze.
 - **Google Fonts** — Geist, Geist Mono and Instrument Serif (italic only), one request.
-- **WhatConverts** — call/lead tracking, loaded **via GTM** (2026-09). Script: `https://s.ksrndkehqnwntyxlhgto.com/176097.js`. CSP allowlist on every page that has one:
-  - `script-src`: `https://s.ksrndkehqnwntyxlhgto.com`
-  - `connect-src`: `https://s.ksrndkehqnwntyxlhgto.com`, `https://p.ksrndkehqnwntyxlhgto.com`, `https://process.iconnode.com`
-
-  WhatConverts serves the script from a per-account randomized domain — if the account is reissued, the CSP needs the new domains. WhatConverts can also track web chat (Tawk.to, Crisp, JivoChat, Messenger…) if a chat is ever added; load such a widget only on tap, it is heavy.
+- **WhatConverts** — removed on 2026-11-26 (owner). It was the ads firm's call tracking, loaded via GTM from 2026-09; the account belonged to that firm, which the owner took out of every product. Its GTM tag is paused since container version 12 and its three hosts are out of the CSP. Do not re-add it. If a chat widget is ever added (Tawk.to, Crisp, JivoChat, Messenger…), put its hosts in the CSP first and load it only on tap, it is heavy.
 
 ## Removed services
 
@@ -200,7 +196,7 @@ See [`README.md`](./README.md) `## 📌 TODO` section for the full punch list. O
 1. Google Places API key + Place ID for live reviews
 2. Business email migration (`contact@rxr-performance.ro`)
 3. CookieYes dashboard: enable Google Consent Mode
-4. Point Google Ads final URLs at `https://rxr-performance.ro/` and check the WhatConverts vs Google call-tracking overlap in GTM
+4. Point Google Ads final URLs at `https://rxr-performance.ro/`
 
 Done: og-image, Apple touch icon, privacy policy page, GTM migration, CookieYes.
 Explicitly **not wanted** (2026-07): Facebook Pixel, hardcoded GA4 / Ads tags.

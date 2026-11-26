@@ -84,7 +84,7 @@ Site promotional pentru atelierul RXR Performance — tuning ECU Stage 1, codari
 
 - **Header**: logo, meniu (desktop), buton WhatsApp si buton telefon (doar iconite). Pe mobil, sub header e un meniu tip breadcrumb (Acasa / Proiecte / Calculator / Recenzii / Preturi / Contact).
 - **Aspect** (din 2026-11-16, dupa raresroca.com): fundal gri-inchis, texte aliniate la stanga, sectiuni numerotate („01 Proiecte", „02 Calculator"...), butoane rotunjite; albastru pentru apel si verde pentru WhatsApp au ramas.
-- **Hero**: „Chip tuning pentru toata Transilvania", atelier in Cluj-Napoca, clienti din Sibiu, Bistrita, Alba, Mures, Salaj, Satu Mare; fara pret in hero (preturile sunt doar la Servicii si preturi), butoane „Suna acum" si „WhatsApp" (numarul nu mai apare pe pagina, ca sa nu se vada numarul de tracking WhatConverts). In dreapta (sub butoane pe mobil), un card cu un grafic de putere: BMW 320d F30, 190 CP de serie si 236 CP estimat dupa Stage 1, cifrele din calculator. Dedesubt, 4 statistici.
+- **Hero**: „Chip tuning pentru toata Transilvania", atelier in Cluj-Napoca, clienti din Sibiu, Bistrita, Alba, Mures, Salaj, Satu Mare; fara pret in hero (preturile sunt doar la Servicii si preturi), butoane „Suna acum" si „WhatsApp" (numarul nu apare ca text pe pagina). In dreapta (sub butoane pe mobil), un card cu un grafic de putere: BMW 320d F30, 190 CP de serie si 236 CP estimat dupa Stage 1, cifrele din calculator. Dedesubt, 4 statistici.
 - **Proiecte**: ultimele 8 postari de pe Instagram (Behold JSON feed). Pe mobil se gliseaza.
 - **Calculator Stage 1**, **De ce RXR** (+ certificari, 4 pasi), **Recenzii**.
 - **Servicii si preturi** (dupa recenzii, la cererea marketingului): 6 carduri egale, fiecare cu pret si doua butoane mici (WhatsApp cu mesaj pregatit pentru serviciul respectiv, telefon).
@@ -172,7 +172,7 @@ Site static pe **GitHub Pages**, branch `main`:
 - [x] **Imagine OG** — `og-image.png` (1800x945) referita corect in toate meta tags
 - [x] **Apple Touch Icon** — `apple-touch-icon.png` (180x180) logo RXR pe slate, linkata pe toate paginile
 - [x] **Google Tag Manager** — `GTM-TTF724N7`, singura instalare de tracking (fara GA4/Ads hardcodat)
-- [x] **CTA-uri** — „Suna acum" + WhatsApp (WhatsApp readus pe 2026-10-20, cu clasa `no-swap` ca WhatConverts sa nu-i schimbe numarul)
+- [x] **CTA-uri** — „Suna acum" + WhatsApp (WhatsApp readus pe 2026-10-20; WhatConverts scos pe 2026-11-26, butoanele suna la numarul real)
 - [x] **Google Search Console + sitemap** — verificat si sitemap-ul cu 7 URL-uri acceptat
 
 ### ❌ Ramase (necesita actiune din partea ta)
